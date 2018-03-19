@@ -1,0 +1,45 @@
+// Parallaxing front
+.front-wrapper
+  width: 100%
+  height: calc(100vh - 75px)
+  min-height: initial
+  top: 0
+
+  .canvas-wrapper, .home-canvas, .mountains
+    width: 100%
+    height: 100%
+    position: relative
+    z-index: -99
+    background:
+      size: cover
+      position: top center
+      repeat: no-repeat
+
+  .canvas-wrapper
+    background:
+      image: url($matterhorn-path)
+      attachment: fixed
+
+  .logo
+    width: 100%
+    height: 38.1966%
+    position: absolute
+    top: 0
+    z-index: -99
+    background:
+      image: url($logo-path)
+      size: 75% 75%
+      repeat: no-repeat
+      position: bottom center
+
+  .mountains
+    position: absolute
+    top: 0
+    background:
+      image: url($mountains-path)
+    z-index: -99
+
+// @media (max-width: 580px)
+//   .front-wrapper
+//     .canvas-wrapper, .home-canvas, .mountains
+//       position: relative

@@ -1,0 +1,41 @@
+---
+---
+@import 'libs/libs-index'
+
+// Colors variables (from yaml files)
+$bgColor: {{ site.data.design.bgc }}
+$bgdColor: {{ site.data.design.bgcdark }}
+$textColor: {{ site.data.design.fgc }}
+$textShade: {{ site.data.design.bgclight }}
+$titleColor: {{ site.data.design.fgclight }}
+$themeColor1: {{ site.data.design.pcg }}
+$themeColor2: {{ site.data.design.pcr }}
+$themeColor3: {{ site.data.design.pcb }}
+$ruleColor: {{ site.data.design.bgcdark }}
+$selectionColor: lighten({{ site.data.design.pcr }}, 20%)
+$linkColor: {{ site.data.design.pcg }}
+$buttonColor: {{ site.data.design.pcb }}
+
+// Image paths
+$logo-path: '{{ site.github.url }}{{ site.data.design.imgdir }}{{ site.data.design.logo }}'
+$matterhorn-path: '{{ site.github.url }}{{ site.data.design.imgdir }}{{ site.data.design.matterhorn }}'
+$mountains-path: '{{ site.github.url }}{{ site.data.design.imgdir }}{{ site.data.design.mountains }}'
+$avatar-path: '{{ site.github.url }}{{ site.data.design.imgdir }}{{ site.data.design.avatar }}'
+$avatar2-path: '{{ site.github.url }}{{ site.data.design.imgdir }}{{ site.data.design.avatar2 }}'
+$posts-bg-path: '{{ site.github.url }}{{ site.data.design.imgdir }}{{ site.data.design.posts-bg }}'
+
+// Header
+$headerHeight: {{ site.data.design.headerH }}
+
+// About me icons
+$iconClass: {% for ico in site.data.design.icons %} "icon-{{ ico.name }}", {% endfor %}
+$order: 1, 2, 4, 5
+
+// Projects
+$projects: {% for project in site.data.settings.projects %} "{{ project.folder }}", {% endfor %}
+$animation: {{ site.data.design.animation }}
+
+
+@import 'base/base-index'
+@import 'page/page-index'
+@import 'branches/branches-index'

@@ -1,0 +1,30 @@
+<section class="lab-wrapper">
+
+  <a id="lab" name="lab"></a>
+
+  <h4 class="section-title">news and stuff</h4>
+
+  <div class="posts-wrapper">
+
+    <div class="all-posts">
+      <p>...My personal blog<br>about things I'm currently interested in...</p>
+      <a href="{{ site.github.url }}/blog">see all posts</a>
+    </div>
+
+    <div class="latest-posts">
+    {% for post in site.posts limit:15 %}
+      <a class="article-thumb"
+         href="{{ post.url }}"
+         style="background-image: url({{ post.thumbnail }})">
+         <div class="article-meta">
+           <div class="name">{{ post.title }}</div>
+           <div class="date">{{ post.date | date: "%b %d, %Y" }}</div>
+         </div>
+      </a>
+    {% endfor %}
+    </div>
+  </div>
+
+
+
+</section>

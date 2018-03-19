@@ -1,0 +1,113 @@
+*
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+
+/* Basic body style -------------------------------------------------------- */
+body
+  // Colors
+  color: $textColor
+  background: $bgColor
+  // Text font
+  font-family: 'RooneySans','Helvetica','Arial','sans-serif'
+  font-weight: 400
+  font-size: 16px
+  line-height: 1.0
+  -webkit-size-adjust: 100%
+  -webkit-font-smoothing: antialiased
+  // Extent
+  width: auto
+  height: auto
+  margin: 0
+  padding: 0
+
+/* Selection  -------------------------------------------------------------- */
+::selection
+  background: rgba($themeColor1, 0.5)
+::-moz-selection
+  background: rgba($themeColor1, 0.5)
+body
+  -webkit-tap-highlight-color: rgba($themeColor1, 0.5)
+img::selection
+  background: transparent
+img::-moz-selection
+  background: transparent
+
+/* Scrollbar --------------------------------------------------------------- */
+::scrollbar
+  display: none
+::-moz-scrollbar
+  display: none
+::-ms-scrollbar
+  display: none
+::-webkit-scrollbar
+  display: none
+
+/* Links ------------------------------------------------------------------- */
+a
+  color: $linkColor
+a:hover,a:focus
+  color: lighten($linkColor, 10%)
+
+/* Types ------------------------------------------------------------------- */
+.gigantic, .huge, .large, .bigger, .big, h1, h2, h3, h4, h5, h6
+  font-family: 'ProximaNova'
+  color: $titleColor
+  font-weight: bold
+
+.gigantic
+  font-size: 110px
+  line-height: 1.09
+  letter-spacing: -2px
+
+.huge, h1
+  font-size: 68px
+  line-height: 1.05
+  letter-spacing: -1px
+
+.large, h2
+  font-size: 42px
+  line-height: 1.14
+
+.bigger, h3
+  font-size: 26px
+  line-height: 1.38
+
+.big, h4
+  font-size: 22px
+  line-height: 1.38
+
+.small, small
+  font-size: 10px
+  line-height: 1.2
+
+strong
+  font-weight: 400
+
+em
+  font-style: italic
+
+hr
+  border: 0
+  height: 0
+  border-top: solid rgba(0, 0, 0, 0.1)
+  border-bottom: 1px solid $ruleColor
+  margin: 10px 0 30px
+
+svg
+  +size(100%)
+
+
+/* Site specifics ---------------------------------------------------------- */
+// section
+//   max-width: 100vw
+
+* .section-title
+  font-family: 'ProximaNova'
+  font-weight: 400
+  color: $titleColor
+  text-align: center
+  text-transform: uppercase
+  vertical-align: middle
+  padding-top: 100px
+  margin: 0 0 50px 0

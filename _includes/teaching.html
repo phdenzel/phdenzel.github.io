@@ -1,0 +1,24 @@
+<section class="teaching-wrapper">
+
+  <a id="teaching" name="teaching"></a>
+
+  <h4 class="section-title">classes</h4>
+
+  <div class="classes-wrapper">
+
+  {% for class in site.data.settings.classes %}
+    <div class="thumb-container-{{ class.folder }}">
+      <figure class="thumb-img-{{ class.folder }}">
+        <img src="{{ site.github.url }}{{ site.data.design.imgdir }}teaching/{{ class.folder }}/thumb.jpg" alt="{{ class.folder }}">
+        <figcaption>
+          <h3><span>{{ class.name }}</span>{{ class.semester }}</h3>
+          <p>{{ class.description }}</p>
+          <a class="class-link" href="{{ site.github.url }}/{{ class.page }}"></a>
+        </figcaption>
+      </figure>
+    </div>
+  {% endfor %}
+
+  </div>
+
+</section>

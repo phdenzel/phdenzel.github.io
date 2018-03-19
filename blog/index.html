@@ -1,0 +1,23 @@
+---
+layout: default
+title: Blog | Dreamworld
+---
+<section class="blog-wrapper">
+
+  <a href="{{ site.github.url }}/#lab">Back to Dreamworld</a>
+
+  <article>
+  {% for post in site.posts %}
+    <a class="article-thumb"
+       href="{{ post.url }}"
+       style="background-image: url({{ post.thumbnail }})">
+      <div class="article-meta">
+      <div class="name">{{ post.title }}</div>
+      <div class="date">{{ post.date | date: "%b %d, %Y" }}</div>
+      <p class="excerpt">{{ post.content | split:'<!--more-->' | first | strip_html }}</p>
+     </div>
+    </a>
+  {% endfor %}
+  </article>
+
+</section>

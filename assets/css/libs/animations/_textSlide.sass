@@ -1,0 +1,22 @@
+// Animation: textSlide
+
+// Initial Class
+%animationstart_textSlide
+	top: 0%
+	+size(100%)
+	+transition(800ms)
+	left: -100%
+
+	& strong
+		+transition(margin-left 700ms linear, background 200ms linear 900ms)
+		margin-left: 400%
+		display: block
+		width: 100%
+
+// Animation Class
+%textSlide
+	left: 0%
+
+	& strong
+		margin-left: 0%
+		background: rgba(0,0,0,0.2)

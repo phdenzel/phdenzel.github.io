@@ -1,0 +1,73 @@
+# General site settings
+author: phdenzel
+author_name: Philipp Denzel
+email: phdenzel@gmail.com
+
+description: > # this means ignore newlines until "baseurl:"
+  Astrophysicist // Hacker // Climber
+
+github_username: phdenzel
+twitter_username: phdenzel
+
+# Header
+menu:
+- {name: about me, url: '#about-me'}
+- {name: my work, url: '#my-work'}
+- {name: lab, url: '#lab'}
+- {name: teaching, url: '#teaching'}
+- {name: contact, url: '#contact'}
+
+
+# About me
+about-me: >
+  **Hi there!** I'm a computational astrophysicist working in the
+  [Institute for Computational Science](http://www.ics.uzh.ch/en.html)
+  at the University of Zurich as a doctoral candidate.
+
+  My interests are broad, and during my
+  [academic career](/assets/lib/cv.pdf)
+  I dabbled in many research fields such as general relativity, cosmology, galactic dynamics, stellar formation, computational astrophysics, fluid dynamics, physical chemistry, molecular dynamics, and high-performance computing.
+
+  When not doing sciency stuff or "hacking away" on my laptop, I'm most likely to be found on a climbing wall in my favorite
+  [bouldering](http://minimum.ch/) or
+  [climbing](http://griffig.com/) gyms
+  in Zurich.
+
+  Although I am not very good at it, I occasionally play guitar and rarely piano.
+  However, what I'm very good at is drinking coffee, playing pool, and other things that encourage my procrastinative habits 😅.
+
+science-quote: >
+  **_Science isn't about WHY, it's about WHY NOT..._**
+
+skills:
+- {name: Programming, value: '10'}
+- {name: Physics, value: '9'}
+- {name: Teaching, value: '6'}
+- {name: Learning, value: '8'}
+- {name: Creativity, value: '7'}
+- {name: Communication, value: '4'}
+- {name: Web Design, value: '5'}
+- {name: Organization, value: '7'}
+
+
+# My work
+projects:
+- {name: 'Dark matter detection', folder: 'bubble', file: 'projects/bubble.html'}
+- {name: 'Star formation', folder: 'sform', file: 'projects/sform.html'}
+- {name: 'Gravitational lensing', folder: 'glens', file: 'projects/glens.html'}
+
+
+# Teaching
+classes:
+  - {name: 'Scientific Computing ', semester: 'FS18', description: 'Using python to solve problems in maths and science', folder: 'scicomp', page: 'teaching/FS18-SciComp'}
+  - {name: 'Introduction to Astrophysics & Cosmology ', semester: 'HS17', description: 'Using simple ideas to solve the Universe', folder: 'astro', page: 'teaching/HS17-Astro'}
+  - {name: 'Computer Simulations ', semester: 'FS17', description: 'Experimenting right in the classroom', folder: 'spin', page: 'teaching/FS17-Spin'}
+
+
+# Contact
+social:
+  - {icon: 'linkedin', link: 'https://www.linkedin.com/in/philipp-denzel-7ab933142/'}
+  - {icon: 'docker', link: 'https://hub.docker.com/u/phdenzel/'}
+  - {icon: 'github', link: 'https://github.com/phdenzel'}
+  - {icon: 'twitter', link: 'http://twitter.com/phdenzel'}
+  - {icon: 'youtube', link: 'https://www.youtube.com/channel/UCBwsuXteT4O76NO46X6K3nA'}

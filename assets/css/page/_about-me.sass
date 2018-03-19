@@ -1,0 +1,184 @@
+.about-me-wrapper
+  background: inherit
+
+  .me-name, .kicker
+    width: 100%
+    position: relative
+    margin: 0
+    text:
+      align: center
+      transform: uppercase
+
+  .me-name
+    padding-top: 100px
+    letter-spacing: 0.02em
+    font-weight: 500
+    clear: both
+
+    span
+      display: inline-block
+      padding: 0.2em 0.5em
+      border: $textColor solid 9px
+      margin: 0 25px 0 25px
+
+  .kicker
+    padding-top: 25px
+    font:
+      family: 'RooneySans'
+      weight: 600
+      size: 14px
+    color: $themeColor1
+
+  .blurb-about-me
+    max-width: 800px
+    padding: 15px 15px
+    margin: 15px auto
+    font-size: 20px
+    text-align: left
+    font-weight: 300
+
+    a
+      text-decoration: none
+      color: $titleColor
+      font-weight: 600
+    a:hover,a:focus
+      color: $linkColor
+
+    strong
+      font-weight: bold
+
+  .icons-lockup
+    max-width: 780px
+    +display(flex)
+    margin: 0 auto
+    +align-items(center)
+    +justify-content(space-between)
+    padding-bottom: 50px
+
+    .face
+      border-radius: 50%
+      background:
+        size: cover
+        position: center
+        image: url($avatar-path)
+      +size(200px)
+      +order(3)
+
+      &:hover
+        background:
+          image: url($avatar2-path)
+
+    [class^="icon-"]
+      +size(100px)
+      background: $bgdColor
+      border-radius: 50%
+
+      svg
+        width: 75%
+        height: 75%
+        margin: 12.5%
+
+        path
+          fill: $textColor
+
+    @each $ic in $iconClass
+      .#{$ic}
+        +order(nth($order, index($iconClass, $ic)))
+
+
+  .my-quote
+    width: 100%
+    padding-bottom: 20px
+    text-align: center
+    color: $textColor
+    opacity: 0.7
+    font-size: 24px
+    font-family: 'RooneySans'
+
+    .quote-mark
+      display: block
+      margin: auto
+      transform: translateX(-400%)
+      +size(60px)
+      fill: $textColor
+      z-index: -2
+      opacity: 0.2
+
+    p
+      margin-top: -25px
+
+    @media screen and (max-width: 550px)
+      .quote-mark
+        transform: translateX(-250%)
+
+    @media screen and (max-width: 350px)
+      .quote-mark
+        transform: translateX(-200%)
+
+  .skill-lockup
+    max-width: 600px
+    margin: 50px auto
+    color: $textColor
+    +clearfix
+
+    .section-title
+      padding-top: 0
+      margin-bottom: 30px
+
+    .skill-unit
+      width: 270px
+      float: left
+      margin-left: 30px
+
+    .skill-icons
+      font-size: 0
+      margin: 3px 0 30px
+
+      span
+        display: inline-block
+        +size(14px)
+        background-color: $themeColor2
+        border-radius: 50%
+        margin-right: 8px
+
+        &:after
+          content: ''
+          display: block
+          +size(10px)
+          background: $bgColor
+          border-radius: 50%
+          margin: 2px
+
+      @for $i from 1 through 10
+        &.skill-#{$i} span:nth-child(n+#{$i+1})
+          @extend %skill-color
+
+%skill-color
+  background: lighten($bgdColor, 40%)
+
+
+@media screen and (max-width: 600px)
+  .about-me-wrapper .icons-lockup
+    width: 75%
+    display: block
+    text-align: center
+
+    div
+      display: inline-block
+
+    .face
+      display: block
+      background:
+        position: center center
+        repeat: no-repeat
+      margin: 0 auto 30px
+
+
+    [class^="icon-"]
+      margin: 20px 9%
+
+  .skill-lockup
+    width: 220px
+
+  .skill-unit
+    width: 220px

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,  initial-scale=1">
+
+    <title> {% if page.tab_title %} {{ page.tab_title }} {% else %} {{ page.title }} {% endif %}</title>
+
+    <meta rel="author" href="{{ site.data.settings.author }}">
+    <meta name="description" content="{{ site.data.settings.description }}">
+    <link rel="shortcut icon" href="{{ site.github.url }}/favicon.ico">
+    <link rel="shortcut icon" type="image/svg+xml"
+          href="{{ site.github.url }}{{ site.data.design.imgdir }}{{ site.data.design.logo }}">
+    <link rel="stylesheet" href="{{ site.github.url }}/assets/css/main.css">
+    {% if page.type =="post" %}
+    <link rel="stylesheet" href="/assets/blog-assets/blog-index.css">
+    {% endif %}
+
+    <script src="/assets/js/jquery-2.2.3.min.js"></script>
+    <!-- <script src="/assets/js/autosize.min.js" type="text/javascript"></script> -->
+
+  </head>
+  <body class="{{ page.body }}-{{ page.type }}">
+
+  {{ content }}
+
+  {% if page.url == "/" %}
+    <script src="/assets/js/functions.js"></script>
+  {% endif %}
+
+  </body>
+</html>

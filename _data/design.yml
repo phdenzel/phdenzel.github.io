@@ -1,0 +1,48 @@
+# Design settings
+
+# Animation
+animation: "bounceOut"
+
+# Images
+imgdir: "/assets/images/"
+logo: "logo.svg"
+matterhorn: "matterhorn.png"
+mountains: "mountains.png"
+avatar: "avatar.jpg"
+avatar2: "avatar2.jpg"
+posts-bg: "posts-background.jpg"
+
+# Header height
+headerH: "75px"
+
+# About me icons
+icons:
+  - {name: 'galaxy', file: 'icons/galaxy.svg'}
+  - {name: 'lensing', file: 'icons/glens.svg'}
+  - {name: 'hacking', file: 'icons/terminal.svg'}
+  - {name: 'climbing', file: 'icons/carabiner.svg'}
+
+# Contact icons
+social:
+  - {icon: 'github', file: 'icons/github.svg'}
+  - {icon: 'docker', file: 'icons/docker.svg'}
+  - {icon: 'linkedin', file: 'icons/linkedin.svg'}
+  - {icon: 'twitter', file: 'icons/twitter.svg'}
+  - {icon: 'youtube', file: 'icons/youtube.svg'}
+  - {icon: 'skype', file: 'icons/skype.svg'}
+
+# Colors
+bgc: "#50505E"  # white-ish
+fgc: "#EDEDEE"  # black-ish
+
+bgcdark: "#40404B"  # darker shade of bgc
+bgclight: "#73737E" # lighter shade of bgc
+fgcdark: "#D9D9DB"  # darker shade of fgc
+fgclight: "#F7F7F8" # lighter shade of fgc
+
+pcr: "#FF3366"  # red
+pcg: "#00CC99"  # green
+pcb: "#3366FF"  # blue
+pcc: "#33FFCC"  # cyan
+pcy: "#FFCC33"  # yellow
+pcp: "#6633FF"  # purple

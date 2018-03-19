@@ -1,0 +1,52 @@
+<section class="contact-wrapper">
+
+  <a id="contact" name="contact"></a>
+
+  <h4 class="section-title">get in touch</h4>
+
+
+  <div class="social-links">
+    {% for link in site.data.settings.social %}
+    <a href="{{ link.link }}" class="icon-{{ link.icon }}">
+      {% for social-icon in site.data.design.social %}
+        {% if link.icon == social-icon.icon %}
+          {% include {{ social-icon.file }} %}
+        {% endif %}
+      {% endfor %}
+    </a>
+    {% endfor %}
+  </div>
+
+
+  <hr class="bar">
+
+  <a class="email-link" href="mailto:{{ site.data.settings.email }}"> {{ site.data.settings.email }} </a>
+
+
+  <div class="submission-form">
+
+    <form method="POST" action-"//formspree.io/{{ site.data.settings.email }}">
+
+      <fieldset class="contact-info">
+        <label><span>Your Name</span>
+          <input type="text" name="name">
+        </label>
+
+        <label><span>Your Email</span>
+          <input type="text" name="_replyto">
+        </label>
+      </fieldset>
+
+      <label><span>Say hello</span>
+        <textarea name="message"></textarea>
+      </label>
+
+      <fieldset class="submit-wrapper">
+        <input type="submit" value="Send">
+      </fieldset>
+
+    </form>
+
+  </div>
+
+</section>

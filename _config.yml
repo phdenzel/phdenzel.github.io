@@ -1,0 +1,80 @@
+# Build settings - configuration file for jekyll (https://jekyllrb.com/)
+#
+# Use jekyll build (--watch) in shell to build the current directory
+# into ./_site
+# Use jekyll serve (--watch) to build the site and start a local server
+# Attention: This file is *NOT* reloaded automatically when you use --watch.
+#            Changes to this file need a restart of the server process.
+# Directories
+source: .
+destination: ./_site
+data_dir: _data
+includes_dir: _includes
+plugins_dir: _plugins
+layouts_dir: _layouts
+category_dir: /
+sass:
+  load_paths:
+    - assets/css/
+    - assets/blog-assets/
+  sass_dir: assets/css
+  style: compressed
+
+# Serving
+detach: false
+port: 6969
+host: 127.0.0.1
+show_dir_listing: false
+baseurl: "" # subpath of the site, e.g. /repo-name; does not include hostname
+url: "http://phdenzel.io" # the base hostname & protocol for the site
+
+# File handling
+# include: []
+exclude: [".DS_Store", "README.md"]
+keep_files: [".git", ".svn"]
+encoding: "utf-8"
+markdown_ext: "markdown,md"
+strict_front_matter: false
+
+# Content filter
+show_drafts: null
+limit_posts: 0
+future: false
+unpublished: false
+
+# Plugins
+whitelist: []
+
+# Conversion
+markdown: redcarpet
+highlighter: pygments
+lsi: false
+excerpt_separator: <!--more-->
+incremental: false
+
+# Outputting
+permalink: pretty
+paginate_path: /page:num
+# paginate: 3
+timezone: Europe/Zurich
+quiet: false
+verbose: false
+defaults: []
+liquid:
+  error_mode: warn
+
+# Markdown
+rdiscount:
+  extensions: []
+
+redcarpet:
+  extensions: []
+
+kramdown:
+  auto_ids: true
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  input: GFM
+  hard_wrap: false
+  footnote_nr: 1

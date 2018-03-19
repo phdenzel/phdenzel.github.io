@@ -1,0 +1,61 @@
+<section class="header-wrapper">
+
+  <header id="header">
+
+
+      <nav id="true-nav">
+        <ul>
+            <li class="nav-home">
+              <a href="#home">
+                <img class="nav-logo"></img>
+              </a>
+            </li>
+          {% for item in site.data.settings.menu %}
+            <li><a href="{{ item.url }}">{{ item.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+
+      <!-- Shadow version of the nav above... -->
+      <nav id="shadow-nav">
+        <ul>
+          <li class="nav-home">
+            <a href="#home">
+              <img class="nav-logo"></img>
+            </a>
+          </li>
+        {% for item in site.data.settings.menu %}
+          <li><a href="{{ item.url }}">{{ item.name }}</a></li>
+        {% endfor %}
+        </ul>
+      </nav>
+
+      <div id="mobile-nav-bar">
+
+        <div class="mobile-nav-home">
+          <a href="#home">
+            <img class="mobile-nav-logo"></img>
+          </a>
+        </div>
+
+        <div class="mobile-nav-toggle">
+          <span></span>
+        </div>
+
+      </div>
+
+
+  </header>
+
+<nav id="mobile-nav">
+  <ul>
+  {% for item in site.data.settings.menu %}
+    <li>
+      <a href="{{ item.url }}">{{ item.name }}</a>
+      <hr>
+    </li>
+  {% endfor %}
+  </ul>
+</nav>
+
+</section>

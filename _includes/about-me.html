@@ -1,0 +1,53 @@
+<section class="about-me-wrapper">
+
+  <a id="about-me" name="about-me"></a>
+
+  <h1 class="me-name">
+    <span>{{ site.data.settings.author_name }}</span>
+  </h1>
+
+
+  <p class="kicker">
+    {{ site.data.settings.description }}
+  </p>
+
+
+  <div class="blurb-about-me">
+    {{ site.data.settings.about-me | markdownify }}
+  </div>
+
+
+  <div class="icons-lockup">
+    <div class="face"></div>
+      {% for icon in site.data.design.icons %}
+      <div class="icon-{{ icon.name }}"> {% include {{ icon.file }} %} </div>
+      {% endfor %}
+  </div>
+
+
+  <div class="my-quote">
+    <div class="quote-mark">{% include icons/quote.svg %}</div>
+    {{ site.data.settings.science-quote | markdownify }}
+  </div>
+
+
+  {% if site.data.settings.skills %}
+  <div class="skill-lockup">
+    <h4 class="section-title">skills</h4>
+    {% for skill in site.data.settings.skills %}
+      <div class="skill-unit">
+        <div class="skill-label">{{ skill.name }}</div>
+        <div class="skill-icons skill-{{ skill.value }}">
+          {% for i in (1..10) %}
+            <span></span>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+
+
+
+</section>

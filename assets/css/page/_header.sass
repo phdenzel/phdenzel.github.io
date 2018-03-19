@@ -1,0 +1,219 @@
+// Nav bar
+.header-wrapper
+  height: $headerHeight
+  min-height: initial
+  z-index: 100
+
+header
+  position: relative
+  height: inherit
+  top: 0
+  left: 0
+  right: 0
+  z-index: 100
+
+  nav, #mobile-nav-bar
+    width: 100%
+    height: 100%
+    float: left
+    background-color: rgba($bgdColor, 0.8)
+
+    ul
+      display: inline-table
+      width: 100%
+      height: 100%
+      vertical-align: middle
+      padding: 0px
+      margin: 0px
+
+      li
+        display: inline-table
+        width: (100% / 6)
+        height: 100%
+        text-align: center
+        vertical-align: bottom
+
+      .nav-home
+        background-color: rgba($bgdColor, 1)
+
+        .nav-logo
+          content: url($logo-path)
+          height: calc(#{$headerHeight} - 10px)
+          padding-top: 2%
+
+        a
+          width: 100%
+          height: 100%
+
+      a
+        display: table-cell
+        font-family: 'ProximaNova'
+        font-size: 20px
+        text-decoration: none
+        text-transform: uppercase
+        vertical-align: middle
+        overflow: hidden
+
+  nav:not(#shadow-nav)>ul>li:hover
+    color: lighten($linkColor, 20%)
+    background-color: rgba($bgdColor, 0.85)
+
+  nav:not(#shadow-nav)>ul>li>a:hover
+    color: lighten($linkColor, 20%)
+
+  nav#shadow-nav
+    display: inline-table
+    overflow: hidden
+    width: 16.666667%
+    top: 0
+    margin-top: -#{$headerHeight}
+    transform: translateX(0)
+    -webkit-transform: translateX(0)
+
+  nav#shadow-nav>ul
+    display: inline-table
+    width: 600.000000%
+    transform: translateX(0)
+    -webkit-transform: translateX(0)
+
+  nav#shadow-nav>ul>li:not(.nav-home)
+    background: lighten($themeColor2, 5%)
+
+  #shadow-nav>ul>li>a
+    color: $textColor
+
+  #shadow-nav>ul>li>a:hover
+    color: lighten($titleColor, 20%)
+
+  #mobile-nav-bar
+    display: none
+    width: 100%
+
+    .mobile-nav-home
+      display: inline-block
+      width: (100% / 6)
+      min-width: $headerHeight
+      height: $headerHeight
+      background: rgba($bgdColor, 0.8)
+      text-align: center
+      vertical-align: center
+
+      .mobile-nav-logo
+        content: url($logo-path)
+        height: calc(#{$headerHeight} * 0.8)
+        margin: calc(#{$headerHeight} * 0.1) 0 0 calc(#{$headerHeight} * 0.1)
+
+      a
+        display: inline-block
+        width: 100%
+        height: 100%
+
+      a::selection
+        background: darken($bgdColor, 10%)
+
+    .mobile-nav-toggle
+      display: flex
+      width: calc(#{$headerHeight} * 0.8)
+      height: $headerHeight
+      float: right
+      margin: 0 calc(#{$headerHeight} * 0.35) 0 0
+      align-items: center
+      cursor: pointer
+
+      span,
+      span:before,
+      span:after
+        content: ""
+        display: block
+        height: 2px
+        width: 100%
+        background: $titleColor
+        position: relative
+        transition: all 0.3s ease-in-out
+
+      span:before
+        top: 15px
+
+      span:after
+        top: -17px
+
+      &.is-open span
+        background: transparent
+
+      &.is-open span:after,
+      &.is-open span:before
+        transform-origin: center
+        transform: rotate(45deg)
+        top: 0
+
+      &.is-open span:after
+        transform: rotate(-45deg)
+
+      &:selection
+        background: transparent
+      &:-moz-selection
+        background: transparent
+      &
+        -webkit-tap-highlight-color: transparent
+
+
+#mobile-nav
+  display: none
+  position: relative
+  width: 100%
+  bottom: $headerHeight
+  margin-top: 0 !important
+  padding: 10px 0 0 0
+  z-index: 100
+  transform: translateY(-100%)
+  transition: all 0.2s ease-in-out
+  background: rgba($bgdColor, 0.8)
+
+  ul
+    list-style: none
+    margin: 0
+    padding: 0
+
+  li
+    text-align: center
+    margin: 20px 0 0 0
+
+    a
+      font-family: 'ProximaNova'
+      font-size: 20px
+      text-decoration: none
+      text-transform: uppercase
+      vertical-align: middle
+
+      &:hover, &:active
+        color: lighten($linkColor, 20%)
+
+  hr
+    margin: 20px 0 0 0
+
+#mobile-nav.nav-scrolled
+  display: none
+  position: fixed
+  width: 100%
+  transform: translateY(0)
+  top: $headerHeight
+  bottom: auto
+
+#header.header-scrolled
+  position: fixed
+  width: 100%
+  top: 0
+  margin-top: 0 !important
+
+
+
+@media (max-width: 580px)
+  #header
+    #true-nav, #shadow-nav
+      display: none
+
+    #mobile-nav-bar
+      display: block
+
+  #mobile-nav.is-open
+    display: block
