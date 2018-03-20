@@ -26,7 +26,7 @@ port: 6969
 host: 127.0.0.1
 show_dir_listing: false
 baseurl: "" # subpath of the site, e.g. /repo-name; does not include hostname
-url: "http://phdenzel.io" # the base hostname & protocol for the site
+url: "https://phdenzel.github.io" # the base hostname & protocol for the site
 
 # File handling
 # include: []
@@ -47,7 +47,7 @@ whitelist: []
 
 # Conversion
 markdown: redcarpet
-highlighter: pygments
+highlighter: rouge
 lsi: false
 excerpt_separator: <!--more-->
 incremental: false
