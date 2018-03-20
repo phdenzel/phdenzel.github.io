@@ -17,4 +17,4 @@
 *** Documentation
 
     Visit my website:
-    [[https://phdenzel.github.io/pentaplex/][https://phdenzel.github.io/]]
+    [[https://phdenzel.github.io/][https://phdenzel.github.io/]]
