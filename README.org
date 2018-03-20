@@ -1,0 +1,20 @@
+#+TITLE: Dreamworld
+#+AUTHOR: phdenzel
+
+  Source code of my personal portfolio website.
+  To locally build with Jekyll, type (in the Terminal):
+
+  #+BEGIN_SRC shell
+    jekyll serve --watch
+  #+END_SRC
+
+*** Prerequisites
+
+    This requires
+    - [[https://www.ruby-lang.org/en/][ruby]]
+    - [[https://jekyllrb.com/][jekyll]]
+
+*** Documentation
+
+    Visit my website:
+    [[https://phdenzel.github.io/pentaplex/][https://phdenzel.github.io/]]
