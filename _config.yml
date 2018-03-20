@@ -46,7 +46,7 @@ unpublished: false
 whitelist: []
 
 # Conversion
-markdown: redcarpet
+markdown: kramdown
 highlighter: rouge
 lsi: false
 excerpt_separator: <!--more-->
@@ -64,6 +64,12 @@ liquid:
   error_mode: warn
 
 # Markdown
+rdiscount:
+  extensions: []
+
+redcarpet:
+  extensions: []
+
 kramdown:
   auto_ids: true
   entity_output: as_char
@@ -72,3 +78,5 @@ kramdown:
   input: GFM
   hard_wrap: false
   footnote_nr: 1
+
+
