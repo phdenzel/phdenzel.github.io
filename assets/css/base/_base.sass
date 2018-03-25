@@ -9,9 +9,10 @@ body
   color: $textColor
   background: $bgColor
   // Text font
-  font-family: 'RooneySans','Helvetica','Arial','sans-serif'
-  font-weight: 400
-  font-size: 16px
+  font: 
+    family: 'RooneySans','Helvetica Neue','Helvetica','Arial','sans-serif'
+    weight: 400
+    size: 16px
   line-height: 1.0
   -webkit-size-adjust: 100%
   -webkit-font-smoothing: antialiased
@@ -48,6 +49,22 @@ a
   color: $linkColor
 a:hover,a:focus
   color: lighten($linkColor, 10%)
+
+/* Code Snippets ----------------------------------------------------------- */
+pre, code
+  color: $textColor
+  background: $bgdColor
+  padding: 2px 5px
+  border: 1px solid lighten($bgColor, 5%)
+  font:
+    family: 'UbuntuMono', 'monospace'
+    weight: 400
+    size: 16px
+  overflow-x: auto
+  
+
+pre
+  padding: 20px
 
 /* Types ------------------------------------------------------------------- */
 .gigantic, .huge, .large, .bigger, .big, h1, h2, h3, h4, h5, h6

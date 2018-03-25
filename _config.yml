@@ -16,7 +16,9 @@ category_dir: /
 sass:
   load_paths:
     - assets/css/
+    - assets/all-posts/
     - assets/blog-assets/
+    #- assets/teaching-assets/
   sass_dir: assets/css
   style: compressed
 

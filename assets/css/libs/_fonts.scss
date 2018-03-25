@@ -55,3 +55,30 @@
     font-style: normal;
     src: url(/assets/lib/fonts/proxima_nova/bold.woff) format('woff')
 }
+
+
+// Ubuntu Mono
+@font-face {
+    font-family: 'UbuntuMono';
+    font-weight: 400;
+    font-style: normal;
+    src: url(/assets/lib/fonts/ubuntu_mono/regular.woff) format('woff')
+}
+@font-face {
+    font-family: 'UbuntuMono';
+    font-weight: 400;
+    font-style: italic;
+    src: url(/assets/lib/fonts/ubuntu_mono/italic.woff) format('woff')
+}
+@font-face {
+    font-family: 'UbuntuMono';
+    font-weight: 600;
+    font-style: normal;
+    src: url(/assets/lib/fonts/ubuntu_mono/bold.woff) format('woff')
+}
+@font-face {
+    font-family: 'UbuntuMono';
+    font-weight: 600;
+    font-style: italic;
+    src: url(/assets/lib/fonts/ubuntu_mono/bolditalic.woff) format('woff')
+}
