@@ -130,6 +130,14 @@ $$
 \end{equation*}
 $$
 
+Ignoring the solution $H=R$ and the negative one, leaves the solution
+
+$$
+\begin{equation*}
+ H = \frac{\sqrt{8R_{geost}^{3}R + R^{4}} + R^{2}}{2R} \simeq 157000\,\mathrm{km}
+\end{equation*}
+$$
+
 The tower's height from the ground therefore is \\(H-R \simeq 150000\,\mathrm{km}\\).
 
 The other important quantity to consider is the maximal tensile stress. Of any material it is of the order of the sound speed \\(c_{s}^{2}\\)
