@@ -130,7 +130,7 @@ $$
 \end{equation*}
 $$
 
-Ignoring the solution $H=R$ and the negative one, leaves the solution
+Ignoring the solution \\(H=R\\) and the negative one, leaves the solution
 
 $$
 \begin{equation*}
@@ -150,7 +150,7 @@ $$
 
 This tensile stress is three orders of magnitudes too high compared to almost any other material tensile strength... steel has an approximate tensile strength of \\(\sim 6 \cdot 10^{4} \, \mathrm{m}^{2}/\mathrm{s}^{2}\\).
 Interestingly, the tensile strength of human skin is of the same order of magnitude \\(\sim 10^{4} \, \mathrm{m}^{2}/\mathrm{s}^{2}\\).
-There is only one known material worth considering, which is a tether made of carbon nanotubes with a tensile strength of \\(\sim 6.3 \cdot 10^{7} \, \mathrm{m}^{2}/\mathrm{s}^{2}\\).
-So, theoretically we already have a material strong enough to create a the tether.
+There is only one known material worth considering, which are carbon nanotubes with a tensile strength of \\(\sim 6.3 \cdot 10^{7} \, \mathrm{m}^{2}/\mathrm{s}^{2}\\).
+So, theoretically we already have a material strong enough to create a tether.
 
-Of course, there are still many problems, but I think with time a space elevator might not be so far off and actually realizable. We'll see...
+Of course, there are still many issues, but I think with time a space elevator might not be so far off and actually realizable. We'll see...
