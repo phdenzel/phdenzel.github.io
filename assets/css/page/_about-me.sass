@@ -49,10 +49,10 @@
 
   .icons-lockup
     max-width: 780px
-    +display(flex)
+    display: flex
     margin: 0 auto
-    +align-items(center)
-    +justify-content(space-between)
+    align-items: center
+    justify-content: space-between
     padding-bottom: 50px
 
     .face
@@ -62,7 +62,7 @@
         position: center
         image: url($avatar-path)
       +size(200px)
-      +order(3)
+      order: 3
 
       &:hover
         background:
@@ -83,7 +83,7 @@
 
     @each $ic in $iconClass
       .#{$ic}
-        +order(nth($order, index($iconClass, $ic)))
+        order: (nth($order, index($iconClass, $ic)))
 
 
   .my-quote

@@ -36,20 +36,20 @@ about-me: >
   Gardening is another passion of mine. I'm particularly proud of my many chili plants which I try to grow every season.
 
   Although I am not very good at it, I occasionally play guitar and rarely piano.
-  However, what I'm very good at is drinking coffee, playing pool, and other things that encourage my procrastinative habits 😅.
+  However, what I'm very good at is drinking coffee, playing pool, and other things that encourage my recreational "creative phases" 😅.
 
 science-quote: >
   **_Science isn't about WHY, it's about WHY NOT..._**
 
 skills:
 - {name: Programming, value: '10'}
-- {name: Physics, value: '9'}
-- {name: Teaching, value: '6'}
-- {name: Learning, value: '8'}
-- {name: Creativity, value: '7'}
-- {name: Communication, value: '4'}
-- {name: Web Design, value: '5'}
-- {name: Organization, value: '7'}
+- {name: Physics, value: '8'}
+- {name: Teaching, value: '7'}
+- {name: Learning, value: '7'}
+- {name: Creativity, value: '9'}
+- {name: Communication, value: '6'}
+- {name: Web Design, value: '4'}
+- {name: Organization, value: '5'}
 
 
 # My work

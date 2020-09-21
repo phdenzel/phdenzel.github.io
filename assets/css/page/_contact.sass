@@ -6,9 +6,9 @@
   .social-links
     max-width: 700px
     margin: 0px auto 50px
-    +display(flex)
-    +justify-content(space-around)
-    +flex-wrap(wrap)
+    display: flex
+    justify-content: space-around
+    flex-wrap: wrap
 
     a
       display: block
@@ -31,13 +31,12 @@
         border-radius: 50%
         margin: -2.5px
         opacity: 1
-        +transition()
-
+        transition: 200ms
         svg
           fill: lighten($themeColor2, 10%)
 
       &:hover:after
-        +transform(scale(1.5))
+        transform: scale(1.5)
         opacity: 0
 
         svg
@@ -82,7 +81,7 @@
         font:
           family: 'RooneySans'
           size: 16px
-        +box-sizing(border-box)
+        box-sizing: border-box
         padding: 10px
         -webkit-appearance: none
         -moz-appearance: none

@@ -37,13 +37,17 @@ header
         background-color: rgba($bgdColor, 1)
 
         .nav-logo
-          content: url($logo-path)
-          height: calc(#{$headerHeight} - 10px)
-          padding-top: 2%
-
-        a
           width: 100%
           height: 100%
+          padding-top: 2%
+          border-style: none
+
+        a
+          max-height: calc(#{$headerHeight} - 10px)
+          width: 100%
+          content: url(#{$logo-path})
+          padding-top: 5%
+          text-align: center
 
       a
         display: table-cell

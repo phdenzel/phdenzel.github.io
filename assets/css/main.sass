@@ -28,11 +28,11 @@ $posts-bg-path: '{{ site.github.url }}{{ site.data.design.imgdir }}{{ site.data.
 $headerHeight: {{ site.data.design.headerH }}
 
 // About me icons
-$iconClass: {% for ico in site.data.design.icons %} "icon-{{ ico.name }}", {% endfor %}
+$iconClass: {% for ico in site.data.design.icons %} "icon-{{ ico.name }}" {% endfor %}
 $order: 1, 2, 4, 5
 
 // Projects
-$projects: {% for project in site.data.settings.projects %} "{{ project.folder }}", {% endfor %}
+$projects: {% for project in site.data.settings.projects %} "{{ project.folder }}" {% endfor %}
 $animation: {{ site.data.design.animation }}
 
 

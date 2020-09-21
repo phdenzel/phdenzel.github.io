@@ -27,10 +27,10 @@
     width: 200%
     position: relative
     left: 0%
-    +transition(all, 800ms)
+    transition: all, 800ms
 
     &.slided
-      +transform(translate3d(-50%, 0, 0))
+      transform: translate3d(-50%, 0, 0)
 
     .thumb-wrapper, .project-wrapper
       width: 50%
@@ -61,10 +61,10 @@
           width: 50%
 
         .thumb-overlay
-          +position(absolute)
-          +align-items(center)
-          +justify-content(space-around)
-          +display(flex)
+          position: absolute
+          align-items: center
+          justify-content: space-around
+          display: flex
           background: fade-out($themeColor2, 0.1)
           text-align: center
           @extend %animationstart_#{$animation}
