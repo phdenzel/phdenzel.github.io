@@ -16,7 +16,7 @@ Although it's not that of an uncommon state to be in, website-less that is, I un
 
 <!--more-->
 
-During that time, I also started to use [GitHub](https://github.com/) more frequently, and soon learned that it offered free hosting of websites through [GitHub Pages](https://pages.github.com/). This presented a great opportunity to experiment a bit, which ended in a few projects you can find in my GitHub repo collection, like [zurich_lens](https://phdenzel.github.io/zurich_lens/) or [dm-sheets](https://phdenzel.github.io/dm-sheets/).
+During that time, I also started to use [GitHub](https://github.com/) more frequently, and soon learned that it offered free hosting of websites through [GitHub Pages](https://pages.github.com/). This presented a great opportunity to experiment a bit, which ended in a few projects you can find in my GitHub repo collection, like [zurich-lens](https://phdenzel.github.io/zurich-lens/) or [dm-sheets](https://phdenzel.github.io/dm-sheets/).
 
 My portfolio website was still only an idea however. It took quite some time to think about design, content, and presentation order. What should my message be? Did I want to lay focus on myself, or my work, or interests?
 

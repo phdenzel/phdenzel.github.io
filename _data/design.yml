@@ -25,7 +25,7 @@ icons:
 # Contact icons
 social:
   - {icon: 'github', file: 'icons/github.svg'}
-  - {icon: 'docker', file: 'icons/docker.svg'}
+ # - {icon: 'docker', file: 'icons/docker.svg'}
   - {icon: 'linkedin', file: 'icons/linkedin.svg'}
   - {icon: 'twitter', file: 'icons/twitter.svg'}
   - {icon: 'youtube', file: 'icons/youtube.svg'}

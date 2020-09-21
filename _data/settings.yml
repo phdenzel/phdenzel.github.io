@@ -69,7 +69,7 @@ classes:
 # Contact
 social:
   - {icon: 'linkedin', link: 'https://www.linkedin.com/in/philipp-denzel-7ab933142/'}
-  - {icon: 'docker', link: 'https://hub.docker.com/u/phdenzel/'}
+#  - {icon: 'docker', link: 'https://hub.docker.com/u/phdenzel/'}
   - {icon: 'github', link: 'https://github.com/phdenzel'}
   - {icon: 'twitter', link: 'http://twitter.com/phdenzel'}
   - {icon: 'youtube', link: 'https://www.youtube.com/channel/UCBwsuXteT4O76NO46X6K3nA'}
