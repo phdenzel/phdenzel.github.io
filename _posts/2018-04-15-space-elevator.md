@@ -22,7 +22,7 @@ In this post I want to talk about the physical basics that make the space elevat
 
 The "scientific" consensus is that a space elevator should come in four parts.
 The tether provides the connection between the ground and space.
-It is fixed to an anchor at the ground and a conter-weight at the other end.
+It is fixed to an anchor at the ground and a counter-weight at the other end.
 Due to the centrifugal force that acts on the counter-weight, the tether is under constant tension.
 A climber which is able to move up and down the tether makes the construct into an actual elevator.
 
@@ -47,7 +47,7 @@ The first mentioning of something like a space elevator can be found in the book
 The first to theoretically think about the current image of a space elevator was Tsiolkovsky in 1895.
 In 1960, the Russian physicist Artsutanov revisited the idea, and in 1975 Peason introduced the idea on the American side.
 In 1978, Clarke moved the topic into the science-fiction domain with his book "The fountains of Paradise".
-Sheffield pointed out that it is technologically impossibile to build the elevator due to the lack of materials for the tether strong enough to withstand the immense tension.
+Sheffield pointed out that it is technologically impossible to build the elevator due to the lack of materials for the tether strong enough to withstand the immense tension.
 The discovery of carbon nanotubes in 1991 led to a resurgence of interest in the scientific community.
 Since then, several companies were founded with the goal to realize such a space elevator.
 

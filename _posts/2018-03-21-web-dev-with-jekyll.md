@@ -60,7 +60,7 @@ With this command sequence you create a folder, with all the necessary configura
 However, I like to use my own folder structure (not unsimilar to the default one, yet slightly different).
 If you're searching for a skeleton project copy the `dev-std` from my [GitHub repository](https://github.com/phdenzel/dev-std).
 
-In my projects, Jekyll was immensely helpful when I added the flag `jekyll serve --watch`, which has the consequence that changes to the source code are immediately recompiled and a quick refresh (on Chrome for macOS with ⌘R) of the browser reveils the effect of those changes.
+In my projects, Jekyll was immensely helpful when I added the flag `jekyll serve --watch`, which has the consequence that changes to the source code are immediately recompiled and a quick refresh (on Chrome for macOS with ⌘R) of the browser reveals the effect of those changes.
 
 #### Settings
 

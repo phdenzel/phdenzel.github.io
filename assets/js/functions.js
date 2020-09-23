@@ -207,7 +207,6 @@ function myWorkBelt() {
     $('.projects-belt').removeClass("slided");
     $('.project-container').hide(400);
   });
-
 }
 
 function myWorkLoad() {
@@ -219,13 +218,14 @@ function myWorkLoad() {
         newTitle = $this.find('strong').text(),
         spinner = '<div class="loader">Loading...</div>',
         url = $this.find('.thumb-unit').data('url');
-
-    $('.project-load').html(spinner).load(url);
     $('.project-title').text(newTitle);
-
+    $('.project-load').html(spinner).load(url,
+      function() {
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,".project-load"]);
+      }  
+    );
   });
-
-}
+};
 
 
 W.scroll(function articleStart(){

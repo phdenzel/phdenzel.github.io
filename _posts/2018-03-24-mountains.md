@@ -10,7 +10,7 @@ number: 003
 ---
 
 Ever asked yourself why mountains are as high as they are?
-A short google search reveils that almost all of Earth's highest mountains are located in the Himalaya around 8000 to 8500 meters, Mount Everest being the most famous and ascended.
+A short google search reveals that almost all of Earth's highest mountains are located in the Himalaya around 8000 to 8500 meters, Mount Everest being the most famous and ascended.
 There is a mountain almost twice as tall though, Olympus Mons. Only thing is&#x2026; it's not a Terrestrial mountain.
 Olympus Mons resides on Mars, and as far as we know, it is with 21 km the tallest mountain in the Solar System.
 And it's not the only mountain taller than Mount Everest, Mars has at least 4 mountains higher than 8 km.
@@ -124,4 +124,4 @@ At this limit all the approximations we made break, such as constant density and
 Nevertheless, we managed to understand how tall mountains can maximally get on a planet with very simple assumptions.
 
 
-Btw... if you asked youself why `import planck_units` doesn't work on your machine, it's because it's one of my own python libraries, which I appended manually to my `$PYTHONPATH`. Find it [here](https://github.com/phdenzel/pylib).
+Btw... if you asked yourself why `import planck_units` doesn't work on your machine, it's because it's one of my own python libraries, which I appended manually to my `$PYTHONPATH`. Find it [here](https://github.com/phdenzel/pylib).
