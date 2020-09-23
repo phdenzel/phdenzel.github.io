@@ -46,3 +46,8 @@ Further details can be found in my publication: [Denzel, Diemand & Angélil (201
 Or a related work which continues with the our data
 [](/assets/files/bubble.tar.gz) here: [Kozynets, Fallows & Krauss
 (2019)](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.100.052001)
+
+
+Here is a video demonstrating how a bubble nucleation track induced by a dark matter candidate could look like:
+
+<iframe width="100%" height="500px" src="https://www.youtube.com/embed/rgGgkW7SySM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
