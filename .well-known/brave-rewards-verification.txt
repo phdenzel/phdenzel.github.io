@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: phdenzel.github.io
+Token: 9840e3b4623b3556e364f0a15aa3a78b52fdf5e3804a2b14e01ca0e7fbb9e703
