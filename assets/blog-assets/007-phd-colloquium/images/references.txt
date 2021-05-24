@@ -1,0 +1,10 @@
+early_galaxies.png:         me
+
+eclipse.jpg:                ESO/Landessternwarte Heidelberg-Königstuhl/F. W. Dyson, A. S. Eddington, & C. Davidson (https://www.eso.org/public/germany/images/potw1926a/)
+
+nyheadline.png:             - # The NY Times November 10, 1919 (https://www.mpg.de/9244824/solar-eclipse-1919)
+
+eddington_experiment.jpg:   - # Illustrated London News of November 22, 1919 (https://mappingignorance.org/2019/04/24/the-spreading-of-science-news-from-arthur-eddington-1919-to-black-holes-2019/)
+
+thetimes.png:               - # The Times November 7, 1919 (https://mappingignorance.org/2019/04/24/the-spreading-of-science-news-from-arthur-eddington-1919-to-black-holes-2019/)
+

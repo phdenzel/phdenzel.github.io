@@ -61,9 +61,9 @@ projects:
 
 # Teaching
 classes:
-  - {name: 'Scientific Computing ', semester: 'FS18', description: 'Using python to solve problems in maths and science', folder: 'scicomp', page: 'teaching/FS18-SciComp'}
-  - {name: 'Introduction to Astrophysics & Cosmology ', semester: 'HS17', description: 'Using simple ideas to solve the Universe', folder: 'astro', page: 'teaching/HS17-Astro'}
-  - {name: 'Computer Simulations ', semester: 'FS17', description: 'Experimenting right in the classroom', folder: 'spin', page: 'teaching/FS17-Spin'}
+  - {name: 'Scientific Computing ', semester: 'FS18', description: 'Using python to solve problems in maths and science', folder: 'scicomp', page: 'teaching/FS18-SciComp', link: 'https://mnf.openedx.uzh.ch/courses/course-v1:MNF+PHY124+FS2021/about'}
+  - {name: 'Introduction to Astrophysics & Cosmology ', semester: 'HS17', description: 'Using simple ideas to solve the Universe', folder: 'astro', page: 'teaching/HS17-Astro', link: 'https://www.physik.uzh.ch/~psaha/magicenv/'}
+  - {name: 'Computer Simulations ', semester: 'FS17', description: 'Experimenting right in the classroom', folder: 'spin', page: 'teaching/FS17-Spin', link: 'https://www.ics.uzh.ch/~stadel/doku.php?id=spin:start'}
 
 
 # Contact

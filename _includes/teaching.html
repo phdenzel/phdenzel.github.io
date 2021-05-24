@@ -13,7 +13,11 @@
         <figcaption>
           <h3><span>{{ class.name }}</span>{{ class.semester }}</h3>
           <p>{{ class.description }}</p>
+          {% if class.link %}
+          <a class="class-link" href="{{ class.link }}"></a>
+          {% else %}
           <a class="class-link" href="{{ site.github.url }}/{{ class.page }}"></a>
+          {% endif %}
         </figcaption>
       </figure>
     </div>
