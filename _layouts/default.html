@@ -20,6 +20,28 @@
     <link rel="stylesheet" href="{{ site.github.url }}/assets/blog-assets/blog-index.css">
     {% endif %}
 
+    
+    <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+         showProcessingMessages: false,
+         messageStyle: 'none',
+         tex2jax: {
+             inlineMath: [['\\(','\\)']],
+             displayMath: [['$$','$$'], ["\\[","\\]"]],
+             processEnvironments: true
+         },
+         // show equation numbers
+         TeX: {
+             equationNumbers: {
+                 autoNumber: "AMS"
+             }
+         },
+         'HTML-CSS': {
+             imageFont: null
+         }
+     });
+    </script>
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- <script src="/assets/js/autosize.min.js" type="text/javascript"></script> -->
 
