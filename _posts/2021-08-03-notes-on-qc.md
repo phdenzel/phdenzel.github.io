@@ -1761,7 +1761,7 @@ happens when the majority of qubits are flipped. For \\(d\\) repetitions
 P = \sum_{n=0}^{d/2}\cvec{d \\ n}p^{n}(1-p)^{d-n} \sim \left(\frac{p}{1-p}\right)^{d/2}
 \end{equation}
 
-P decays with \\(d\\) expopnentially, so with enough repetitions, we can
+P decays with \\(d\\) exponentially, so with enough repetitions, we can
 make \\(P\\) as small as needed.
 
 The basic features of any protocol for quantum error correction usually consist of:
@@ -1772,8 +1772,24 @@ The basic features of any protocol for quantum error correction usually consist 
 -   **Decoding**: trying to deduce the input from the perturbed message
 
 For computations, errors can be introduced whenever an operation is
-performed.  These rrrors need to be corrected as they are introduced,
+performed.  These errors need to be corrected as they are introduced,
 by constantly decoding and re-encoding.  These schemes work great for
 bits, but for qubits decoding would require a measurement, and that
-destroys the state. 
+destroys the state.
 
+#### Break
+
+Quantum error correction is a tricky subject, still very actively
+researched. Continuing on this path would make this post (if it isn't
+already) waaayyy to long.
+
+So, I'll work on a second Part of this post where I dive into this subject
+more, and also show how to actually run code on a quantum computer
+using IBM's qiskit module.
+
+Also, if you're interested in the graphics used in this post, have a
+look at the python scripts written by yours truly:
+
+- [bloch_sphere.py](/assets/blog-assets/009-notes-on-qc/code/bloch_sphere.py)
+- [circuit_gx.py](/assets/blog-assets/009-notes-on-qc/code/circuit_gx.py)
+- [pillars.py](/assets/blog-assets/009-notes-on-qc/code/pillars.py)
