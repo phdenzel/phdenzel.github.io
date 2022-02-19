@@ -41,6 +41,7 @@ Recently, I received note that IBM has several quantum processors which are avai
         4.  [Quantum Phase Estimation](#org5983f82)
         5.  [Shor's circuit](#orgc63ea6d)
     4.  [Quantum Error Correction](#org1360a0f)
+3.  [Break](#orgadfin01)
 
 <div class="HTML" id="orga346676">
 <p>
@@ -1776,6 +1777,8 @@ performed.  These errors need to be corrected as they are introduced,
 by constantly decoding and re-encoding.  These schemes work great for
 bits, but for qubits decoding would require a measurement, and that
 destroys the state.
+
+<a id="orgadfin01"></a>
 
 #### Break
 
