@@ -133,11 +133,12 @@ Arch. Of course, for some this seems tedious, but for me it means
 full control over everything, and it teaches us about the inner
 workings of the Linux system.
 
-In the following, I describe how I set up Arch on my machines,
-command for command. I have made an even more detailed guide which
-additionally explains how to encrypt your entire disk, including
-root, boot, and swap partitions, and follows different file system
-choices.
+In the following section, I describe how I set up Arch on my machines,
+step by step, command after command. For the most parts, I tried to
+stick to the command-line and avoid opening a text-editor, but if
+shell scripting confuses you and you prefer working in vim (or another
+text-editor of your choice), skip the `echo >> ` and `sed -i` commands
+and simply open the file instead.
 
 
 <a id="org4a07270"></a>
