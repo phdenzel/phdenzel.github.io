@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Recent Developments in High-Resolution Image Synthesis</title>
+<meta name="author" content="(Philipp Denzel)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./assets/css/reveal.css"/>
+
+<link rel="stylesheet" href="./assets/css/theme/phdcolloq.css" id="theme"/>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<meta name="description" content="tech talk by PhD">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1>Recent Developments in High-Resolution Image Synthesis</h1>
+<h3>tech talk @ ZHAW</h3>
+<div style="padding-top: 50px">16/06/2022</div>
+<div style="padding-top: 50px">by</div>
+<h4 style="padding-top: 50px; padding-left: 200px;"><a href="mailto:phdenzel@gmail.com"> Philipp Denzel </a> <img src="./assets/images/contact_qr.png" alt="contact_qr.png" height="150px" align="center" style="padding-left: 50px;"></h4>
+</section>
+<aside class="notes">
+<p>
+Title slide
+</p>
+
+</aside>
+
+
+<section>
+<section id="slide-orga26b928">
+<h2 id="orga26b928">Slides on my website</h2>
+<p>
+<a href="https://phdenzel.github.io/#lab">https://phdenzel.github.io/</a>
+</p>
+
+
+<div id="orgfbac91d" class="figure">
+<p><img src="./assets/images/talk_qr.png" alt="talk_qr.png" height="300px" style="float: center;" />
+</p>
+</div>
+
+<aside class="notes">
+<p>
+Link/QR code to the slides for later or to follow along
+</p>
+
+</aside>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org924fd1b">
+<h2 id="org924fd1b">My previous work</h2>
+
+<div id="orge222eac" class="figure">
+<p><img src="./assets/images/talk_qr.png" alt="talk_qr.png" height="200px" align="center" style="float: right; padding-right: 100px;" />
+</p>
+</div>
+
+<ul>
+<li>PhD in Physics from UZH @ ICS</li>
+<li>gravitational lens modelling</li>
+<li>"relativistic/astrophysical" raytracing</li>
+<li>Bayesian technique based on image synthesis &amp; reconstruction (see <a href="https://doi.org/10.48550/arXiv.2102.10114">Denzel et al. 2021a</a>)</li>
+
+</ul>
+
+
+<p height="350px" align="left" style="float: left; padding: 50px 50px 0 50px;">
+input data  <br> 
+<img src="./assets/images/my-work_composite_SW05.png" alt="my-work_composite_SW05.png" height="350px" align="left" style="float: left; padding: 50px 50px 0 50px;" />
+</p>
+
+<p height="350px" align="left" style="float: left; padding: 300px 0 0 0;">
+➝
+</p>
+
+<p height="350px" align="left" style="float: left; padding: 50px 50px 0 50px;">
+latent representation  <br> 
+<img src="./assets/images/my-work_kappa_SW05.png" alt="my-work_kappa_SW05.png" height="350px" align="left" style="float: left; padding: 50px 50px 0 50px;" />
+</p>
+
+<p height="350px" align="center" style="float: left; padding: 300px 0 0 0;">
+➝
+</p>
+
+<p height="350px" align="left" style="float: left; padding: 50px 50px 0 50px;">
+reconstruction  <br> 
+<img src="./assets/images/my-work_composite_SW05_synth.png" alt="my-work_composite_SW05_synth.png" height="350px" align="left" style="float: left; padding: 50px 50px 0 50px;" />
+</p>
+
+<p>
+<a href="https://doi.org/10.48550/arXiv.2104.03324">Denzel et al. 2021b</a>
+</p>
+
+<aside class="notes">
+<p>
+Introduce yourself
+</p>
+
+</aside>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org0d1cefa">
+<h2 id="org0d1cefa">Generative deep learning</h2>
+<div class="outline-text-2" id="text-org0d1cefa">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org44178bf">
+<h3 id="org44178bf">Motivation</h3>
+<ul>
+<li class="fragment appear">goal of AI: automate <b>intelligent behaviour</b> on silicon-based machines</li>
+<li class="fragment appear">in contrast to <b>discriminative deep learning</b>:
+<ul>
+<li class="fragment appear">pattern recognition</li>
+
+</ul></li>
+<li class="fragment appear"><b>generative deep learning</b>:
+<ul>
+<li class="fragment appear">approximate the true data density with parameters \(\theta\),
+optionally conditioned on some information \(c\):
+\[ P_\theta(x|c) \sim P_\text{data}(x|c) \]</li>
+<li class="fragment appear">(inspired) creativity ➝ much more ambitious</li>
+
+</ul></li>
+
+</ul>
+
+
+<aside class="notes">
+<p>
+Explain motivation
+</p>
+
+</aside>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org7f5956d">
+<h3 id="org7f5956d">Approaches and objectives</h3>
+<ul>
+<li class="fragment appear">VAEs: \(\quad \log{p(x)} \ge \mathbb{E}_{z\sim q_{\theta}(z\vert x)}[\log{p_\theta(x\vert z)}] - D_{KL}\left(q_\theta(z\vert x) \vert\vert p(z)\right)\)
+<ul>
+<li><font color="#00AF87"> fast</font>, <font color="#00AF87"> regularized latent space</font>, <font color="#D7005F"> lower bound to LL</font>, <font color="#D7005F"> trade-offs: reconstruction ⇿ regularization</font></li>
+
+</ul></li>
+<li class="fragment appear">GANs: \(\quad \mathbb{E}_{x\sim p_\text{data}}[\log{D_\theta(x)}] + \mathbb{E}_{z\sim q(z)}[1-\log{D_\theta(G_\theta(z))}]\)
+<ul>
+<li><font color="#00AF87"> fast</font>, <font color="#00AF87"> high quality</font>, <font color="#D7005F"> implicit density</font>, <font color="#D7005F"> mode collapse</font></li>
+
+</ul></li>
+<li class="fragment appear">Autoregressive models: \(\quad p(x) = \prod_i p_\theta(x_i\vert x_{\lt i})\)
+<ul>
+<li><font color="#00AF87"> exact</font>, <font color="#00AF87"> good results</font>, <font color="#D7005F"> no latent representation</font>, <font color="#D7005F"> slow inference</font></li>
+
+</ul></li>
+<li class="fragment appear">Diffusion Models: \(\quad -\log{p(x)} \le \mathbb{E}_{q}[\log{\frac{q(x_{1:T}\vert x_0)}{p_\theta(x_{0:T})}}]\)
+<ul>
+<li><font color="#00AF87"> flexible</font>, <font color="#00AF87"> high fidelity</font>, <font color="#D7005F"> lower bound to LL</font></li>
+
+</ul></li>
+<li class="fragment appear">etc.</li>
+
+</ul>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org5cb6a24">
+<h3 id="org5cb6a24">Diffusion models</h3>
+<p>
+LDMs by <a href="https://arxiv.org/abs/2112.10752">Rombach &amp; Blattmann et al. (2022)</a> or OpenAI's <a href="https://arxiv.org/abs/2204.06125">DALLE-2</a>:
+</p>
+
+<p height="800px" align="right" style="float: center; padding: 0 50px 25px 50px;">
+<img src="./assets/images/dalle-2_arch.png" alt="dalle-2_arch.png" height="800px" align="right" style="float: center; padding: 0 50px 25px 50px;" />
+ <br>  from <a href="https://doi.org/10.48550/arXiv.2204.06125">Ramesh et al. (2022)</a>
+</p>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgb4f6ab7">
+<h3 id="orgb4f6ab7">Text to image</h3>
+<ul align="left" float="left" style="list-style: none; padding-right: 100px">
+<li><a href="https://arxiv.org/abs/2204.06125">DALLE-2</a> - a new champion in semantic understanding</li>
+<li>generates images up to 1 Megapixel!</li>
+
+</ul>
+<p>
+ <br> 
+</p>
+<p height="400px" align="left" style="float: left; padding: 0 70px 0 40px;">
+"A corgi's head depicted as  <br> 
+an explosion of a nebula"  <br> 
+<img src="./assets/images/dalle-2_A_corgis_head_depicted_as_an_explosion_of_a_nebula.jpg" alt="dalle-2_A_corgis_head_depicted_as_an_explosion_of_a_nebula.jpg" height="400px" align="left" style="float: left; padding: 0 70px 0 40px;" />
+ <br>  from <a href="https://doi.org/10.48550/arXiv.2204.06125">Ramesh et al. (2022)</a>
+</p>
+
+<p height="400px" align="left" style="float: left; padding: 0 70px 0 20px;">
+"A dolphin in an astronaut suit  <br> 
+on saturn, artstation"  <br> 
+<img src="./assets/images/dalle-2_a_dolphin_in_an_astronaut_suit_on_saturn,_artstation.jpg" alt="dalle-2_a_dolphin_in_an_astronaut_suit_on_saturn,_artstation.jpg" height="400px" align="left" style="float: left; padding: 0 70px 0 20px;" />
+ <br>  from <a href="https://doi.org/10.48550/arXiv.2204.06125">Ramesh et al. (2022)</a>
+</p>
+
+<p height="400px" align="left" style="float: left; padding: 0 70px 0 20px;">
+"Panda mad scientist mixing  <br> 
+sparkling chemicals, artstation"  <br> 
+<img src="./assets/images/dalle-2_panda_mad_scientist_mixing_sparkling_chemicals,_artstation.jpg" alt="dalle-2_panda_mad_scientist_mixing_sparkling_chemicals,_artstation.jpg" height="400px" align="left" style="float: left; padding: 0 70px 0 20px;" />
+ <br>  from <a href="https://doi.org/10.48550/arXiv.2204.06125">Ramesh et al. (2022)</a>
+</p>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org556a706">
+<h2 id="org556a706">Taming Transformers</h2>
+
+<div id="org7675faf" class="figure">
+<p><img src="./assets/images/paper_thumb.png" alt="paper_thumb.png" height="950px padding: 0 50px 0 50px;" />
+</p>
+</div>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org2ec7fdf">
+<h3 id="org2ec7fdf">Transformers - Attention mechanism</h3>
+<p>
+\[ \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^{T}}{\sqrt{d_k}}\right) V \]
+</p>
+<ul align="left" float="left" style="list-style: none; padding-right: 100px">
+<li>where \(Q\) query, \(K\) key, and \(V\) value are matrixes</li>
+<li>(packed sets of vectors)</li>
+<li>• $\quad$dot-product: quadratic complexity!</li>
+<li>• $\quad$captures long-range interaction</li>
+
+</ul>
+
+<p height="600px" style="float: right; padding: 0 150px 20px 50px;">
+<img src="assets/images/transformers_scheme.png" alt="transformers_scheme.png" height="600px" style="float: right; padding: 0 150px 20px 50px;" />
+ <br>  Scaled Dot-Product Attention
+ <br>  (<a href="https://doi.org/10.48550/arXiv.1706.03762">Vaswani et al. 2017</a>)
+</p>
+
+<aside class="notes">
+<ul>
+<li>Key feature of the transformer is the attention mechansim</li>
+<li>what makes this architecture so special, and performant?</li>
+
+</ul>
+
+</aside>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgaa63767">
+<h3 id="orgaa63767">Transformers - Architecture</h3>
+<p height="700px" style="float: center; padding: 50px 50px 50px 50px;">
+<img src="assets/images/transformers_scheme2.png" alt="transformers_scheme2.png" height="700px" style="float: center; padding: 50px 50px 50px 50px;" />
+ <br>  Multi-headed attention (<a href="https://doi.org/10.48550/arXiv.1706.03762">Vaswani et al. 2017</a>)
+</p>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org5519f2f">
+<h3 id="org5519f2f">Combine approaches</h3>
+<ul>
+<li>VQVAEs + GANs + autoregressive model = VQGAN
+<ul>
+<li>VQVAEs: latent variables</li>
+<li>CNNs: local interactions</li>
+<li>Transformers: global interactions</li>
+<li>adversarial idea: efficient learning</li>
+
+</ul></li>
+
+</ul>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org0ebe341">
+<h3 id="org0ebe341">VQGAN</h3>
+
+<div id="org01eca2c" class="figure">
+<p><img src="assets/images/vqgan_arch.png" alt="vqgan_arch.png" height="600px" style="float: center; padding: 50px 50px 50px 50px;" />
+</p>
+</div>
+
+<p>
+\(\quad \mathcal{Q}^{*}_{\text{VQGAN}} = \arg\min_{E, G, \mathcal{Z}} \max_{D} \mathbb{E}_{x\sim p(x)} \left[\mathcal{L}_{\text{VQ}}(E, G, \mathcal{Z}) + \lambda\mathcal{L}_{\text{GAN}}(\{E, G, \mathcal{Z}\}, D)\right]\)
+</p>
+
+<p>
+ <br>  <a href="https://doi.org/10.48550/arXiv.2012.09841">Esser &amp; Rombach et al. (2020)</a>
+</p>
+
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org70506ab">
+<h3 id="org70506ab">First-stage reconstructions</h3>
+
+<div id="orgca3f34e" class="figure">
+<p><img src="./assets/images/vqgan_first_stage_squirrels_x4.png" alt="vqgan_first_stage_squirrels_x4.png" width="1600px" align="left" style="float: left; padding: 0 20px 0 120px;" />
+</p>
+</div>
+
+<p style="float: right; padding: 0 50px 0 50px;">
+ <br>  <a href="https://doi.org/10.48550/arXiv.2012.09841" style="float: right; padding: 0 50px 0 50px;">Esser &amp; Rombach et al. (2020)</a>
+</p>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgb6d6de2">
+<h3 id="orgb6d6de2">First-stage reconstructions</h3>
+
+<div id="org3d38be2" class="figure">
+<p><img src="./assets/images/vqgan_first_stage_squirrels_annx4.png" alt="vqgan_first_stage_squirrels_annx4.png" width="1600px" align="left" style="float: left; padding: 0 20px 0 120px;" />
+</p>
+</div>
+
+<p style="float: right; padding: 0 50px 0 50px;">
+ <br>  <a href="https://doi.org/10.48550/arXiv.2012.09841" style="float: right; padding: 0 50px 0 50px;">Esser &amp; Rombach et al. (2020)</a>
+</p>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org1a91bb5">
+<h3 id="org1a91bb5">Semantic conditioning (\(f=16\))</h3>
+<p height="280px" align="left" style="float: left; padding: 0 20px 0 20px;">
+semantic map  <br> 
+<img src="./assets/images/vqgan_semantic_map1.jpg" alt="vqgan_semantic_map1.jpg" height="280px" align="left" style="float: left; padding: 0 20px 0 20px;" />
+</p>
+
+<p height="280px" align="left" style="float: left; padding: 0 20px 0 20px;">
+sample  <br> 
+<img src="./assets/images/vqgan_semantic_gen1a.jpg" alt="vqgan_semantic_gen1a.jpg" height="280px" align="left" style="float: left; padding: 0 20px 0 20px;" />
+</p>
+
+
+<p height="280px" align="left" style="float: left; padding: 0 20px 0 20px;">
+another sample  <br> 
+<img src="./assets/images/vqgan_semantic_gen1b.jpg" alt="vqgan_semantic_gen1b.jpg" height="280px" align="left" style="float: left; padding: 0 20px 0 20px;" />
+</p>
+
+
+
+<div id="orgb0b4226" class="figure">
+<p><img src="./assets/images/vqgan_semantic_map2.jpg" alt="vqgan_semantic_map2.jpg" height="280px" align="left" style="float: left; padding: 0 20px 0 40px;" />
+</p>
+</div>
+
+
+<div id="org88a1efe" class="figure">
+<p><img src="./assets/images/vqgan_semantic_gen2a.jpg" alt="vqgan_semantic_gen2a.jpg" height="280px" align="left" style="float: left; padding: 0 20px 0 60px;" />
+</p>
+</div>
+
+
+<div id="org7eee77d" class="figure">
+<p><img src="./assets/images/vqgan_semantic_gen2b.jpg" alt="vqgan_semantic_gen2b.jpg" height="280px" align="left" style="float: left; padding: 0 20px 0 60px;" />
+</p>
+</div>
+
+<p style="float: right; padding: 0 50px 0 50px;">
+ <br>  <a href="https://doi.org/10.48550/arXiv.2012.09841" style="float: right; padding: 0 50px 0 50px;">Esser &amp; Rombach et al. (2020)</a>
+</p>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org6ec7432">
+<h3 id="org6ec7432">High-resolution?</h3>
+<ul>
+<li>long sequences computationally expensive since \(\mathcal{O}(N^2)\)</li>
+<li>possible using attention sliding window</li>
+
+</ul>
+
+
+<div id="orgb515a81" class="figure">
+<p><img src="./assets/images/vqgan_attention_slide.png" alt="vqgan_attention_slide.png" height="280px" align="left" style="float: left; padding: 0 20px 0 60px;" />
+</p>
+</div>
+
+<p style="float: right; padding: 0 50px 0 50px;">
+ <br>  <a href="https://doi.org/10.48550/arXiv.2012.09841" style="float: right; padding: 0 50px 0 50px;">Esser &amp; Rombach et al. (2020)</a>
+</p>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+
+
+</section>
+<section id="slide-org956f553">
+<h4 id="org956f553">High-resolution</h4>
+
+<div id="orgd449079" class="figure">
+<p><img src="./assets/images/vqgan_HR1.jpg" alt="vqgan_HR1.jpg" height="600px" style="z-index: -3; position: relative; top: 0; left: -100px;" />
+</p>
+</div>
+
+<p style="z-index: 0; position: relative; left: -300px; top: 0;">
+ <br>  <a href="https://doi.org/10.48550/arXiv.2012.09841" style="z-index: 0; position: relative; left: -300px; top: 0;">Esser &amp; Rombach et al. (2020)</a>
+</p>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+
+
+</section>
+<section id="slide-org1b8567a">
+<h4 id="org1b8567a">High-resolution</h4>
+
+<div id="orgb0b8096" class="figure">
+<p><img src="./assets/images/vqgan_HR1.jpg" alt="vqgan_HR1.jpg" height="600px" style="z-index: -3; position: relative; top: 0; left: -100px;" />
+</p>
+</div>
+
+<div id="orgf8ff9eb" class="figure">
+<p><img src="./assets/images/vqgan_HR2.jpg" alt="vqgan_HR2.jpg" height="600px" style="z-index: -2; position: relative; top: -600px; left: 0;" />
+</p>
+</div>
+
+<p style="z-index: 0; position: relative; left: -300px; top: -286px;">
+ <br>  <a href="https://doi.org/10.48550/arXiv.2012.09841" style="z-index: 0; position: relative; left: -300px; top: -286px;">Esser &amp; Rombach et al. (2020)</a>
+</p>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+
+
+</section>
+<section id="slide-org90464b9">
+<h4 id="org90464b9">High-resolution</h4>
+
+<div id="orgaa52f06" class="figure">
+<p><img src="./assets/images/vqgan_HR1.jpg" alt="vqgan_HR1.jpg" height="600px" style="z-index: -3; position: relative; top: 0; left: -100px;" />
+</p>
+</div>
+
+<div id="org634aa54" class="figure">
+<p><img src="./assets/images/vqgan_HR2.jpg" alt="vqgan_HR2.jpg" height="600px" style="z-index: -2; position: relative; top: -600px; left: 0;" />
+</p>
+</div>
+
+<div id="org3d54db3" class="figure">
+<p><img src="./assets/images/vqgan_HR3.jpg" alt="vqgan_HR3.jpg" height="800px" style="z-index: -1; position: relative; top: -1200px; left: 200px;" />
+</p>
+</div>
+
+<p style="z-index: 0; position: relative; left: -300px; top: -723px;">
+ <br>  <a href="https://doi.org/10.48550/arXiv.2012.09841" style="z-index: 0; position: relative; left: -300px; top: -723px;">Esser &amp; Rombach et al. (2020)</a>
+</p>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-org53e2eb6" class="upperh" data-background-video="./assets/movies/taming.mp4" data-background-video-loop data-background-video-muted data-background-size="contain";>
+<h2 id="org53e2eb6">Summary: High-resolution image synthesis</h2>
+<ul style="background-color: #33446644">
+<li><b>&gt; 1 Megapixel</b> images are possible w/ two-stage approaches</li>
+<li><b>diffusion models</b> show excellent results in semantic understanding</li>
+<li><b>autoregressive models</b> can be optimized for high-resolution image generation</li>
+
+</ul>
+
+<p style="float: left; padding: 275px 50px 0 50px;">
+ <br>  <a href="https://compvis.github.io/taming-transformers/" style="float: left; padding: 275px 50px 0 50px;">https://compvis.github.io/taming-transformers/</a>
+</p>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org6ffc4ed">
+<h2 id="org6ffc4ed">Demo</h2>
+<p>
+<a href="https://github.com/CompVis/taming-transformers">https://github.com/CompVis/taming-transformers</a>
+</p>
+</section>
+</section>
+</div>
+</div>
+<p> Created by phdenzel. </p>
+<script src="./assets/js/reveal.js"></script>
+<script src="./assets/js/markdown/markdown.js"></script>
+<script src="./assets/js/math/math.js"></script>
+<script src="./assets/js/zoom/zoom.js"></script>
+
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+plugins: [RevealMarkdown, RevealMath, RevealZoom],
+width: 1920, height: 1080, center: true,
+progress: true, history: false, slideNumber: false,
+controls: true, keyboard: true, previewLinks: true,
+mathjax: true,
+transition: 'fade',
+navigationMode: 'default'
+});
+
+</script>
+</body>
+</html>
