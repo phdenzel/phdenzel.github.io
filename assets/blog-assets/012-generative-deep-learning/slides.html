@@ -32,14 +32,14 @@ Title slide
 
 
 <section>
-<section id="slide-orga26b928">
-<h2 id="orga26b928">Slides on my website</h2>
+<section id="slide-org430b5ee">
+<h2 id="org430b5ee">Slides on my website</h2>
 <p>
 <a href="https://phdenzel.github.io/#lab">https://phdenzel.github.io/</a>
 </p>
 
 
-<div id="orgfbac91d" class="figure">
+<div id="org98ec423" class="figure">
 <p><img src="./assets/images/talk_qr.png" alt="talk_qr.png" height="300px" style="float: center;" />
 </p>
 </div>
@@ -55,10 +55,10 @@ Link/QR code to the slides for later or to follow along
 </section>
 </section>
 <section>
-<section id="slide-org924fd1b">
-<h2 id="org924fd1b">My previous work</h2>
+<section id="slide-org28f9968">
+<h2 id="org28f9968">My previous work</h2>
 
-<div id="orge222eac" class="figure">
+<div id="orga679b97" class="figure">
 <p><img src="./assets/images/talk_qr.png" alt="talk_qr.png" height="200px" align="center" style="float: right; padding-right: 100px;" />
 </p>
 </div>
@@ -110,15 +110,15 @@ Introduce yourself
 </section>
 </section>
 <section>
-<section id="slide-org0d1cefa">
-<h2 id="org0d1cefa">Generative deep learning</h2>
-<div class="outline-text-2" id="text-org0d1cefa">
+<section id="slide-orgbce7eef">
+<h2 id="orgbce7eef">Generative deep learning</h2>
+<div class="outline-text-2" id="text-orgbce7eef">
 </div>
 </section>
 </section>
 <section>
-<section id="slide-org44178bf">
-<h3 id="org44178bf">Motivation</h3>
+<section id="slide-orgd19cdb3">
+<h3 id="orgd19cdb3">Motivation</h3>
 <ul>
 <li class="fragment appear">goal of AI: automate <b>intelligent behaviour</b> on silicon-based machines</li>
 <li class="fragment appear">in contrast to <b>discriminative deep learning</b>:
@@ -149,8 +149,8 @@ Explain motivation
 </section>
 </section>
 <section>
-<section id="slide-org7f5956d">
-<h3 id="org7f5956d">Approaches and objectives</h3>
+<section id="slide-org61fcf35">
+<h3 id="org61fcf35">Approaches and objectives</h3>
 <ul>
 <li class="fragment appear">VAEs: \(\quad \log{p(x)} \ge \mathbb{E}_{z\sim q_{\theta}(z\vert x)}[\log{p_\theta(x\vert z)}] - D_{KL}\left(q_\theta(z\vert x) \vert\vert p(z)\right)\)
 <ul>
@@ -187,10 +187,10 @@ Explain motivation
 </section>
 </section>
 <section>
-<section id="slide-org5cb6a24">
-<h3 id="org5cb6a24">Diffusion models</h3>
+<section id="slide-org6b39fe3">
+<h3 id="org6b39fe3">Diffusion models</h3>
 <p>
-LDMs by <a href="https://arxiv.org/abs/2112.10752">Rombach &amp; Blattmann et al. (2022)</a> or OpenAI's <a href="https://arxiv.org/abs/2204.06125">DALLE-2</a>:
+LDMs by <a href="https://arxiv.org/abs/2112.10752">Rombach &amp; Blattmann et al. (2022)</a>, Google's <a href="https://doi.org/10.48550/arXiv.2205.11487">Imagen</a> or OpenAI's <a href="https://arxiv.org/abs/2204.06125">DALLE-2</a>:
 </p>
 
 <p height="800px" align="right" style="float: center; padding: 0 50px 25px 50px;">
@@ -209,8 +209,8 @@ LDMs by <a href="https://arxiv.org/abs/2112.10752">Rombach &amp; Blattmann et al
 </section>
 </section>
 <section>
-<section id="slide-orgb4f6ab7">
-<h3 id="orgb4f6ab7">Text to image</h3>
+<section id="slide-org9768387">
+<h3 id="org9768387">Text to image</h3>
 <ul align="left" float="left" style="list-style: none; padding-right: 100px">
 <li><a href="https://arxiv.org/abs/2204.06125">DALLE-2</a> - a new champion in semantic understanding</li>
 <li>generates images up to 1 Megapixel!</li>
@@ -251,10 +251,10 @@ sparkling chemicals, artstation"  <br>
 </section>
 </section>
 <section>
-<section id="slide-org556a706">
-<h2 id="org556a706">Taming Transformers</h2>
+<section id="slide-org5e207cd">
+<h2 id="org5e207cd">Taming Transformers</h2>
 
-<div id="org7675faf" class="figure">
+<div id="org8f3c7ff" class="figure">
 <p><img src="./assets/images/paper_thumb.png" alt="paper_thumb.png" height="950px padding: 0 50px 0 50px;" />
 </p>
 </div>
@@ -270,8 +270,8 @@ sparkling chemicals, artstation"  <br>
 </section>
 </section>
 <section>
-<section id="slide-org2ec7fdf">
-<h3 id="org2ec7fdf">Transformers - Attention mechanism</h3>
+<section id="slide-org3a74b0c">
+<h3 id="org3a74b0c">Transformers - Attention mechanism</h3>
 <p>
 \[ \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^{T}}{\sqrt{d_k}}\right) V \]
 </p>
@@ -302,8 +302,8 @@ sparkling chemicals, artstation"  <br>
 </section>
 </section>
 <section>
-<section id="slide-orgaa63767">
-<h3 id="orgaa63767">Transformers - Architecture</h3>
+<section id="slide-orgfefa8ec">
+<h3 id="orgfefa8ec">Transformers - Architecture</h3>
 <p height="700px" style="float: center; padding: 50px 50px 50px 50px;">
 <img src="assets/images/transformers_scheme2.png" alt="transformers_scheme2.png" height="700px" style="float: center; padding: 50px 50px 50px 50px;" />
  <br>  Multi-headed attention (<a href="https://doi.org/10.48550/arXiv.1706.03762">Vaswani et al. 2017</a>)
@@ -320,8 +320,8 @@ sparkling chemicals, artstation"  <br>
 </section>
 </section>
 <section>
-<section id="slide-org5519f2f">
-<h3 id="org5519f2f">Combine approaches</h3>
+<section id="slide-orgd94ff9d">
+<h3 id="orgd94ff9d">Combine approaches</h3>
 <ul>
 <li>VQVAEs + GANs + autoregressive model = VQGAN
 <ul>
@@ -345,10 +345,10 @@ sparkling chemicals, artstation"  <br>
 </section>
 </section>
 <section>
-<section id="slide-org0ebe341">
-<h3 id="org0ebe341">VQGAN</h3>
+<section id="slide-org1843494">
+<h3 id="org1843494">VQGAN</h3>
 
-<div id="org01eca2c" class="figure">
+<div id="orgdc270da" class="figure">
 <p><img src="assets/images/vqgan_arch.png" alt="vqgan_arch.png" height="600px" style="float: center; padding: 50px 50px 50px 50px;" />
 </p>
 </div>
@@ -373,10 +373,10 @@ sparkling chemicals, artstation"  <br>
 </section>
 </section>
 <section>
-<section id="slide-org70506ab">
-<h3 id="org70506ab">First-stage reconstructions</h3>
+<section id="slide-org502e063">
+<h3 id="org502e063">First-stage reconstructions</h3>
 
-<div id="orgca3f34e" class="figure">
+<div id="orgab20b41" class="figure">
 <p><img src="./assets/images/vqgan_first_stage_squirrels_x4.png" alt="vqgan_first_stage_squirrels_x4.png" width="1600px" align="left" style="float: left; padding: 0 20px 0 120px;" />
 </p>
 </div>
@@ -396,10 +396,10 @@ sparkling chemicals, artstation"  <br>
 </section>
 </section>
 <section>
-<section id="slide-orgb6d6de2">
-<h3 id="orgb6d6de2">First-stage reconstructions</h3>
+<section id="slide-orgd6e952c">
+<h3 id="orgd6e952c">First-stage reconstructions</h3>
 
-<div id="org3d38be2" class="figure">
+<div id="orgaf9f261" class="figure">
 <p><img src="./assets/images/vqgan_first_stage_squirrels_annx4.png" alt="vqgan_first_stage_squirrels_annx4.png" width="1600px" align="left" style="float: left; padding: 0 20px 0 120px;" />
 </p>
 </div>
@@ -419,8 +419,8 @@ sparkling chemicals, artstation"  <br>
 </section>
 </section>
 <section>
-<section id="slide-org1a91bb5">
-<h3 id="org1a91bb5">Semantic conditioning (\(f=16\))</h3>
+<section id="slide-org128c32e">
+<h3 id="org128c32e">Semantic conditioning (\(f=16\))</h3>
 <p height="280px" align="left" style="float: left; padding: 0 20px 0 20px;">
 semantic map  <br> 
 <img src="./assets/images/vqgan_semantic_map1.jpg" alt="vqgan_semantic_map1.jpg" height="280px" align="left" style="float: left; padding: 0 20px 0 20px;" />
@@ -439,19 +439,19 @@ another sample  <br>
 
 
 
-<div id="orgb0b4226" class="figure">
+<div id="orgb25b808" class="figure">
 <p><img src="./assets/images/vqgan_semantic_map2.jpg" alt="vqgan_semantic_map2.jpg" height="280px" align="left" style="float: left; padding: 0 20px 0 40px;" />
 </p>
 </div>
 
 
-<div id="org88a1efe" class="figure">
+<div id="org7dd2c29" class="figure">
 <p><img src="./assets/images/vqgan_semantic_gen2a.jpg" alt="vqgan_semantic_gen2a.jpg" height="280px" align="left" style="float: left; padding: 0 20px 0 60px;" />
 </p>
 </div>
 
 
-<div id="org7eee77d" class="figure">
+<div id="orgc334fac" class="figure">
 <p><img src="./assets/images/vqgan_semantic_gen2b.jpg" alt="vqgan_semantic_gen2b.jpg" height="280px" align="left" style="float: left; padding: 0 20px 0 60px;" />
 </p>
 </div>
@@ -471,8 +471,40 @@ another sample  <br>
 </section>
 </section>
 <section>
-<section id="slide-org6ec7432">
-<h3 id="org6ec7432">High-resolution?</h3>
+<section id="slide-orgcabc156">
+<h3 id="orgcabc156">A variety of image synthesis tasks</h3>
+
+<div id="org2f7b667" class="figure">
+<p><img src="./assets/images/vqgan_tasks.jpg" alt="vqgan_tasks.jpg" height="820px" align="center" style="float: center; padding: 0 20px 0 60px;" />
+</p>
+</div>
+
+<p style="float: right; padding: 0 50px 0 50px;">
+ <br>  <a href="https://doi.org/10.48550/arXiv.2012.09841" style="float: right; padding: 0 50px 0 50px;">Esser &amp; Rombach et al. (2020)</a>
+</p>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgc0d3113">
+<h3 id="orgc0d3113">A variety of image synthesis tasks</h3>
+
+<div id="org7ceb28a" class="figure">
+<p><img src="./assets/images/vqgan_tasks2.jpg" alt="vqgan_tasks2.jpg" height="820px" align="center" style="float: center; padding: 0 20px 0 60px;" />
+</p>
+</div>
+
+<p style="float: right; padding: 0 50px 0 50px;">
+ <br>  <a href="https://doi.org/10.48550/arXiv.2012.09841" style="float: right; padding: 0 50px 0 50px;">Esser &amp; Rombach et al. (2020)</a>
+</p>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org1e6258c">
+<h3 id="org1e6258c">High-resolution?</h3>
 <ul>
 <li>long sequences computationally expensive since \(\mathcal{O}(N^2)\)</li>
 <li>possible using attention sliding window</li>
@@ -480,7 +512,7 @@ another sample  <br>
 </ul>
 
 
-<div id="orgb515a81" class="figure">
+<div id="org325845e" class="figure">
 <p><img src="./assets/images/vqgan_attention_slide.png" alt="vqgan_attention_slide.png" height="280px" align="left" style="float: left; padding: 0 20px 0 60px;" />
 </p>
 </div>
@@ -498,10 +530,10 @@ another sample  <br>
 
 
 </section>
-<section id="slide-org956f553">
-<h4 id="org956f553">High-resolution</h4>
+<section id="slide-org4cff81c">
+<h4 id="org4cff81c">High-resolution</h4>
 
-<div id="orgd449079" class="figure">
+<div id="org4deb5b4" class="figure">
 <p><img src="./assets/images/vqgan_HR1.jpg" alt="vqgan_HR1.jpg" height="600px" style="z-index: -3; position: relative; top: 0; left: -100px;" />
 </p>
 </div>
@@ -519,15 +551,15 @@ another sample  <br>
 
 
 </section>
-<section id="slide-org1b8567a">
-<h4 id="org1b8567a">High-resolution</h4>
+<section id="slide-orged0d3a9">
+<h4 id="orged0d3a9">High-resolution</h4>
 
-<div id="orgb0b8096" class="figure">
+<div id="orgc9dc1fd" class="figure">
 <p><img src="./assets/images/vqgan_HR1.jpg" alt="vqgan_HR1.jpg" height="600px" style="z-index: -3; position: relative; top: 0; left: -100px;" />
 </p>
 </div>
 
-<div id="orgf8ff9eb" class="figure">
+<div id="orgbfd18ab" class="figure">
 <p><img src="./assets/images/vqgan_HR2.jpg" alt="vqgan_HR2.jpg" height="600px" style="z-index: -2; position: relative; top: -600px; left: 0;" />
 </p>
 </div>
@@ -545,20 +577,20 @@ another sample  <br>
 
 
 </section>
-<section id="slide-org90464b9">
-<h4 id="org90464b9">High-resolution</h4>
+<section id="slide-orgf835280">
+<h4 id="orgf835280">High-resolution</h4>
 
-<div id="orgaa52f06" class="figure">
+<div id="orgcb008af" class="figure">
 <p><img src="./assets/images/vqgan_HR1.jpg" alt="vqgan_HR1.jpg" height="600px" style="z-index: -3; position: relative; top: 0; left: -100px;" />
 </p>
 </div>
 
-<div id="org634aa54" class="figure">
+<div id="org8869dd1" class="figure">
 <p><img src="./assets/images/vqgan_HR2.jpg" alt="vqgan_HR2.jpg" height="600px" style="z-index: -2; position: relative; top: -600px; left: 0;" />
 </p>
 </div>
 
-<div id="org3d54db3" class="figure">
+<div id="orge1f7b3d" class="figure">
 <p><img src="./assets/images/vqgan_HR3.jpg" alt="vqgan_HR3.jpg" height="800px" style="z-index: -1; position: relative; top: -1200px; left: 200px;" />
 </p>
 </div>
@@ -574,11 +606,12 @@ another sample  <br>
 
 </aside>
 
+
 </section>
 </section>
 <section>
-<section id="slide-org53e2eb6" class="upperh" data-background-video="./assets/movies/taming.mp4" data-background-video-loop data-background-video-muted data-background-size="contain";>
-<h2 id="org53e2eb6">Summary: High-resolution image synthesis</h2>
+<section id="slide-org8fd462d" class="upperh" data-background-video="./assets/movies/taming.mp4" data-background-video-loop data-background-video-muted data-background-size="contain";>
+<h2 id="org8fd462d">Summary: High-resolution image synthesis</h2>
 <ul style="background-color: #33446644">
 <li><b>&gt; 1 Megapixel</b> images are possible w/ two-stage approaches</li>
 <li><b>diffusion models</b> show excellent results in semantic understanding</li>
@@ -594,8 +627,8 @@ another sample  <br>
 </section>
 </section>
 <section>
-<section id="slide-org6ffc4ed">
-<h2 id="org6ffc4ed">Demo</h2>
+<section id="slide-orgc9182e0">
+<h2 id="orgc9182e0">Demo</h2>
 <p>
 <a href="https://github.com/CompVis/taming-transformers">https://github.com/CompVis/taming-transformers</a>
 </p>
