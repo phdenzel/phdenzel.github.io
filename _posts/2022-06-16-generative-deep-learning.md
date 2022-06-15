@@ -4,7 +4,7 @@ body: blog
 type: post
 tab_title: 012 | Blog | Dreamworld
 title: "Recent Developments in High-Resolution Image Synthesis"
-date: 2022-06-15 01:00:00 GMT+1
+date: 2022-06-16 00:00:00 GMT+1
 thumbnail: /assets/blog-assets/012-generative-deep-learning/images/thumb.jpg
 number: 012
 ---
