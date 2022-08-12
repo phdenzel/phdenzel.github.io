@@ -55,8 +55,7 @@ function handleMouseDown(e) {
     } else {
         grabbed = null;
     }
-    // console.log(e);
-    console.log(z, grabbed);
+    // console.log(z, grabbed);
 }
 
 function handleMouseUp(e) {

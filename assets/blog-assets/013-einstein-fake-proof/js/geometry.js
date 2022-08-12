@@ -232,7 +232,7 @@ class Triangle {
      * @param {Complex|number[2]|string} c - third edge of the triangle
      * @returns {nil}
      */
-    constructor(a=null, b=null, c=null) {
+    constructor(a=null, b=null, c=null, tol=1e-3) {
         if (a && b && c) {
             this.a = GeometryEngine.complexify(a);
             this.b = GeometryEngine.complexify(b);
@@ -241,6 +241,7 @@ class Triangle {
             console.assert(!(this.b.equals(this.c)), 'Edges are equal at %s!', this.b);
             console.assert(!(this.c.equals(this.a)), 'Edges are equal at %s!', this.c);
         }
+        this.isoscelesTolerance = tol;
     }
 
     /**
@@ -283,6 +284,21 @@ class Triangle {
             0: cH, "c": cH,
             1: aH, "a": aH,
             2: bH, "b": bH
+        };
+    }
+
+    get isIsosceles() {
+        var [isAtB, isAtA, isAtC] = [false, false, false];
+        let AB = (this.a.sub(this.b)).abs();
+        let AC = (this.a.sub(this.c)).abs();
+        let BC = (this.b.sub(this.c)).abs();
+        isAtA = ((AB - AC)**2 < this.isoscelesTolerance);
+        isAtB = ((AB - BC)**2 < this.isoscelesTolerance);
+        isAtC = ((AC - BC)**2 < this.isoscelesTolerance);
+        return {
+            0: isAtA, "a": isAtA,
+            1: isAtB, "b": isAtB,
+            2: isAtC, "c": isAtC,
         };
     }
 

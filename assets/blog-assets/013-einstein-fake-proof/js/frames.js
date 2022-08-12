@@ -149,7 +149,11 @@ function frame9(canvas) {
     let [mc, hc, ac, pc, nc] = [cc['mc'], cc['hc'], cc['ac'], cc['+c'], cc['-c']];
     let [dp0, dp1, dp2] = [cc['dp0'], cc['dp1'], cc['dp2']];
     GeometryEngine.drawLine(canvas, pFake.p, pFake.d, scale, lw, ac, dp1, inv);
-    GeometryEngine.drawLine(canvas, pFake.a, pFake.p, scale, lw, nc, dp1, inv);
+    if (pFake.triangle.isIsosceles["a"]) {
+        GeometryEngine.drawLine(canvas, pFake.a, pFake.p, scale, lw, ac, dp1, inv);
+    } else {
+        GeometryEngine.drawLine(canvas, pFake.a, pFake.p, scale, lw, nc, dp1, inv);
+    }
     GeometryEngine.drawLine(canvas, pFake.e, pFake.p, scale, lw, ac, dp1, inv);
     GeometryEngine.drawLine(canvas, pFake.f, pFake.p, scale, lw, ac, dp1, inv);
     GeometryEngine.drawLine(canvas, pFake.p, pFake.b, scale, lw, hc, dp2, inv);
@@ -166,7 +170,11 @@ function frame10(canvas) {
     let [mc, hc, ac, pc, nc] = [cc['mc'], cc['hc'], cc['ac'], cc['+c'], cc['-c']];
     let [dp0, dp1, dp2] = [cc['dp0'], cc['dp1'], cc['dp2']];
     GeometryEngine.drawLine(canvas, pFake.p, pFake.d, scale, lw, ac, dp1, inv);
-    GeometryEngine.drawLine(canvas, pFake.a, pFake.p, scale, lw, nc, dp1, inv);
+    if (pFake.triangle.isIsosceles["a"]) {
+        GeometryEngine.drawLine(canvas, pFake.a, pFake.p, scale, lw, ac, dp1, inv);
+    } else {
+        GeometryEngine.drawLine(canvas, pFake.a, pFake.p, scale, lw, nc, dp1, inv);
+    }
     GeometryEngine.drawLine(canvas, pFake.e, pFake.p, scale, lw, ac, dp1, inv);
     GeometryEngine.drawLine(canvas, pFake.f, pFake.p, scale, lw, ac, dp1, inv);
     GeometryEngine.drawLine(canvas, pFake.p, pFake.b, scale, lw, hc, dp2, inv);
@@ -184,8 +192,13 @@ function frame11(canvas) {
     let [scale, lw, ps, inv] = [cc['s'], cc['lw'], cc['ps'], cc['inv']];
     let [mc, hc, ac, pc, nc] = [cc['mc'], cc['hc'], cc['ac'], cc['+c'], cc['-c']];
     let [dp0, dp1, dp2] = [cc['dp0'], cc['dp1'], cc['dp2']];
+    let isIso = pFake.triangle.isIsosceles["a"];
     GeometryEngine.drawLine(canvas, pFake.p, pFake.d, scale, lw, ac, dp1, inv);
-    GeometryEngine.drawLine(canvas, pFake.a, pFake.p, scale, lw, nc, dp1, inv);
+    if (isIso) {
+        GeometryEngine.drawLine(canvas, pFake.a, pFake.p, scale, lw, ac, dp1, inv);
+    } else {
+        GeometryEngine.drawLine(canvas, pFake.a, pFake.p, scale, lw, nc, dp1, inv);
+    }
     GeometryEngine.drawLine(canvas, pFake.e, pFake.p, scale, lw, ac, dp1, inv);
     GeometryEngine.drawLine(canvas, pFake.f, pFake.p, scale, lw, ac, dp1, inv);
     GeometryEngine.drawLine(canvas, pFake.p, pFake.b, scale, lw, hc, dp2, inv);
@@ -194,8 +207,13 @@ function frame11(canvas) {
     GeometryEngine.drawLine(canvas, pFake.e, pFake.c, scale, lw, hc, dp2, inv);
     GeometryEngine.drawPoint(canvas, pFake.p, scale, ps, ac, inv);
     pFake.draw(canvas, scale, lw, mc, dp0, inv, true);
-    pFake.tAFP.draw(canvas, scale, lw, nc, dp0, inv, true);
-    pFake.tAPE.draw(canvas, scale, lw, nc, dp0, inv, true);
+    if (isIso) {
+        pFake.tAFP.draw(canvas, scale, lw, pc, dp0, inv, true);
+        pFake.tAPE.draw(canvas, scale, lw, pc, dp0, inv, true);
+    } else {
+        pFake.tAFP.draw(canvas, scale, lw, nc, dp0, inv, true);
+        pFake.tAPE.draw(canvas, scale, lw, nc, dp0, inv, true);
+    }
 }
 cFS[11] = frame11;
 
@@ -203,8 +221,13 @@ function frame12(canvas) {
     let [scale, lw, ps, inv] = [cc['s'], cc['lw'], cc['ps'], cc['inv']];
     let [mc, hc, ac, pc, nc] = [cc['mc'], cc['hc'], cc['ac'], cc['+c'], cc['-c']];
     let [dp0, dp1, dp2] = [cc['dp0'], cc['dp1'], cc['dp2']];
+    let isIso = pFake.triangle.isIsosceles["a"];
     GeometryEngine.drawLine(canvas, pFake.p, pFake.d, scale, lw, ac, dp1, inv);
-    GeometryEngine.drawLine(canvas, pFake.a, pFake.p, scale, lw, nc, dp1, inv);
+    if (isIso) {
+        GeometryEngine.drawLine(canvas, pFake.a, pFake.p, scale, lw, ac, dp1, inv);
+    } else {
+        GeometryEngine.drawLine(canvas, pFake.a, pFake.p, scale, lw, nc, dp1, inv);
+    }
     GeometryEngine.drawLine(canvas, pFake.e, pFake.p, scale, lw, ac, dp1, inv);
     GeometryEngine.drawLine(canvas, pFake.f, pFake.p, scale, lw, ac, dp1, inv);
     GeometryEngine.drawLine(canvas, pFake.p, pFake.b, scale, lw, hc, dp2, inv);
@@ -213,8 +236,13 @@ function frame12(canvas) {
     GeometryEngine.drawLine(canvas, pFake.e, pFake.c, scale, lw, hc, dp2, inv);
     GeometryEngine.drawPoint(canvas, pFake.p, scale, ps, ac, inv);
     pFake.draw(canvas, scale, lw, mc, dp0, inv, true);
-    pFake.tBFP.draw(canvas, scale, lw, nc, dp0, inv, true);
-    pFake.tCEP.draw(canvas, scale, lw, nc, dp0, inv, true);
+    if (isIso) {
+        pFake.tBFP.draw(canvas, scale, lw, pc, dp0, inv, true);
+        pFake.tCEP.draw(canvas, scale, lw, pc, dp0, inv, true);
+    } else {
+        pFake.tBFP.draw(canvas, scale, lw, nc, dp0, inv, true);
+        pFake.tCEP.draw(canvas, scale, lw, nc, dp0, inv, true);
+    }
 }
 cFS[12] = frame12;
 
@@ -224,7 +252,11 @@ function frame13(canvas) {
     let [scale, lw, ps, inv] = [cc['s'], cc['lw'], cc['ps'], cc['inv']];
     let [mc, hc, ac, pc, nc] = [cc['mc'], cc['hc'], cc['ac'], cc['+c'], cc['-c']];
     let [dp0, dp1, dp2] = [cc['dp0'], cc['dp1'], cc['dp2']];
-    GeometryEngine.drawLine(canvas, pFake2.p, pFake2.d, scale, lw, nc, dp1, inv);
+    if (pFake2.triangle.isIsosceles["a"]) {
+        GeometryEngine.drawLine(canvas, pFake2.p, pFake2.d, scale, lw, ac, dp1, inv);
+    } else {
+        GeometryEngine.drawLine(canvas, pFake2.p, pFake2.d, scale, lw, nc, dp1, inv);
+    }
     GeometryEngine.drawLine(canvas, pFake2.a, pFake2.p, scale, lw, ac, dp1, inv);
     GeometryEngine.drawLine(canvas, pFake2.e, pFake2.p, scale, lw, ac, dp1, inv);
     GeometryEngine.drawLine(canvas, pFake2.f, pFake2.p, scale, lw, ac, dp1, inv);
@@ -241,7 +273,11 @@ function frame14(canvas) {
     let [scale, lw, ps, inv] = [cc['s'], cc['lw'], cc['ps'], cc['inv']];
     let [mc, hc, ac, pc, nc] = [cc['mc'], cc['hc'], cc['ac'], cc['+c'], cc['-c']];
     let [dp0, dp1, dp2] = [cc['dp0'], cc['dp1'], cc['dp2']];
-    GeometryEngine.drawLine(canvas, pFake2.p, pFake2.d, scale, lw, nc, dp1, inv);
+    if (pFake2.triangle.isIsosceles["a"]) {
+        GeometryEngine.drawLine(canvas, pFake2.p, pFake2.d, scale, lw, ac, dp1, inv);
+    } else {
+        GeometryEngine.drawLine(canvas, pFake2.p, pFake2.d, scale, lw, nc, dp1, inv);
+    }
     GeometryEngine.drawLine(canvas, pFake2.a, pFake2.p, scale, lw, ac, dp1, inv);
     GeometryEngine.drawLine(canvas, pFake2.e, pFake2.p, scale, lw, ac, dp1, inv);
     GeometryEngine.drawLine(canvas, pFake2.f, pFake2.p, scale, lw, ac, dp1, inv);
@@ -260,6 +296,12 @@ function frame15(canvas) {
     let [scale, lw, ps, inv] = [cc['s'], cc['lw'], cc['ps'], cc['inv']];
     let [mc, hc, ac, pc, nc] = [cc['mc'], cc['hc'], cc['ac'], cc['+c'], cc['-c']];
     let [dp0, dp1, dp2] = [cc['dp0'], cc['dp1'], cc['dp2']];
+    let isIso = pFake2.triangle.isIsosceles["a"];
+    if (isIso) {
+        GeometryEngine.drawLine(canvas, pFake2.p, pFake2.d, scale, lw, ac, dp1, inv);
+    } else {
+        GeometryEngine.drawLine(canvas, pFake2.p, pFake2.d, scale, lw, nc, dp1, inv);
+    }
     GeometryEngine.drawLine(canvas, pFake2.p, pFake2.d, scale, lw, nc, dp1, inv);
     GeometryEngine.drawLine(canvas, pFake2.a, pFake2.p, scale, lw, ac, dp1, inv);
     GeometryEngine.drawLine(canvas, pFake2.e, pFake2.p, scale, lw, ac, dp1, inv);
@@ -270,8 +312,13 @@ function frame15(canvas) {
     GeometryEngine.drawLine(canvas, pFake2.e, pFake2.c, scale, lw, hc, dp2, inv);
     GeometryEngine.drawPoint(canvas, pFake2.p, scale, ps, ac, inv);
     pFake2.draw(canvas, scale, lw, mc, dp0, inv, true);
-    pFake2.tBPD.draw(canvas, scale, lw, nc, dp0, inv, true);
-    pFake2.tCDP.draw(canvas, scale, lw, nc, dp0, inv, true);
+    if (isIso) {
+        pFake2.tBPD.draw(canvas, scale, lw, pc, dp0, inv, true);
+        pFake2.tCDP.draw(canvas, scale, lw, pc, dp0, inv, true);
+    } else {
+        pFake2.tBPD.draw(canvas, scale, lw, nc, dp0, inv, true);
+        pFake2.tCDP.draw(canvas, scale, lw, nc, dp0, inv, true);
+    }
 }
 cFS[15] = frame15;
 
@@ -279,7 +326,12 @@ function frame16(canvas) {
     let [scale, lw, ps, inv] = [cc['s'], cc['lw'], cc['ps'], cc['inv']];
     let [mc, hc, ac, pc, nc] = [cc['mc'], cc['hc'], cc['ac'], cc['+c'], cc['-c']];
     let [dp0, dp1, dp2] = [cc['dp0'], cc['dp1'], cc['dp2']];
-    GeometryEngine.drawLine(canvas, pFake2.p, pFake2.d, scale, lw, nc, dp1, inv);
+    let isIso = pFake2.triangle.isIsosceles["a"];
+    if (isIso) {
+        GeometryEngine.drawLine(canvas, pFake2.p, pFake2.d, scale, lw, ac, dp1, inv);
+    } else {
+        GeometryEngine.drawLine(canvas, pFake2.p, pFake2.d, scale, lw, nc, dp1, inv);
+    }
     GeometryEngine.drawLine(canvas, pFake2.a, pFake2.p, scale, lw, ac, dp1, inv);
     GeometryEngine.drawLine(canvas, pFake2.e, pFake2.p, scale, lw, ac, dp1, inv);
     GeometryEngine.drawLine(canvas, pFake2.f, pFake2.p, scale, lw, ac, dp1, inv);
@@ -289,8 +341,13 @@ function frame16(canvas) {
     GeometryEngine.drawLine(canvas, pFake2.e, pFake2.c, scale, lw, hc, dp2, inv);
     GeometryEngine.drawPoint(canvas, pFake2.p, scale, ps, ac, inv);
     pFake2.draw(canvas, scale, lw, mc, dp0, inv, true);
-    pFake2.tBFP.draw(canvas, scale, lw, nc, dp0, inv, true);
-    pFake2.tCEP.draw(canvas, scale, lw, nc, dp0, inv, true);
+    if (isIso) {
+        pFake2.tBFP.draw(canvas, scale, lw, pc, dp0, inv, true);
+        pFake2.tCEP.draw(canvas, scale, lw, pc, dp0, inv, true);
+    } else {
+        pFake2.tBFP.draw(canvas, scale, lw, nc, dp0, inv, true);
+        pFake2.tCEP.draw(canvas, scale, lw, nc, dp0, inv, true);
+    }
 }
 cFS[16] = frame16;
 

@@ -337,7 +337,6 @@ number: 013
   Hidden main canvas
 </canvas>
 
-<script type="text/javascript" src="/assets/blog-assets/013-einstein-fake-proof/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/assets/blog-assets/013-einstein-fake-proof/js/math.js"></script>
 <script type="text/javascript" src="/assets/blog-assets/013-einstein-fake-proof/js/geometry.js"></script>
 <script type="text/javascript" src="/assets/blog-assets/013-einstein-fake-proof/js/frames.js"></script>
