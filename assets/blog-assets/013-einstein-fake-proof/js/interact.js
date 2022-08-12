@@ -27,7 +27,7 @@ function getMouseZ(x, y, origin=[0, 0]) {
     return z;
 }
 
-function handleMouseDown(e) {
+function handleDown(e) {
     // handle this event myself
     e.preventDefault();
     e.stopPropagation();
@@ -55,19 +55,19 @@ function handleMouseDown(e) {
     } else {
         grabbed = null;
     }
-    // console.log(z, grabbed);
+    // console.log("start:", z, grabbed);
 }
 
-function handleMouseUp(e) {
+function handleUp(e) {
     // handle this event myself
     e.preventDefault();
     e.stopPropagation();
     // stop the drag
     isDown = false;
-    // console.log(e);
+    // console.log("stop:", e);
 }
 
-function handleMouseMove(e) {
+function handleMove(e) {
     // only do anything if mouse button is pressed
     if (!(isDown)) {
         return;
@@ -116,28 +116,29 @@ function updateAllCanvas() {
 // bind event listeners
 for (let i=0; i <= nFrames; i++) {
     let dstStr = `#dst${i}`;
-    if (i === 0) { dstStr = '#dst'; }
-    let dstobj = document.getElementById(dstStr.substring(1));
     $(dstStr).mousedown(function(e) {
-        handleMouseDown(e);
+        handleDown(e);
     });
     $(dstStr).mousemove(function (e) {
-        handleMouseMove(e);
+        handleMove(e);
     });
     $(dstStr).mouseup(function (e) {
-        handleMouseUp(e);
+        handleUp(e);
     });
     $(dstStr).mouseout(function (e) {
-        handleMouseUp(e);
+        handleUp(e);
     });
-    dstobj.addEventListener('touchstart', function(e) {
-        handleMouseDown(e);
+    $(dstStr).bind('touchstart', function(e) {
+        handleDown(e);
     });
-    dstobj.addEventListener('touchmove', function(e) {
-        handleMouseMove(e);
+    $(dstStr).bind('touchmove', function(e) {
+        handleMove(e);
     });
-    dstobj.addEventListener('touchstart', function(e) {
-        handleMouseUp(e);
+    $(dstStr).bind('touchend', function(e) {
+        handleUp(e);
+    });
+    $(dstStr).bind('touchcancel', function(e) {
+        handleUp(e);
     });
 }
 
