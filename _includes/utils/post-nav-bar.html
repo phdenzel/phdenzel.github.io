@@ -8,12 +8,12 @@
 		</a>
 
 		<ul class="next-prev-btn">
-			{% if page.next %}
-			  <li class="next-post-link"><a href="{{ page.next.url }}" rel="next"></a></li>
+			{% if page.next.url %}
+			  <li class="next-post-link"><a href="{{ page.next.url }}" rel="next">Next: {{page.next.title}}</a></li>
 			{% endif %}
 
-			{% if page.previous %}
-  			<li class="prev-post-link"><a href="{{ page.previous.url }}" rel="prev"></a></li>
+			{% if page.previous.url %}
+  			<li class="prev-post-link"><a href="{{ page.previous.url }}" rel="prev">Previous: {{page.previous.title}}</a></li>
 		  {% endif %}
 		</ul>
 

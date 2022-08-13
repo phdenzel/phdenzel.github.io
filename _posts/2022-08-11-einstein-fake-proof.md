@@ -8,332 +8,316 @@ date: 2022-08-11 23:59:59 GMT+1
 thumbnail: /assets/blog-assets/013-einstein-fake-proof/images/thumb.png
 number: 013
 ---
+<small>
+  by Philipp Denzel and Prasenjit Saha
+</small>
 
-<!-- <h1>Albert and Grant, a Tale of Triangles</h1> -->
-<div style="font-size: 10pt">
-  by authors: Prasenjit Saha, Philipp Denzel
-</div>
+<section>
 
-<!-- Introduction -->
-<div class="intro">
-  <p>
-    In one of Einstein's notebooks from 2012, there is a curious
-    figure with an even more curious caption.
-  </p>
+  <!-- <h2>Albert and Grant, a Tale of Triangles</h2> -->
 
-  <img src='/assets/blog-assets/013-einstein-fake-proof/images/ae1912_sketch.png' width='520' class='center'>
+  <!-- Introduction -->
+  <div class="intro">
+    <p>
+      In one of Einstein's notebooks from 1912, there is a curious
+      figure with an even more curious caption.
+    </p>
 
-  <p>
-    The caption (in German) reads
-    <i> Alle Dreiecke sind gleichschenklig </i>
-    meaning
-    <i>All triangles are isosceles.</i>
-  </p>
+    <img src='/assets/blog-assets/013-einstein-fake-proof/images/ae1912_sketch.png' width='520' class='center'>
 
+    <p>
+      The caption (in German) reads
+      <i> Alle Dreiecke sind gleichschenklig </i>
+      meaning
+      <i>All triangles are isosceles.</i>
+    </p>
 
-  <p>
-    After watching 3blue1brown on
-    <a href='https://www.youtube.com/watch?v=VYQVlVoWoPY' target='_blank'>
-      How to lie using visual proofs.
-    </a>
-    There's no doubt, Albert and Grant are talking about the same
-    fake proof!
-  </p>
+    <p>
+	    If you happen to have Grant Sanderson's video
+      <a href='https://www.youtube.com/watch?v=VYQVlVoWoPY' target='_blank'>
+        How to lie using visual proofs
+      </a> fresh in your mind, the meaning of the sketch leaps out
+      at you immediately.  There's no doubt, Albert and Grant are
+      talking about the same fake proof!
+    </p>
 
-  <p>
-    What was Einstein thinking?  Was he solving a little brainteaser
-    from a newspaper while waiting for a train?  Was he preparing a
-    lecture on how to lie with visual proofs?  Maybe there is a clue
-    somewhere else in his notebooks.  Or maybe we'll just never
-    know.
-  </p>
+    <p>
+      Here we'll explain, with the help of interactive graphics, the
+      mathematical sleight-of-hand hiding in Einstein's sketch.
+      <i>Spoiler alert:</i>&nbsp; it will give away a punch line
+      from the video.
+    </p>
+  </div>
 
-  <!--more-->
+</section>
+<section>
 
-  <p>
-    Here we'll show how Einstein's sketch would look like without
-    the mathematical sleight-of-hand in it, and explain how it leads
-    to a conclusion which isn't as exciting all triangles being
-    isosceles, but nonetheless somewhat interesting.  Then we'll
-    explain how the sleight-of-hand works.  All sketches are
-    generated using javascript and are interactive. Try moving the
-    edges of the triangle.
-  </p>
-</div>
+  <table>
+    <tr>
+      <td colspan='2'>
+	      <h3>Start with a triangle</h3>
+	    </td>
+    </tr>
+    <tr>
+      <td colspan='2'>
+	      <p>
+	        Here's a triangle.  You can change it by dragging any of
+	        the vertices.  Try it now!  (If you drag a vertex outside
+	        the panel and can't get it back, just refresh the page.)
+	      </p>
+	      <p>
+	        If you have JavaScript disabled, you should see some
+	        static figures below.  Our explanations will still work
+	        with those.
+	      </p>
+	    </td>
+    </tr>
+    <!-- Frame 1 -->
+    <tr>
+      <td>
+        <canvas id="dst1" width="1920" height="1080">
+          <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig1.png' width=400>
+        </canvas>
+      </td>
+    </tr>
+    
+    <tr>
+      <td colspan='2'>
+	      <h3>Two lines and their intersection point</h3>
+	      <p>
+	        Now we draw two lines.  One is the <i>angle bisector</i>
+	        at one of the vertices (doesn't matter which one).  The
+	        other is the <i>perpendicular bisector</i> of the side
+	        opposite said vertex.
+	      </p>
+	      <p>
+	        As you can verify by altering the triangle, two lines
+	        coincide if the two sides (not the bisected one) have equal
+	        length.  Otherwise they will intersect at some point
+	        (say <i>P</i>).  As we can also verify, <i>P</i> will lie
+	        outside the triangle.  Verification is not mathematical
+	        proof, of course.  But proof will follow.
+	      </p>
+	    </td>
+    </tr>
+    <!-- Frame 2 -->
+    <tr>
+      <td>
+        <canvas id="dst2" width="1920" height="1080">
+          <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig2.png' width=400>
+        </canvas>
+      </td>
+      <td>
+        <canvas id="dst3" width="1920" height="1080">
+          <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig3.png' width=400>
+        </canvas>
+      </td>
+    </tr>
 
-<h2>The correct construction</h2>
-
-<table>
-  <!-- Frame 1 -->
-  <tr>
+    <!-- Frame 4 -->
+    <tr>
+    <tr>
+      <td colspan='2'>
+	      <h3> A few more lines </h3>
+	      <p>
+	        From the intersection point <i>P</i> we now drop
+	        perpendiculars to the remaining sides of the triangle.  If
+	        a side is too short to reach the relevant perpendicular,
+	        we just extend the side as needed.
+	      </p>
+	      <p>
+	        Then we join the point <i>P</i> to the remaining two
+	        vertices of the original triangle.  Our construction is
+	        now complete.
+	      </p>
+	    </td>
+    </tr>
     <td>
-      <canvas id="dst1" width="1920px" height="1080px">
-        <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig1.png' width=400>
-      </canvas>
-    </td>
-    <td>
-      <p>
-        Take a triangle that isn't isosceles, like this one.
-      </p>
-    </td>
-  </tr>
-
-  <!-- Frame 2 -->
-  <tr>
-    <td>
-      <canvas id="dst2" width="1920px" height="1080px">
-        <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig2.png' width=400>
-      </canvas>
-    </td>
-    <td>
-      <p>
-        Take any one of the vertices, and draw a line (the light dashed
-        line) bisecting its angle.
-      </p>
-    </td>
-  </tr>
-
-  <!-- Frame 3 -->
-  <tr>
-    <td>
-      <canvas id="dst3" width="1920px" height="1080px">
-        <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig3.png' width=400>
-      </canvas>
-    </td>
-    <td>
-      <p>
-        Draw the perpendicular bisector of the opposite side (the
-        other dashed line).  Mark the point where these two lines
-        intersect. The point is going to outside the triangle.
-      </p>
-      <p>
-        Remark: for an isosceles triangle the perpendicular
-        bisector of the base also bisects the top angle.  There's
-        no intersection point because they're the same line.
-      </p>
-    </td>
-  </tr>
-
-  <!-- Frame 4 -->
-  <tr>
-    <td>
-      <canvas id="dst4" width="1920px" height="1080px">
+      <canvas id="dst4" width="1920" height="1080">
         <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig4.png' width=400>
       </canvas>
     </td>
     <td>
-      <p>
-        Draw perpendiculars from marked point to the other sides.
-        Here we used dashed lines again.  One of the
-        perpendiculars is going to fall inside the triangle and
-        the other outside.  In the latter case we extend the
-        relevant side of the triangle with a dotted line.
-      </p>
-    </td>
-  </tr>
-
-  <!-- Frame 5 -->
-  <tr>
-    <td>
-      <canvas id="dst5" width="1920px" height="1080px">
+      <canvas id="dst5" width="1920" height="1080">
         <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig5.png' width=400>
       </canvas>
     </td>
-    <td>
-      <p>
-        Join the marked point to the other two sides.
-      </p>
-      <p>
-        We now have our full construction.  The dotted lines need
-        only a ruler to draw, the dashed lines need both ruler and
-        compass.  (Of course, we are using a computer, but you see
-        what we mean.)
-      </p>
-    </td>
-  </tr>
-</table>
+    </tr>
+    <tr>
+	    <td colspan='2'>
+	      <p>
+	        A little detail, which you can ignore: we have used two
+	        different line styles for our constructions.  All solid
+	        lines simply join two points that are already known.
+	        For the dotted lines you have to solve for a
+	        point. (Before computer graphics, the former kind needed
+	        just a ruler, the latter kind needed a ruler and a
+	        compass.)</p>
+	    </td>
+    </tr>
+    <tr>
+      <td colspan='2'>
+	      <h3> Some congruent triangle pairs </h3>
+	      <p>
+	        With all the perpendiculars we have drawn, there are
+	        several right-angled triangles in our construction.  All
+	        of them have the intersection point <i>P</i> as one of their
+	        vertices.  Let us consider the triangles in pairs (shown
+	        in turn in green).
+	      </p>
+	      <p>
+	        First, there are the triangles involving our original
+	        angle bisector and the perpendiculars we dropped
+	        from <i>P</i>.  They have the bisector line itself in
+	        common, the bisected half-angles are equal, and each also
+	        has a right angle.  So these two triangles are congruent.
+	        They are also mirror-images of each other, sharing one
+	        side.
+	      </p>
+	      <p>
+	        Then, there are the two triangles involving the
+	        perpendicular bisector we drew.  They have the bisector
+	        itself as a common side, and the bisected sides are equal,
+	        and both are right-angled triangles.  So again these two
+	        triangles are mirror-image congruent triangles.
+	      </p>
+	    </td>
+    </tr>
+    <!-- Frame 6 -->
+    <tr>
+      <td>
+        <canvas id="dst6" width="1920" height="1080">
+          <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig6.png' width=400>
+        </canvas>
+      </td>
+      <td>
+        <canvas id="dst7" width="1920" height="1080">
+          <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig7.png' width=400>
+        </canvas>
+      </td>
+    </tr>
+    <tr>
+      <td colspan='2'>
+	      <p>
+	        Now consider the intersection and gap formed when we
+	        switch between the above two triangle pairs.  These are
+	        yet two more right-angled triangles, because each includes
+	        one of the perpendiculars we drew.  They also share two
+	        congruent sides with the above two congruent pairs.  Ergo
+	        these two triangles are congruent.  These are not mirror
+	        images, but rotated versions of each other.
+	      </p>
+	      <p>
+	        One of these triangles is partly inside the original
+	        triangle, one is completely outside.  A nice pair of
+	        congruent triangles, but not useful for proving that the
+	        main triangle is isosceles, as their existance is the reason
+	        for the difference in length of the main triangle's
+	        sides. Only if these congruent triangles collapse to a line
+	        will the main triangle be isosceles at these sides.
+	      </p>
+	    </td>
+    </tr>
+    <tr>
+      <td>
+        <canvas id="dst8" width="1920" height="1080">
+          <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig8.png' width=400>
+        </canvas>
+      </td>
+    </tr>
+  </table>
+</section>
 
-<p>
-  Now we are going to find some congruent triangles in our
-  construction.
-</p>
+<section>  
+  <table>
+    <!-- Frame 9 -->
+    <tr>
+	    <td colspan='2'>
+	      <h3>A sleight of hand</h3>
+	      <p>
+	        As we have seen, the intersection point <i>P</i> of the
+	        angle-bisector line and the perpendicular bisector lies
+	        outside the triangle.  You can make <i>P</i> appear to lie
+	        inside the triangle, by drawing a fake angle bisector.
+	        (You could also fake the perpendicular bisector, but
+	        that's easier to spot.)
+	      </p>
+	      <p>
+	        With a genuine perpendicular bisector, the first pair of
+	        congruent triangles is still congruent.
+	      </p>
+	    </td>
+    </tr>
+    <tr>
+      <td>
+        <canvas id="dst9" width="1920" height="1080">
+          <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig9.png'width=400>
+        </canvas>
+      </td>
+      <!-- Frame 10 -->
+      <td>
+        <canvas id="dst10" width="1920" height="1080">
+          <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig10.png' width=400>
+        </canvas>
+      </td>
+    </tr>
+    <tr>
+	    <td colspan='2'>
+	      <p>
+	        The other two pairs of triangles, though they're still
+	        right-angled, are not congruent any more.  (Unless you
+	        make two sides equal.)  The fake angle bisector and the
+	        unequal triangle pairs it gives breaks the argument.
+	      </p>
+	      <p>
+	        Which is just as well, because if the triangle pairs had
+	        been congruent, we'd have proved that all triangles are
+	        isosceles!
+	      </p>
+	    </td>
+    </tr>
+    <tr>
+	    <!-- Frame 11 -->
+      <td>
+        <canvas id="dst11" width="1920" height="1080">
+          <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig11.png' width=400>
+        </canvas>
+      </td>
+      <!-- Frame 12 -->
+      <td>
+        <canvas id="dst12" width="1920" height="1080">
+          <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig12.png' width=400>
+        </canvas>
+      </td>
+    </tr>
+  </table>
+</section>
 
-<table>
-  <!-- Frame 6 -->
-  <tr>
-    <td>
-      <canvas id="dst6" width="1920px" height="1080px">
-        <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig6.png' width=400>
-      </canvas>
-    </td>
-    <td>
-      <p>
-        A pair of congruent triangles.
-      </p>
-    </td>
-  </tr>
-
-  <!-- Frame 7 -->
-  <tr>
-    <td>
-      <canvas id="dst7" width="1920px" height="1080px">
-        <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig7.png' width=400>
-      </canvas>
-    </td>
-    <td>
-      <p>
-        Another pair of congruent triangles.
-      </p>
-    </td>
-  </tr>
-
-  <!-- Frame 8 -->
-  <tr>
-    <td>
-      <canvas id="dst8" width="1920px" height="1080px">
-        <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig8.png' width=400>
-      </canvas>
-    </td>
-    <td>
-      <p>
-        And another.
-      </p>
-    </td>
-  </tr>
-</table>
-
-<h2>The ruse</h2>
-
-<table>
-  <!-- Frame 9 -->
-  <tr>
-    <td>
-      <canvas id="dst9" width="1920px" height="1080px">
-        <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig9.png' width=400>
-      </canvas>
-    </td>
-    <td>
-      <p>
-        A pair of congruent triangles.
-      </p>
-    </td>
-  </tr>
-  <!-- Frame 10 -->
-  <tr>
-    <td>
-      <canvas id="dst10" width="1920px" height="1080px">
-        <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig10.png' width=400>
-      </canvas>
-    </td>
-    <td>
-      <p>
-        This pair is congruent.
-      </p>
-    </td>
-  </tr>
-  <!-- Frame 11 -->
-  <tr>
-    <td>
-      <canvas id="dst11" width="1920px" height="1080px">
-        <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig11.png' width=400>
-      </canvas>
-    </td>
-    <td>
-      <p>
-        This pair isn't congruent.
-      </p>
-    </td>
-  </tr>
-  <!-- Frame 12 -->
-  <tr>
-    <td>
-      <canvas id="dst12" width="1920px" height="1080px">
-        <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig12.png' width=400>
-      </canvas>
-    </td>
-    <td>
-      <p>
-        Nor is this.
-      </p>
-    </td>
-  </tr>
-</table>
-
-<h2>Another version of the ruse</h2>
-
-<table>
-  <!-- Frame 13 -->
-  <tr>
-    <td>
-      <canvas id="dst13" width="1920px" height="1080px">
-        <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig13.png' width=400>
-      </canvas>
-    </td>
-    <td>
-      <p>
-        A pair of congruent triangles.
-      </p>
-    </td>
-  </tr>
-  <!-- Frame 14 -->
-  <tr>
-    <td>
-      <canvas id="dst14" width="1920px" height="1080px">
-        <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig14.png' width=400>
-      </canvas>
-    </td>
-    <td>
-      <p>
-        This pair is congruent.
-      </p>
-    </td>
-  </tr>
-  <!-- Frame 15 -->
-  <tr>
-    <td>
-      <canvas id="dst15" width="1920px" height="1080px">
-        <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig15.png' width=400>
-      </canvas>
-    </td>
-    <td>
-      <p>
-        This pair isn't congruent.
-      </p>
-    </td>
-  </tr>
-  <!-- Frame 16 -->
-  <tr>
-    <td>
-      <canvas id="dst16" width="1920px" height="1080px">
-        <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig16.png' width=400>
-      </canvas>
-    </td>
-    <td>
-      <p>
-        Nor is this.
-      </p>
-    </td>
-  </tr>
-</table>
-
-<h2> Reflections </h2>
-<div class="outro">
-  <p>
+<section>
+  <h2> Reflections </h2>
+  <div class="outro">
+    <p>
+	    Einstein's sketch and caption isn't on some random piece of
+	    paper of doubtful authorship.  It appears next to what is now
+	    a textbook calculation in astrophysics
+      <a href='https://www.science.org/doi/10.1126/science.275.5297.184' target='_blank'>
+        well known to historians of science. </a>
+	  </p>
+	  
     <img src='/assets/blog-assets/013-einstein-fake-proof/images/ae1912.png' width='1280' class='center'>
-    The sketch is part of a two-page section next to a famous
-    calculation on gravitational lensing
-    <a href='https://www.science.org/doi/10.1126/science.275.5297.184' target='_blank'>
-      rediscovered in the 1990s.
-    </a>
-    Lots of people have studied those two pages, but nobody seems to
-    have paid much attention to that little doodle about all
-    triangles being isosceles.  We didn't either, until we happened
-    to stare at Einstein's sketch.
-  </p>
-</div>
 
- 
-<canvas hidden id="dst" width="1920px" height="1080px">
+    <p>
+      What was Einstein thinking?  Was he solving a little brainteaser
+      from a newspaper while waiting for a train?  Was he preparing a
+      lecture on how to lie with visual proofs?  Maybe there is a clue
+      somewhere else in his notebooks.  Or maybe we'll just never
+      know.
+    </p>
+  </div>
+</section>
+
+
+<canvas hidden id="dst" width="1920" height="1080">
   Hidden main canvas
 </canvas>
 

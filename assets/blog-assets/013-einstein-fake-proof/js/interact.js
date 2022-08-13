@@ -107,9 +107,11 @@ function updateAllCanvas() {
     // clear entire canvas namespace
     for (let key in cNS) {
         let cvs = cNS[key];
-        let ctx = cvs.getContext('2d');
-        ctx.clearRect(0, 0, cvs.width, cvs.height);
-        cFS[key](cNS[key]);
+        if (cvs) {
+            let ctx = cvs.getContext('2d');
+            ctx.clearRect(0, 0, cvs.width, cvs.height);
+            cFS[key](cNS[key]);
+        }
     }
 }
 
