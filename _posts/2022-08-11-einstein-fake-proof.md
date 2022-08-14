@@ -14,8 +14,6 @@ number: 013
 
 <section>
 
-  <!-- <h2>Albert and Grant, a Tale of Triangles</h2> -->
-
   <!-- Introduction -->
   <div class="intro">
     <p>
@@ -24,26 +22,29 @@ number: 013
     </p>
 
     <img src='/assets/blog-assets/013-einstein-fake-proof/images/ae1912_sketch.png' width='520' class='center'>
+    <!-- <img src='images/ae1912_sketch.png' width='520' class='center'> -->
 
     <p>
       The caption (in German) reads
-      <i> Alle Dreiecke sind gleichschenklig </i>
-      meaning
+      <i> Alle Dreiecke sind gleichschenklig </i> meaning
       <i>All triangles are isosceles.</i>
     </p>
 
     <p>
-	    If you happen to have Grant Sanderson's video
+	    We guess a few historians of science have stared at the
+	    remark, shaken their heads in disbelief, and moved on.  On
+	    the other hand, if you happen to have Grant Sanderson's
+	    video
       <a href='https://www.youtube.com/watch?v=VYQVlVoWoPY' target='_blank'>
-        How to lie using visual proofs
-      </a> fresh in your mind, the meaning of the sketch leaps out
-      at you immediately.  There's no doubt, Albert and Grant are
-      talking about the same fake proof!
+        How to lie using visual proofs</a> fresh in your mind, the
+      sketch will look suspiciously familiar.  There's no doubt, Albert
+      and Grant are talking about the same fake proof!
     </p>
 
     <p>
-      Here we'll explain, with the help of interactive graphics, the
-      mathematical sleight-of-hand hiding in Einstein's sketch.
+      Here we'll explain, with the help of some interactive
+      graphics, a mathematical sleight-of-hand hiding in
+      Einstein's sketch.
       <i>Spoiler alert:</i>&nbsp; it will give away a punch line
       from the video.
     </p>
@@ -55,11 +56,7 @@ number: 013
   <table>
     <tr>
       <td colspan='2'>
-	      <h3>Start with a triangle</h3>
-	    </td>
-    </tr>
-    <tr>
-      <td colspan='2'>
+        <h3>Start with a triangle</h3>
 	      <p>
 	        Here's a triangle.  You can change it by dragging any of
 	        the vertices.  Try it now!  (If you drag a vertex outside
@@ -77,6 +74,7 @@ number: 013
       <td>
         <canvas id="dst1" width="1920" height="1080">
           <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig1.png' width=400>
+          <!-- <img src='images/fig1.png' width=400> -->
         </canvas>
       </td>
     </tr>
@@ -105,11 +103,13 @@ number: 013
       <td>
         <canvas id="dst2" width="1920" height="1080">
           <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig2.png' width=400>
+          <!-- <img src='images/fig2.png' width=400> -->
         </canvas>
       </td>
       <td>
         <canvas id="dst3" width="1920" height="1080">
           <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig3.png' width=400>
+          <!-- <img src='images/fig3.png' width=400> -->
         </canvas>
       </td>
     </tr>
@@ -135,11 +135,13 @@ number: 013
     <td>
       <canvas id="dst4" width="1920" height="1080">
         <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig4.png' width=400>
+        <!-- <img src='images/fig4.png' width=400> -->
       </canvas>
     </td>
     <td>
       <canvas id="dst5" width="1920" height="1080">
         <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig5.png' width=400>
+        <!-- <img src='images/fig5.png' width=400> -->
       </canvas>
     </td>
     </tr>
@@ -188,11 +190,13 @@ number: 013
       <td>
         <canvas id="dst6" width="1920" height="1080">
           <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig6.png' width=400>
+          <!-- <img src='images/fig6.png' width=400> -->
         </canvas>
       </td>
       <td>
         <canvas id="dst7" width="1920" height="1080">
           <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig7.png' width=400>
+          <!-- <img src='images/fig7.png' width=400> -->
         </canvas>
       </td>
     </tr>
@@ -201,20 +205,12 @@ number: 013
 	      <p>
 	        Now consider the intersection and gap formed when we
 	        switch between the above two triangle pairs.  These are
-	        yet two more right-angled triangles, because each includes
-	        one of the perpendiculars we drew.  They also share two
-	        congruent sides with the above two congruent pairs.  Ergo
-	        these two triangles are congruent.  These are not mirror
-	        images, but rotated versions of each other.
-	      </p>
-	      <p>
-	        One of these triangles is partly inside the original
-	        triangle, one is completely outside.  A nice pair of
-	        congruent triangles, but not useful for proving that the
-	        main triangle is isosceles, as their existance is the reason
-	        for the difference in length of the main triangle's
-	        sides. Only if these congruent triangles collapse to a line
-	        will the main triangle be isosceles at these sides.
+	        yet two more right-angled triangles, because each
+	        includes one of the perpendiculars we drew.  They also
+	        share two congruent sides with the above two congruent
+	        pairs.  Ergo these two triangles are congruent.  These
+	        are not mirror images, but rotated versions of each
+	        other.
 	      </p>
 	    </td>
     </tr>
@@ -222,8 +218,22 @@ number: 013
       <td>
         <canvas id="dst8" width="1920" height="1080">
           <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig8.png' width=400>
+          <!-- <img src='images/fig8.png' width=400> -->
         </canvas>
       </td>
+    </tr>
+    <tr>
+      <td colspan='2'>
+	      <p>
+	        One of these green triangles is partly inside the
+	        original triangle, one is completely outside.  Together
+	        they show the difference between the original triangle
+	        and an isosceles triangle.  You can make make the
+	        original triangle isosceles by transferring some length
+	        from one leg to the other, and the triangles show you
+	        how much.
+	      </p>
+	    </td>
     </tr>
   </table>
 </section>
@@ -251,13 +261,15 @@ number: 013
     <tr>
       <td>
         <canvas id="dst9" width="1920" height="1080">
-          <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig9.png'width=400>
+          <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig9.png' width=400>
+          <!-- <img src='images/fig9.png' width=400> -->
         </canvas>
       </td>
       <!-- Frame 10 -->
       <td>
         <canvas id="dst10" width="1920" height="1080">
           <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig10.png' width=400>
+          <!-- <img src='images/fig10.png' width=400> -->
         </canvas>
       </td>
     </tr>
@@ -266,13 +278,9 @@ number: 013
 	      <p>
 	        The other two pairs of triangles, though they're still
 	        right-angled, are not congruent any more.  (Unless you
-	        make two sides equal.)  The fake angle bisector and the
-	        unequal triangle pairs it gives breaks the argument.
-	      </p>
-	      <p>
-	        Which is just as well, because if the triangle pairs had
-	        been congruent, we'd have proved that all triangles are
-	        isosceles!
+	        make two sides equal.)  The fake angle bisector we used
+	        to put <i>P</i> inside the triangle breaks the
+	        argument.&nbsp;.&nbsp;.&nbsp;
 	      </p>
 	    </td>
     </tr>
@@ -281,41 +289,73 @@ number: 013
       <td>
         <canvas id="dst11" width="1920" height="1080">
           <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig11.png' width=400>
+          <!-- <img src='images/fig11.png' width=400> -->
         </canvas>
       </td>
       <!-- Frame 12 -->
       <td>
         <canvas id="dst12" width="1920" height="1080">
           <img src='/assets/blog-assets/013-einstein-fake-proof/images/fig12.png' width=400>
+          <!-- <img src='images/fig12.png' width=400> -->
         </canvas>
       </td>
+    </tr>
+    <tr>
+	    <td colspan='2'>
+	      <p>
+	        .&nbsp;.&nbsp;.&nbsp; which is just as well, because
+	        otherwise we'd have proved all triangles to be
+	        isosceles!
+	      </p>
+	    </td>
     </tr>
   </table>
 </section>
 
 <section>
-  <h2> Reflections </h2>
+  <h3> In the background </h3>
   <div class="outro">
     <p>
 	    Einstein's sketch and caption isn't on some random piece of
-	    paper of doubtful authorship.  It appears next to what is now
-	    a textbook calculation in astrophysics
+	    paper of doubtful authorship.  It appears next to what is
+	    now a textbook calculation in astrophysics, and the notebook
+	    page is
       <a href='https://www.science.org/doi/10.1126/science.275.5297.184' target='_blank'>
         well known to historians of science. </a>
 	  </p>
 	  
     <img src='/assets/blog-assets/013-einstein-fake-proof/images/ae1912.png' width='1280' class='center'>
+    <!-- <img src='images/ae1912.png' width='800' class='center'> -->
+	  <p> It is about an effect that happens when two random stars
+	    at different distances from us happen to nearly align along
+	    the line of sight. The light from the more distant star gets
+	    focused by the gravitational field of the less distant star,
+	    resulting in a characteristic apparent brightening over a
+	    period of days or weeks, according to the formula Einstein
+	    derives here.  It very rarely happens, and you have to monitor
+	    millions of stars to pick out this effect from all the other
+	    ways the apparent brightness of stars can change.  In
+	    Einstein's lifetime it was only a theoretical curiosity, but
+	    in the 1990s observing gravitational lensing by stars (and
+	    later even exoplanets) became feasible.  Surveys like
+	    <a href='https://en.wikipedia.org/wiki/Optical_Gravitational_Lensing_Experiment'
+	       target='_blank'>OGLE</a> nowadays routinely discover
+	    exoplanets this way.  The gravitational lensing phenomenon
+	    also applies to galaxies, and on that topic there is even
+	    some <a href='https://arxiv.org/abs/2007.14398'
+	            target='_blank'>research by the present authors.</a>
+	  </p>
 
     <p>
-      What was Einstein thinking?  Was he solving a little brainteaser
-      from a newspaper while waiting for a train?  Was he preparing a
-      lecture on how to lie with visual proofs?  Maybe there is a clue
-      somewhere else in his notebooks.  Or maybe we'll just never
-      know.
+      What prompted Einstein, in the middle of solving the riddles
+      of the universe, to work through this fake proof?  Was he
+      solving a little brainteaser from a newspaper while waiting
+      for a train?  Was he preparing a lecture on how to lie with
+      visual proofs?  Maybe there is a clue somewhere else in his
+      notebooks.  Or maybe we'll just never know.
     </p>
   </div>
 </section>
-
 
 <canvas hidden id="dst" width="1920" height="1080">
   Hidden main canvas
