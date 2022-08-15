@@ -62,6 +62,8 @@ function frame2(canvas) {
     let [mc, hc, ac] = [cc['mc'], cc['hc'], cc['ac']];
     let [dp0, dp1, dp2] = [cc['dp0'], cc['dp1'], cc['dp2']];
     GeometryEngine.drawLine(canvas, p.a, p.p, scale, lw, ac, dp1, inv);
+    let pDelta = GeometryEngine.calcPointOffset(p.p, [p.p.sub(p.a), p.p.sub(p.b)], 20, 0.5);
+    GeometryEngine.drawAnnotation(canvas, "P", pDelta, scale, 50, ac, "RooneySans", inv);
     // GeometryEngine.drawPoint(canvas, p.p, scale, ps, ac, inv);
     p.draw(canvas, scale, lw, mc, dp0, inv, true);
 }
@@ -73,6 +75,8 @@ function frame3(canvas) {
     let [dp0, dp1, dp2] = [cc['dp0'], cc['dp1'], cc['dp2']];
     GeometryEngine.drawLine(canvas, p.p, p.d, scale, lw, ac, dp1, inv);
     GeometryEngine.drawLine(canvas, p.a, p.p, scale, lw, ac, dp1, inv);
+    let pDelta = GeometryEngine.calcPointOffset(p.p, [p.p.sub(p.a), p.p.sub(p.b)], 20, 0.5);
+    GeometryEngine.drawAnnotation(canvas, "P", pDelta, scale, 50, ac, "RooneySans", inv);
     // GeometryEngine.drawPoint(canvas, p.p, scale, ps, ac, inv);
     p.draw(canvas, scale, lw, mc, dp0, inv, true);
 }
@@ -88,6 +92,8 @@ function frame4(canvas) {
     GeometryEngine.drawLine(canvas, p.f, p.p, scale, lw, ac, dp1, inv);
     GeometryEngine.drawLine(canvas, p.a, p.f, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, p.e, p.c, scale, lw, hc, dp2, inv);
+    let pDelta = GeometryEngine.calcPointOffset(p.p, [p.p.sub(p.a), p.p.sub(p.b)], 20, 0.5);
+    GeometryEngine.drawAnnotation(canvas, "P", pDelta, scale, 50, ac, "RooneySans", inv);
     // GeometryEngine.drawPoint(canvas, p.p, scale, ps, ac, inv);
     p.draw(canvas, scale, lw, mc, dp0, inv, true);
 }
@@ -105,6 +111,8 @@ function frame5(canvas) {
     GeometryEngine.drawLine(canvas, p.a, p.f, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, p.p, p.c, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, p.e, p.c, scale, lw, hc, dp2, inv);
+    let pDelta = GeometryEngine.calcPointOffset(p.p, [p.p.sub(p.a), p.p.sub(p.b)], 20, 0.5);
+    GeometryEngine.drawAnnotation(canvas, "P", pDelta, scale, 50, ac, "RooneySans", inv);
     // GeometryEngine.drawPoint(canvas, p.p, scale, ps, ac, inv);
     p.draw(canvas, scale, lw, mc, dp0, inv, true);
 }
@@ -122,6 +130,8 @@ function frame6(canvas) {
     GeometryEngine.drawLine(canvas, p.a, p.f, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, p.p, p.c, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, p.e, p.c, scale, lw, hc, dp2, inv);
+    let pDelta = GeometryEngine.calcPointOffset(p.p, [p.p.sub(p.a), p.p.sub(p.b)], 20, 0.5);
+    GeometryEngine.drawAnnotation(canvas, "P", pDelta, scale, 50, ac, "RooneySans", inv);
     // GeometryEngine.drawPoint(canvas, p.p, scale, ps, ac, inv);
     p.draw(canvas, scale, lw, mc, dp0, inv, true);
     p.tAFP.draw(canvas, scale, lw, pc, dp0, inv, false);
@@ -141,6 +151,8 @@ function frame7(canvas) {
     GeometryEngine.drawLine(canvas, p.a, p.f, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, p.p, p.c, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, p.e, p.c, scale, lw, hc, dp2, inv);
+    let pDelta = GeometryEngine.calcPointOffset(p.p, [p.p.sub(p.a), p.p.sub(p.b)], 20, 0.5);
+    GeometryEngine.drawAnnotation(canvas, "P", pDelta, scale, 50, ac, "RooneySans", inv);
     // GeometryEngine.drawPoint(canvas, p.p, scale, ps, ac, inv);
     p.draw(canvas, scale, lw, mc, dp0, inv, true);
     p.tBPD.draw(canvas, scale, lw, pc, dp0, inv, false);
@@ -160,6 +172,8 @@ function frame8(canvas) {
     GeometryEngine.drawLine(canvas, p.a, p.f, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, p.p, p.c, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, p.e, p.c, scale, lw, hc, dp2, inv);
+    let pDelta = GeometryEngine.calcPointOffset(p.p, [p.p.sub(p.a), p.p.sub(p.b)], 20, 0.5);
+    GeometryEngine.drawAnnotation(canvas, "P", pDelta, scale, 50, ac, "RooneySans", inv);
     // GeometryEngine.drawPoint(canvas, p.p, scale, ps, ac, inv);
     p.draw(canvas, scale, lw, mc, dp0, inv, true);
     p.tBFP.draw(canvas, scale, lw, pc, dp0, inv, false);
@@ -185,6 +199,9 @@ function frame9(canvas) {
     GeometryEngine.drawLine(canvas, pFake.a, pFake.f, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, pFake.p, pFake.c, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, pFake.e, pFake.c, scale, lw, hc, dp2, inv);
+    let pDelta = GeometryEngine.calcPointOffset(
+        pFake.p, [pFake.p.sub(pFake.a), pFake.p.sub(pFake.b)], -20, 0.5);
+    GeometryEngine.drawAnnotation(canvas, "P", pDelta, scale, 50, ac, "RooneySans", inv);
     // GeometryEngine.drawPoint(canvas, pFake.p, scale, ps, ac, inv);
     pFake.draw(canvas, scale, lw, mc, dp0, inv, true);
 }
@@ -206,6 +223,9 @@ function frame10(canvas) {
     GeometryEngine.drawLine(canvas, pFake.a, pFake.f, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, pFake.p, pFake.c, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, pFake.e, pFake.c, scale, lw, hc, dp2, inv);
+    let pDelta = GeometryEngine.calcPointOffset(
+        pFake.p, [pFake.p.sub(pFake.a), pFake.p.sub(pFake.b)], -20, 0.5);
+    GeometryEngine.drawAnnotation(canvas, "P", pDelta, scale, 50, ac, "RooneySans", inv);
     // GeometryEngine.drawPoint(canvas, pFake.p, scale, ps, ac, inv);
     pFake.tBPD.draw(canvas, scale, lw, pc, dp0, inv, false);
     pFake.tCDP.draw(canvas, scale, lw, pc, dp0, inv, false);
@@ -230,6 +250,9 @@ function frame11(canvas) {
     GeometryEngine.drawLine(canvas, pFake.a, pFake.f, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, pFake.p, pFake.c, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, pFake.e, pFake.c, scale, lw, hc, dp2, inv);
+    let pDelta = GeometryEngine.calcPointOffset(
+        pFake.p, [pFake.p.sub(pFake.a), pFake.p.sub(pFake.b)], -20, 0.5);
+    GeometryEngine.drawAnnotation(canvas, "P", pDelta, scale, 50, ac, "RooneySans", inv);
     // GeometryEngine.drawPoint(canvas, pFake.p, scale, ps, ac, inv);
     pFake.draw(canvas, scale, lw, mc, dp0, inv, true);
     if (isIso) {
@@ -259,6 +282,9 @@ function frame12(canvas) {
     GeometryEngine.drawLine(canvas, pFake.a, pFake.f, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, pFake.p, pFake.c, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, pFake.e, pFake.c, scale, lw, hc, dp2, inv);
+    let pDelta = GeometryEngine.calcPointOffset(
+        pFake.p, [pFake.p.sub(pFake.a), pFake.p.sub(pFake.b)], -20, 0.5);
+    GeometryEngine.drawAnnotation(canvas, "P", pDelta, scale, 50, ac, "RooneySans", inv);
     // GeometryEngine.drawPoint(canvas, pFake.p, scale, ps, ac, inv);
     pFake.draw(canvas, scale, lw, mc, dp0, inv, true);
     if (isIso) {
@@ -289,6 +315,9 @@ function frame13(canvas) {
     GeometryEngine.drawLine(canvas, pFake2.a, pFake2.f, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, pFake2.p, pFake2.c, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, pFake2.e, pFake2.c, scale, lw, hc, dp2, inv);
+    let pDelta = GeometryEngine.calcPointOffset(
+        pFake2.p, [pFake2.p.sub(pFake2.a), pFake2.p.sub(pFake2.b)], -20, 0.5);
+    GeometryEngine.drawAnnotation(canvas, "P", pDelta, scale, 50, ac, "RooneySans", inv);
     // GeometryEngine.drawPoint(canvas, pFake2.p, scale, ps, ac, inv);
     pFake2.draw(canvas, scale, lw, mc, dp0, inv, true);
 }
@@ -310,6 +339,9 @@ function frame14(canvas) {
     GeometryEngine.drawLine(canvas, pFake2.a, pFake2.f, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, pFake2.p, pFake2.c, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, pFake2.e, pFake2.c, scale, lw, hc, dp2, inv);
+    let pDelta = GeometryEngine.calcPointOffset(
+        pFake2.p, [pFake2.p.sub(pFake2.a), pFake2.p.sub(pFake2.b)], -20, 0.5);
+    GeometryEngine.drawAnnotation(canvas, "P", pDelta, scale, 50, ac, "RooneySans", inv);
     // GeometryEngine.drawPoint(canvas, pFake2.p, scale, ps, ac, inv);
     pFake2.draw(canvas, scale, lw, mc, dp0, inv, true);
     pFake2.tAFP.draw(canvas, scale, lw, pc, dp0, inv, false);
@@ -335,6 +367,9 @@ function frame15(canvas) {
     GeometryEngine.drawLine(canvas, pFake2.a, pFake2.f, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, pFake2.p, pFake2.c, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, pFake2.e, pFake2.c, scale, lw, hc, dp2, inv);
+    let pDelta = GeometryEngine.calcPointOffset(
+        pFake2.p, [pFake2.p.sub(pFake2.a), pFake2.p.sub(pFake2.b)], -20, 0.5);
+    GeometryEngine.drawAnnotation(canvas, "P", pDelta, scale, 50, ac, "RooneySans", inv);
     // GeometryEngine.drawPoint(canvas, pFake2.p, scale, ps, ac, inv);
     pFake2.draw(canvas, scale, lw, mc, dp0, inv, true);
     if (isIso) {
@@ -364,6 +399,9 @@ function frame16(canvas) {
     GeometryEngine.drawLine(canvas, pFake2.a, pFake2.f, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, pFake2.p, pFake2.c, scale, lw, hc, dp2, inv);
     GeometryEngine.drawLine(canvas, pFake2.e, pFake2.c, scale, lw, hc, dp2, inv);
+    let pDelta = GeometryEngine.calcPointOffset(
+        pFake2.p, [pFake2.p.sub(pFake2.a), pFake2.p.sub(pFake2.b)], -20, 0.5);
+    GeometryEngine.drawAnnotation(canvas, "P", pDelta, scale, 50, ac, "RooneySans", inv);
     // GeometryEngine.drawPoint(canvas, pFake2.p, scale, ps, ac, inv);
     pFake2.draw(canvas, scale, lw, mc, dp0, inv, true);
     if (isIso) {

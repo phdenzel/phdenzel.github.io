@@ -185,6 +185,71 @@ class GeometryEngine {
     }
 
     /**
+     * drawAnnotation - draw text at the specified coordinates
+     * @static
+     * @param {HTMLCanvasElement} canvas - canvas object
+     * @param {string} text - text to be drawn on the canvas
+     * @param {Complex|number[2]|string} point - point coordinates on complex number plane
+     * @param {number} [scale=1] - length scaling from complex number plane to canvas
+     * @param {number} [size=6] - width of the lines drawn on the canvas
+     * @param {string} [color='white'] - color of the lines drawn on the canvas
+     * @param {string} [font='white'] - font of the text drawn on the canvas
+     * @param {boolean} [flipY=true] - flip the Y-axis on the canvas
+     * @returns {nil}
+     */
+    static drawAnnotation(canvas, text, point, scale=1, size=6, color='white', font="Arial",
+                          flipY=true) {
+        var ctx = canvas.getContext('2d');
+        if (ctx) {
+            const center = [canvas.width/2, canvas.height/2];
+            var z = GeometryEngine.complexify(point);
+            if (Array.isArray(point)) {
+                z = GeometryEngine.canvasInverseTransform(point, center, scale, flipY);
+            }
+            var cP = GeometryEngine.canvasTransform(z, center, scale, flipY);
+
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            if  (/^\d/.test(font)) {
+                ctx.font = font;
+            } else {
+                ctx.font = `${size}px ${font}`;
+            }
+            ctx.fillStyle = color;
+            ctx.fillText(text, cP[0], cP[1]);
+        }
+        // console.log("Text drawn...");
+    }
+
+    /**
+     * 
+     * @param {Complex|number[2]|string} point - point coordinates on complex number plane
+     * @param {Complex[n]|number[2][n]|string[n]} directions - list of vectors on complex number plane
+     * @param {number} [angle=0] - additional angle offset from directions
+     * @param {number} [distance=0.3] - distance offset from point
+     * @returns {Complex|number[2]|string} - point coordinates on complex number plane
+     */
+    static calcPointOffset(point, directions, angle=0, distance=1) {
+        var zP = GeometryEngine.complexify(point);
+        let zPP = zP.toPolar();
+        let direction = 0;
+        let r = distance;
+        let phi = zPP['phi'];
+        if (Array.isArray(directions)) {
+            for (let d of directions) {
+                direction += GeometryEngine.complexify(d).toPolar()['phi'];
+            }
+            phi = direction / directions.length;
+        } else {
+            var v = GeometryEngine.complexify(directions).toPolar();
+            phi = v['phi'];
+        }
+        phi += angle * (PI2/360);
+        return zP.add(math.Complex.fromPolar(r, phi));
+        
+    }
+
+    /**
      * canvasTransform - Transform points in complex number plane to canvas coordinates
      * @static
      * @param {Complex|number[2]|string} point - coordinate as a complex number
