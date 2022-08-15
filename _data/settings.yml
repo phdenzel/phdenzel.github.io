@@ -20,23 +20,37 @@ menu:
 
 # About me
 about-me: >
-  **Hi there!** I'm a computational astrophysicist working in the
-  [Institute for Computational Science](http://www.ics.uzh.ch/en.html)
-  at the University of Zurich as a doctoral candidate.
+  **Hi there!** I'm a computational astrophysicist and machine
+  learning engineer working at the [Centre for Artificial
+  Intelligence](https://www.zhaw.ch/en/engineering/institutes-centres/cai/)
+  as a researcher in deep learning and AI.
 
-  My interests are broad, and during my
-  [academic career](/assets/files/cv.pdf)
-  I dabbled in many research fields such as general relativity, cosmology, galactic dynamics, stellar formation, computational astrophysics, fluid dynamics, physical chemistry, molecular dynamics, and high-performance computing.
+  
+  My interests are broad, and during my [academic
+  career](/assets/files/cv.pdf) I dabbled in many research fields such
+  as general relativity, cosmology, galactic dynamics, stellar
+  formation, computational astrophysics, fluid dynamics, physical
+  chemistry, molecular dynamics, and high-performance computing.
 
-  When not doing sciency stuff or "hacking away" on my laptop, I'm most likely to be found on a climbing wall in my favorite
-  [bouldering](http://minimum.ch/) or
-  [climbing](http://griffig.com/) gyms
-  in Zurich.
+  
+  Currently, I'm working on a project within the Swiss SKA consortium
+  [SKACH](https://skach.org/) on generative deep learning methods for
+  astrophysical radio observations from cosmological simulations (and
+  vice versa).
 
-  Gardening is another passion of mine. I'm particularly proud of my many chili plants which I try to grow every season.
+  
+  When not doing sciency stuff or "hacking away" on my laptop, I'm
+  most likely to be found on a climbing wall in my favorite
+  [bouldering](http://minimum.ch/) or [climbing](http://griffig.com/)
+  gyms in Zurich, or downhill on my mountain bike.
 
-  Although I am not very good at it, I occasionally play guitar and rarely piano.
-  However, what I'm very good at is drinking coffee, playing pool, and other things that encourage my recreational "idea-fueling" phases 😅.
+  Gardening is another passion of mine. I'm particularly proud of my
+  many chili plants which I try to grow every season.
+
+  Although I am not very good at it, I occasionally play guitar and
+  rarely piano.  However, what I'm very good at is drinking coffee,
+  playing pool, and other things that encourage my recreational
+  "idea-fueling" phases 😅.
 
 science-quote: >
   **_Science isn't about WHY, it's about WHY NOT..._**
