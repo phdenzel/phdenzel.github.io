@@ -5,7 +5,7 @@ type: post
 tab_title: 015 | Blog | Dreamworld
 title: "The SKA poster - Datalab symposium (11/01/2023)"
 date: 2023-01-08 19:00:00 GMT+1
-thumbnail: /assets/blog-assets/015-ska-poster/images/thumb.jpg
+thumbnail: /assets/blog-assets/015-ska-poster/images/thumb.png
 number: 015
 ---
 
