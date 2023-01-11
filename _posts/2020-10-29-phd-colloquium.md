@@ -6,7 +6,7 @@ tab_title: 007 | Blog | Dreamworld
 title: "PhD colloquium"
 date: 2020-10-29 15:00:00 GMT+1
 thumbnail: /assets/blog-assets/007-phd-colloquium/images/thumb.jpg
-number: 007
+number: 7
 ---
 
 On October 29 2020 in midst of the COVID-19 pandemic, I defended my PhD thesis

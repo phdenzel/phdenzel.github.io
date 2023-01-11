@@ -6,7 +6,7 @@ tab_title: 008 | Blog | Dreamworld
 title: "Some notes on gravitational lensing"
 date: 2021-02-15 00:04:00 GMT+1
 thumbnail: /assets/blog-assets/008-notes-on-lensing/images/thumb.png
-number: 008
+number: 8
 ---
 
 I've recently submitted the final version of my doctoral thesis to the Turicensia archive of the Zentralbibliothek Zurich. I still have a lot of information in my head about gravitational lensing which wants to get out. So, this post acts as a release to me and an informational blurp to you.

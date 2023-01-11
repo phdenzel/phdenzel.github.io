@@ -6,7 +6,7 @@ tab_title: 012 | Blog | Dreamworld
 title: "Recent Developments in High-Resolution Image Synthesis"
 date: 2022-06-16 01:00:00 GMT+1
 thumbnail: /assets/blog-assets/012-generative-deep-learning/images/thumb.jpg
-number: 012
+number: 12
 ---
 
 On June 16 2022, I presented a short tech talk on "Recent Developments

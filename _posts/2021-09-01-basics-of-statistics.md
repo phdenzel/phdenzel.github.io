@@ -6,7 +6,7 @@ tab_title: 010 | Blog | Dreamworld
 title: "Basics of statistical theory"
 date: 2021-09-01 00:04:00 GMT+1
 thumbnail: /assets/blog-assets/010-basics-of-statistics/images/thumb.png
-number: 010
+number: 10
 ---
 
 With all the quantum-computing topics I lately hear, read, and talk about, I thought it's high time to refresh some basics of statistical theory. Naturally, being a mathematical discipline, a great deal of formulas and equations are used to describe the nature of random outcomes. However, I prefer a more experimental approach where tests are executed and visualized with computer programs, which is why you'll find Python code interlaced in this post. I encourage everybody reading this, to open a code editor, and play around with these programs.

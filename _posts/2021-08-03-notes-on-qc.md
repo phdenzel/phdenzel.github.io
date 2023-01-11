@@ -6,7 +6,7 @@ tab_title: 009 | Blog | Dreamworld
 title: "Some notes on quantum computing"
 date: 2021-08-03 00:06:00 GMT+1
 thumbnail: /assets/blog-assets/009-notes-on-qc/images/thumb.png
-number: 009
+number: 9
 ---
 
 Recently, I received note that IBM has several quantum processors which are available to the public for free. As computing and programming is a passion of mine and I like to try new things, I decided to give them a try. As anticipated, programming on such a chip is no easy task, because the underlying physics is completely different to conventional processors. So, here is my attempt of connecting the physics of the quantum realm with computing...

@@ -6,7 +6,7 @@ tab_title: 014 | Blog | Dreamworld
 title: "On the computability of consciousness - quantum physics, or gravity?"
 date: 2022-09-19 22:59:59 GMT+1
 thumbnail: /assets/blog-assets/014-consciousness-from-gr-or-qm/images/thumb.jpg
-number: 014
+number: 14
 ---
 <div id="content" class="content">
 <div class="HTML" id="org272092d">

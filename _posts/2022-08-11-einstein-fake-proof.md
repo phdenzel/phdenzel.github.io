@@ -6,7 +6,7 @@ tab_title: 013 | Blog | Dreamworld
 title: "Albert and Grant - A Tale of Triangles"
 date: 2022-08-11 23:59:59 GMT+1
 thumbnail: /assets/blog-assets/013-einstein-fake-proof/images/thumb.png
-number: 013
+number: 13
 ---
 <small>
   by Philipp Denzel and Prasenjit Saha

@@ -6,7 +6,7 @@ tab_title: 011 | Blog | Dreamworld
 title: "Arch Linux and XMonad"
 date: 2021-12-08 00:06:00 GMT+1
 thumbnail: /assets/blog-assets/011-arch-and-xmonad/images/thumb.png
-number: 011
+number: 11
 ---
 
 Some people hate it, some enjoy it&#x2026; setting up a new machine, and a
