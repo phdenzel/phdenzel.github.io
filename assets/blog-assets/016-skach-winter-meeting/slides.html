@@ -3,7 +3,9 @@
 <head>
 <meta charset="utf-8"/>
 <title>Deep learning the mapping between  <br> SKA mocks and hydrodynamical simulations</title>
-<meta name="author" content="(Philipp Denzel)"/>
+<meta name="author" content="Philipp Denzel"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
 <style type="text/css">
 .underline { text-decoration: underline; }
 </style>
@@ -26,20 +28,20 @@
 <h3>SKA research at the Centre for Artificial Intelligence ZHAW</h3>
 <div style="padding-top: 100px">12/01/2023</div>
 <div style="padding-top: 25px">by</div>
-<h4 style="padding-top: 25px; padding-left: 200px;"><a href="mailto:phdenzel@gmail.com"> Philipp Denzel </a> <img src="./assets/images/contact_qr.png" alt="contact_qr.png" height="150px" align="center" style="padding-left: 50px;"></h4>
+<h4 style="padding-top: 25px; padding-left: 200px;"><a href="mailto:phdenzel@gmail.com"> Philipp Denzel </a> <span>, Elena Gavagnin, Frank-Peter Schilling </span> <img src="./assets/images/contact_qr.png" alt="contact_qr.png" height="150px" align="center" style="padding-left: 50px;"></h4>
 </section>
 
 
 <section>
-<section id="slide-org6c0a97c">
+<section id="slide-org1d0fe35">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h2 id="org6c0a97c">Slides on my website</h2>
+<h2 id="org1d0fe35">Slides on my website</h2>
 <p>
 <a href="https://phdenzel.github.io/">https://phdenzel.github.io/</a>
 </p>
 
 
-<div id="org5e0da10" class="figure">
+<div id="org94cc5a7" class="figure">
 <p><img src="./assets/images/talk_qr.svg" alt="talk_qr.svg" class="org-svg" height="500px" style="float: center;" />
 </p>
 </div>
@@ -53,9 +55,9 @@ Link/QR code to the slides for later or to follow along
 </section>
 </section>
 <section>
-<section id="slide-org403e8ab">
+<section id="slide-org8e004d4">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h2 id="org403e8ab">About myself</h2>
+<h2 id="org8e004d4">About myself</h2>
 <ul>
 <li>PhD in Physics from UZH @ <a href="https://www.ics.uzh.ch/en/">ICS</a></li>
 <li class="fragment appear"><b>computational scientist &amp; astrophysicist</b> by training, <b>machine learning</b> enthusiast
@@ -82,9 +84,9 @@ Link/QR code to the slides for later or to follow along
 </section>
 </section>
 <section>
-<section id="slide-orge0b6f3e">
+<section id="slide-orgc4327f8">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h2 id="orge0b6f3e">Hydrodynamical simulations</h2>
+<h2 id="orgc4327f8">Hydrodynamical simulations</h2>
 <ul>
 <li>cosmological &amp; astrophysical processes from first principle</li>
 <li>highly tuned on a vast range of scales
@@ -107,9 +109,9 @@ Link/QR code to the slides for later or to follow along
 </section>
 </section>
 <section>
-<section id="slide-orga42016e">
+<section id="slide-org6aba2eb">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h2 id="orga42016e">Generative deep learning</h2>
+<h2 id="org6aba2eb">Generative deep learning</h2>
 <ul>
 <li>find parameters \(\theta\) to approximate a data density <br> 
 (optionally conditioned on some information \(c\))
@@ -128,9 +130,9 @@ Link/QR code to the slides for later or to follow along
 </section>
 </section>
 <section>
-<section id="slide-org95e9973">
+<section id="slide-orgf32203e">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h3 id="org95e9973">Latest successes</h3>
+<h3 id="orgf32203e">Latest successes</h3>
 <p>
 LDMs by <a href="https://arxiv.org/abs/2112.10752">Rombach et al. (2022)</a>, Google's <a href="https://doi.org/10.48550/arXiv.2205.11487">Imagen</a>, or OpenAI's <a href="https://arxiv.org/abs/2204.06125">DALLE-2</a>
 </p>
@@ -170,9 +172,9 @@ sparkling chemicals, artstation"  <br>
 </section>
 </section>
 <section>
-<section id="slide-org8fc79a5">
+<section id="slide-org9847145">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h3 id="org8fc79a5">Approaches and objectives</h3>
+<h3 id="org9847145">Approaches and objectives</h3>
 <ul>
 <li>GANs: \(\quad \mathbb{E}_{x\sim p_\text{data}}[\log{D_\theta(x)}] + \mathbb{E}_{z\sim q(z)}[1-\log{D_\theta(G_\theta(z))}]\)
 <ul style="font-size: 80%;">
@@ -207,9 +209,9 @@ sparkling chemicals, artstation"  <br>
 </section>
 </section>
 <section>
-<section id="slide-org724a7d6">
+<section id="slide-orgfe20390">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h2 id="org724a7d6">Data</h2>
+<h2 id="orgfe20390">Data</h2>
 <ul>
 <li>publicly available:
 <ul>
@@ -231,9 +233,9 @@ sparkling chemicals, artstation"  <br>
 </section>
 </section>
 <section>
-<section id="slide-orgd48a06c" class="upperh" data-background-image="./assets/images/illustris/TNG50_many_skirt_galaxies.png">
+<section id="slide-org189b7fb" class="upperh" data-background-image="./assets/images/illustris/TNG50_many_skirt_galaxies.png">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h3 id="orgd48a06c"><span style="color:#DEDEDE; background-color: #191919CC"> &nbsp IllustrisTNG &nbsp</span></h3>
+<h3 id="org189b7fb"><span style="color:#DEDEDE; background-color: #191919CC"> &nbsp IllustrisTNG &nbsp</span></h3>
 <p class="header-item">
 <span style="color:#DEDEDE; background-color: #191919CC"> &nbsp Gallery of synthetic images of SKIRT post-processed galaxies &nbsp<br>&nbsp Credit: IllustrisTNG Collaboration &nbsp</span>
 </p>
@@ -243,9 +245,9 @@ sparkling chemicals, artstation"  <br>
 </section>
 </section>
 <section>
-<section id="slide-org452214e" class="upperh" data-background-video="./assets/movies/illustris/tng100_sb0_inside_bfield_1080p.mp4#t=18.5" data-background-size="fill" data-background-opacity="0.8">
+<section id="slide-orge2089aa" class="upperh" data-background-video="./assets/movies/illustris/tng100_sb0_inside_bfield_1080p.mp4#t=18.5" data-background-video-muted data-background-size="fill" data-background-opacity="0.8">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h3 id="org452214e">Magneto-hydrodynamics</h3>
+<h3 id="orge2089aa">Magneto-hydrodynamics</h3>
 <p class="header-item">
 magnetic field strength (TNG100), Credit: IllustrisTNG Collaboration
 </p>
@@ -255,11 +257,11 @@ magnetic field strength (TNG100), Credit: IllustrisTNG Collaboration
 </section>
 </section>
 <section>
-<section id="slide-org2fefc09">
+<section id="slide-org9387478">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h3 id="org2fefc09">SKA mock observations</h3>
+<h3 id="org9387478">SKA mock observations</h3>
 
-<div id="orgdbc9d90" class="figure">
+<div id="orgbcf3366" class="figure">
 <p><img src="./assets/images/illustris/illustris_ska_mock_2.jpg" alt="illustris_ska_mock_2.jpg" height="800px" />
 </p>
 </div>
@@ -273,9 +275,9 @@ Estimated synchrotron emission of the most massive galaxy in TNG300 (at z=0) <br
 </section>
 </section>
 <section>
-<section id="slide-org0fac5b8">
+<section id="slide-org534aa97">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h2 id="org0fac5b8">CycleGAN</h2>
+<h2 id="org534aa97">CycleGAN</h2>
 <p>
 <a href="https://arxiv.org/abs/1703.10593">Zhu et al. (2017)</a>
 </p>
@@ -287,7 +289,7 @@ Estimated synchrotron emission of the most massive galaxy in TNG300 (at z=0) <br
 </ul>
 
 
-<div id="orgd27807b" class="figure">
+<div id="org1ff7c27" class="figure">
 <p><img src="./assets/images/cycle-gan/doge_starrynight.jpg" alt="doge_starrynight.jpg" height="300px" />
 </p>
 </div>
@@ -298,9 +300,9 @@ Estimated synchrotron emission of the most massive galaxy in TNG300 (at z=0) <br
 </section>
 </section>
 <section>
-<section id="slide-org57de068">
+<section id="slide-org0be45c8">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h3 id="org57de068">[Preliminary results]</h3>
+<h3 id="org0be45c8">[Preliminary results]</h3>
 <ul>
 <li>dataset: roughly 10'000 galaxies from TNG50-1</li>
 <li>brightness temperature of the gas &nbsp; \(T_b(\mathbf{x}) = 189 h \frac{H_0}{a^2H(a)} \frac{\rho_{\text{HI}}(\mathbf{x})}{\rho_c}\,\text{mK}\)</li>
@@ -308,7 +310,7 @@ Estimated synchrotron emission of the most massive galaxy in TNG300 (at z=0) <br
 </ul>
 
 
-<div id="org416a52e" class="figure">
+<div id="org3b03cc5" class="figure">
 <p><img src="./assets/images/cycle-gan/cycle-gan_scheme.png" alt="cycle-gan_scheme.png" height="700px" />
 </p>
 </div>
@@ -318,9 +320,9 @@ Estimated synchrotron emission of the most massive galaxy in TNG300 (at z=0) <br
 </section>
 </section>
 <section>
-<section id="slide-org207eb73">
+<section id="slide-org603a3bd">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h2 id="org207eb73">Future plans</h2>
+<h2 id="org603a3bd">Future plans</h2>
 <ul>
 <li>include more physics
 <ul>
