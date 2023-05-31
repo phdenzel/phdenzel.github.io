@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Image-to-image translation between <br> SPH simulations and SKA mocks</title>
+<meta name="author" content="Philipp Denzel"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./assets/css/reveal.css"/>
+
+<link rel="stylesheet" href="./assets/css/phdcolloq.css" id="theme"/>
+
+<link rel="stylesheet" href="./assets/css/slides.css"/>
+
+<link rel="stylesheet" href="./assets/css/header.css"/>
+
+<link rel="stylesheet" href="./assets/css/footer.css"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<meta name="description" content="">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-background="./assets/images/poster_skach_skao.png" data-background-size="contain" data-background-position="block" data-background-opacity="0.6"><h2 style="padding-top: 150px">Image-to-image translation between <br> SPH simulations and SKA mocks<h2>
+<h4 style="padding-top: 50px">SKA research <br> at the Centre for Artificial Intelligence (CAI) <br> Zurich University of Applied Sciences (ZHAW)</h4>
+<div style="padding-top: 70px">02/06/2023</div>
+<div style="padding-top: 25px">by</div>
+<h4 style="padding-top: 25px; padding-left: 200px;"><a href="mailto:phdenzel@gmail.com">Philipp Denzel</a><span>, Frank-Peter Schilling, Elena Gavagnin </span> <img src="./assets/images/contact_qr.png" alt="contact_qr.png" height="150px" align="center" style="padding-left: 50px;"></h4>
+</section>
+
+
+<section>
+<section id="slide-org3bd893b">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org3bd893b">Slides on my website</h2>
+<p>
+<a href="https://phdenzel.github.io/">https://phdenzel.github.io/</a>
+</p>
+
+
+<div id="org19a8769" class="figure">
+<p><img src="./assets/images/talk_qr.svg" alt="talk_qr.svg" class="org-svg" height="500px" style="background-color: #FFFFFF;" />
+</p>
+</div>
+
+<p>
+Link/QR code to the slides for later or to follow along
+</p>
+
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org5ab52a8">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org5ab52a8">Current status</h2>
+<ul>
+<li>ZHAW still only has 1 SKACH project: <b>deep learning for SKA</b> <a href="https://www.zhaw.ch/en/research/research-database/project-detailview/projektid/5744/">&#x1f517;</a>
+<ul>
+<li>hydrodynamical simulations &nbsp; &#x21FF; &nbsp; SKA mock observations</li>
+<li>more projects to come&#x2026;</li>
+
+</ul></li>
+
+</ul>
+
+<aside class="notes">
+<ul>
+<li>Today,  o give you an update about our current efforts at the Zurich
+University of Applied Sciences</li>
+<li>we're still a pretty small team at the Zurich University of Applied
+Sciences</li>
+<li>and have only 1 ongoing project in SKACH</li>
+<li>but there's a lot to do, and we have a lot of ideas for projects, so
+stay tuned&#x2026;</li>
+<li>maybe next time already, you'll see more presentations on how we use
+AI in SKACH-related research</li>
+
+</ul>
+
+</aside>
+
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org2e9d4b6">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org2e9d4b6">Goal</h2>
+<ul>
+<li>compress the knowledge from hydrodynamical and mock simulations to  <br> 
+<ul>
+<li>map properties from simulations to mock observations</li>
+<li>infer (hidden) astrophysical properties from observables</li>
+
+</ul></li>
+<li>explore the usability of various deep learning techniques  <br> 
+for scientific (high-precision) data</li>
+
+</ul>
+
+<aside class="notes">
+<ul>
+<li>our main goal, is not to produce SKA mocks from simulations&#x2026;</li>
+<li>but rather combine the knowledge from both domains and use it to
+infer astrophysical properties from things that we can observe</li>
+<li>and&#x2026; obviously, we're interested in AI, and want to test how we
+can use techniques which were trained on natrual images, and harness
+them for scientific (high-precision) data analysis</li>
+
+</ul>
+
+</aside>
+
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgfbe33f3">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orgfbe33f3">Hydrodynamical simulations</h2>
+<ul>
+<li>cosmological &amp; astrophysical processes from first principle</li>
+<li>latest simulations reach (almost) petabyte sizes &nbsp; &#x21FE; &nbsp; ideal for deep learning
+<ul>
+<li><a href="https://www.tng-project.org/">IllustrisTNG</a>, <a href="http://simba.roe.ac.uk/">Simba</a>, <a href="https://fire.northwestern.edu/">FIRE</a>, <a href="https://eagle.strw.leidenuniv.nl/">EAGLE</a>, Phoebos, and others</li>
+
+</ul></li>
+
+</ul>
+
+<aside class="notes">
+<ul>
+<li>So&#x2026; why am I talking about hydrodynamical simulations so much&#x2026;</li>
+<li>why are they so interesting?</li>
+<li>well, as you all know&#x2026; the Universe is big, and old</li>
+<li>and most things about the Universe, we cannot observe directly (even
+with a powerful telescope such as SKA)</li>
+<li>but we know the basic laws of physics and have good theoretical
+understanding about astrophysical and cosmological effects</li>
+<li>if we run these in simulations, we can generate galaxy models from <b>first principle</b>!</li>
+
+</ul>
+
+</aside>
+
+</section>
+<section id="slide-orgfbe33f3-split">
+<ul style="float: left; padding-left: 100px;">
+<li>dark matter</li>
+<li>gas (HI, HII, H<sub>2</sub>, He, etc.)</li>
+<li>velocities</li>
+<li>stars</li>
+<li>temperature</li>
+<li>metallicity</li>
+<li>turbulence</li>
+<li>magnetic field strength</li>
+<li>X-ray luminosity</li>
+<li>Credit: <a href="https://www.tng-project.org/">IllustrisTNG Collaboration</a></li>
+
+</ul>
+
+
+<div id="orgf68876a" class="figure">
+<p><img src="./assets/images/illustris/composite_TNG100-1.png" alt="composite_TNG100-1.png" height="1000px" style="float: right; padding-right: 200px;" />
+</p>
+</div>
+
+<aside class="notes">
+<ul>
+<li>assuming our assumptions about the physical laws are correct,
+simulations should produce realistic galaxies&#x2026; which they do&#x2026;</li>
+<li>taking the IllustrisTNG simulations for instance, we can simulate
+all these properties, of which most of them are not directly
+observable with SKA</li>
+<li>but we can use the data in these simulations and transfer it to mock
+observations</li>
+<li>or even better, use real observations and infer (hidden) properties
+of the Universe as they are modelled by simulations (the dark matter
+distribution for instance)</li>
+<li>and this methodology was mainly inspired by the modelling of strong
+gravitational lenses, where just by observing how light bends, we
+can predict the dark matter surface density distribution of the
+lensing galaxy.</li>
+
+</ul>
+
+</aside>
+
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org8abf5d2">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org8abf5d2">Last time: CycleGAN</h2>
+<p>
+<a href="https://arxiv.org/abs/1703.10593">Zhu et al. (2017)</a>
+</p>
+
+<ul>
+<li>two generator - discriminator pairs</li>
+<li>learn the mapping from domain A &nbsp; &#x21FF; &nbsp; B and vice versa</li>
+
+</ul>
+
+
+<div id="orgfbe784f" class="figure">
+<p><img src="./assets/images/cycle-gan/doge_starrynight.jpg" alt="doge_starrynight.jpg" height="300px" />
+</p>
+</div>
+
+<aside class="notes">
+<ul>
+<li>Already last time, I talked about the CycleGAN model which was
+designed to translate images from one domain into another and vice
+versa.</li>
+<li>You've heard it yesterday already&#x2026;</li>
+<li>These models work great when trained on natural images with a much
+smaller dynamic range as to what we encounter in astrophysical data</li>
+<li>But for scientific "high-precision" data, there has been
+exponentially less work done so far&#x2026;</li>
+
+</ul>
+
+</aside>
+
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org1fb6ef3">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org1fb6ef3">CycleGAN experiments</h2>
+<ul>
+<li>dataset: roughly 10'000 galaxies from Illustris TNG50-1</li>
+<li>brightness temperature of the gas &nbsp; \(T_b(\mathbf{x}) = 189 h \frac{H_0}{a^2H(a)} \frac{\rho_{\text{HI}}(\mathbf{x})}{\rho_c}\,\text{mK}\)</li>
+
+</ul>
+
+
+<div id="org4ab61d2" class="figure">
+<p><img src="./assets/images/cycle-gan/cycle-gan_scheme.png" alt="cycle-gan_scheme.png" height="700px" />
+</p>
+</div>
+
+<aside class="notes">
+<ul>
+<li>We tried to apply these models anyways&#x2026;</li>
+<li>Here is the main slide of last meeting's presentation</li>
+
+</ul>
+
+</aside>
+
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgcad2d1d">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orgcad2d1d">Problem with training GANs</h2>
+<ul>
+<li>GANs: \(\quad \mathbb{E}_{x\sim p_\text{data}}[\log{D_\theta(x)}] + \mathbb{E}_{z\sim q(z)}[1-\log{D_\theta(G_\theta(z))}]\)
+<ul style="font-size: 80%;">
+<li><span style="color:#00AF87"> fast inference</span> and <span style="color:#00AF87"> high quality results</span></li>
+<li><span style="color:#D7005F"> implicit density</span> and <span style="color:#D7005F"> difficult to diagnose</span></li>
+<li><span style="color:#D7005F"> mode collapse</span> &#x21FE; not so much an issue for conditional GANs (such as Pix2Pix)</li>
+<li><span style="color:#D7005F"> vanishing gradients</span> &#x21FE; regularization (trades quality for stability)</li>
+
+</ul></li>
+
+</ul>
+
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org0cf9805">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org0cf9805">Failure mode</h3>
+
+<div id="org2053a74" class="figure">
+<p><img src="./assets/images/skais/wand_Dloss_f97416b9fe57.png" alt="wand_Dloss_f97416b9fe57.png" height="700px" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Example discriminator loss ending in failure mode</p>
+</div>
+
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgde0c675">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orgde0c675">Pile of data &#x21FE; AI system</h2>
+
+<div id="org2be56ba" class="figure">
+<p><img src="./assets/images/xkcd/xkcd_1838.png" alt="xkcd_1838.png" height="700px" />
+</p>
+<p><span class="figure-number">Figure 2: </span><a href="https://xkcd.com/1838/">https://xkcd.com/1838/</a></p>
+</div>
+
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgcdc07ed">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orgcdc07ed">More parameters, better models?</h2>
+<ul>
+<li>hype over generative models: GPT-4, Vicuna, Stable Diffusion, etc.
+<ul>
+<li>larger, more complex &nbsp; &#x21FE; &nbsp; better</li>
+<li>sidenote: No Moat (<a href="https://www.semianalysis.com/p/google-we-have-no-moat-and-neither">interesting article on this topic</a>)</li>
+
+</ul></li>
+<li>better: adjust the complexity of your model <br> to the size of your dataset and task at hand</li>
+
+</ul>
+
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgc913025">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orgc913025">Pix2Pix</h2>
+<ul>
+<li><a href="https://github.com/phillipi/pix2pix">pix2pix by I. Phillipi</a> (originally in lua torch)</li>
+<li><a href="https://affinelayer.com/pix2pix/">blog post by Ch. Hesse</a> (difference: Pix2Pix &amp; CycleGAN)</li>
+
+</ul>
+
+</section>
+<section id="slide-orgc913025-split">
+
+
+<div id="orgc6defbd" class="figure">
+<p><img src="./assets/images/pix2pix/pix2pix_generator_training.webp" alt="pix2pix_generator_training.webp" height="800px" style="background-color: #888888;" />
+</p>
+<p><span class="figure-number">Figure 3: </span>Credit: Ch. Hesse</p>
+</div>
+
+</section>
+<section id="slide-orgc913025-split">
+
+
+<div id="org040ab44" class="figure">
+<p><img src="./assets/images/pix2pix/pix2pix_discriminator_training.webp" alt="pix2pix_discriminator_training.webp" height="800px" style="background-color: #888888;" />
+</p>
+<p><span class="figure-number">Figure 4: </span>Credit: Ch. Hesse</p>
+</div>
+
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org496063c">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org496063c">Domains</h2>
+
+<div id="orga6b1130" class="figure">
+<p><img src="./assets/images/skais/skais_pix2pix.png" alt="skais_pix2pix.png" height="800px" />
+</p>
+<p><span class="figure-number">Figure 5: </span>current status of our pix2pix network</p>
+</div>
+
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org44088ec">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org44088ec">Pix2Pix vs. CycleGAN</h2>
+<ul>
+<li>tested on a set of 500 TNG50-1 galaxies
+<ul>
+<li>evaluation metric: \(\chi_{\nu}^{2} = \frac{(D_{i,\text{model}} - D_{i,\text{data}})^{2}}{N\sigma_{i}^{2}}\) <br> 
+(L2 loss normalized with Poisson noise)</li>
+
+</ul></li>
+
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" style="margin-top: 75px;">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">domain A</th>
+<th scope="col" class="org-left">domain B</th>
+<th scope="col" class="org-right">CycleGAN</th>
+<th scope="col" class="org-left">Pix2Pix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">gas</td>
+<td class="org-left">HI</td>
+<td class="org-right">24.47</td>
+<td class="org-left">12.82</td>
+</tr>
+
+<tr>
+<td class="org-left">HI</td>
+<td class="org-left">gas</td>
+<td class="org-right">26.51</td>
+<td class="org-left">13.60</td>
+</tr>
+
+<tr>
+<td class="org-left">gas</td>
+<td class="org-left">21cm</td>
+<td class="org-right">36.29</td>
+<td class="org-left">(still training)</td>
+</tr>
+
+<tr>
+<td class="org-left">21cm</td>
+<td class="org-left">gas</td>
+<td class="org-right">48.10</td>
+<td class="org-left">(still training)</td>
+</tr>
+</tbody>
+</table>
+
+<aside class="notes">
+<ul>
+<li>we pitched CycleGAN against Pix2Pix models</li>
+<li>caveat: these models were trained using different techniques</li>
+
+</ul>
+
+</aside>
+
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org6e055e3">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org6e055e3">Future plans</h2>
+<ul>
+<li>better systematics with Karabo</li>
+<li>compare with actual strong gravitational lensing results</li>
+<li>integrate normalizing flow and diffusion networks</li>
+<li>expand from 2D to 3D (point cloud networks)</li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+</div>
+</div>
+<p> Created by phdenzel. </p>
+<script src="./assets/js/reveal.js"></script>
+<script src="./assets/js/markdown.js"></script>
+<script src="./assets/js/math.js"></script>
+<script src="./assets/js/zoom.js"></script>
+
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+plugins: [RevealMarkdown, RevealMath, RevealZoom],
+width: 1920, height: 1080, center: true, margin: 0.05,
+minScale: 0.2, maxScale: 4.5,
+progress: true, history: false, slideNumber: false,
+controls: true, keyboard: true, previewLinks: true,
+mathjax: true,
+transition: 'fade',
+navigationMode: 'default'
+});
+
+</script>
+</body>
+</html>
