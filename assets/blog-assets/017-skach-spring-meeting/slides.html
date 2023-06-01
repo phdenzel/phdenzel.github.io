@@ -25,23 +25,30 @@
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide" data-background="./assets/images/poster_skach_skao.png" data-background-size="contain" data-background-position="block" data-background-opacity="0.6"><h2 style="padding-top: 150px">Image-to-image translation between <br> SPH simulations and SKA mocks<h2>
-<h4 style="padding-top: 50px">SKA research <br> at the Centre for Artificial Intelligence (CAI) <br> Zurich University of Applied Sciences (ZHAW)</h4>
+<h4 style="padding-top: 50px">SKA research at <br> Zurich University of Applied Sciences (ZHAW) <br> <h5>Centre for Artificial Intelligence (CAI) <br> Institute for Business Information Technology</h5></h4>
 <div style="padding-top: 70px">02/06/2023</div>
 <div style="padding-top: 25px">by</div>
 <h4 style="padding-top: 25px; padding-left: 200px;"><a href="mailto:phdenzel@gmail.com">Philipp Denzel</a><span>, Frank-Peter Schilling, Elena Gavagnin </span> <img src="./assets/images/contact_qr.png" alt="contact_qr.png" height="150px" align="center" style="padding-left: 50px;"></h4>
 </section>
+<aside class="notes">
+<ul>
+<li>Today, I give you an update on our current efforts at the Zurich
+University of Applied Sciences of our still pretty small team</li>
 
+</ul>
+
+</aside>
 
 <section>
-<section id="slide-org3bd893b">
+<section id="slide-org76123cc">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h2 id="org3bd893b">Slides on my website</h2>
+<h2 id="org76123cc">Slides on my website</h2>
 <p>
-<a href="https://phdenzel.github.io/">https://phdenzel.github.io/</a>
+<a href="https://phdenzel.github.io/assets/blog-assets/017-skach-spring-meeting/slides.html">https://phdenzel.github.io/</a>
 </p>
 
 
-<div id="org19a8769" class="figure">
+<div id="org0ce1ed1" class="figure">
 <p><img src="./assets/images/talk_qr.svg" alt="talk_qr.svg" class="org-svg" height="500px" style="background-color: #FFFFFF;" />
 </p>
 </div>
@@ -50,14 +57,24 @@
 Link/QR code to the slides for later or to follow along
 </p>
 
+<aside class="notes">
+<ul>
+<li>As always, my slides are also available online&#x2026; I posted the link
+on the indico website if anybody is interested in jumping back, or
+skipping the boring parts</li>
+<li>And you can also follow the embedded links to the references</li>
+
+</ul>
+
+</aside>
 
 <div class="slide-footer"><div style="height:100px"></div></div>
 </section>
 </section>
 <section>
-<section id="slide-org5ab52a8">
+<section id="slide-org733287b">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h2 id="org5ab52a8">Current status</h2>
+<h2 id="org733287b">Current status</h2>
 <ul>
 <li>ZHAW still only has 1 SKACH project: <b>deep learning for SKA</b> <a href="https://www.zhaw.ch/en/research/research-database/project-detailview/projektid/5744/">&#x1f517;</a>
 <ul>
@@ -70,9 +87,7 @@ Link/QR code to the slides for later or to follow along
 
 <aside class="notes">
 <ul>
-<li>Today,  o give you an update about our current efforts at the Zurich
-University of Applied Sciences</li>
-<li>we're still a pretty small team at the Zurich University of Applied
+<li>as I said&#x2026; we're still a pretty small team at the Zurich University of Applied
 Sciences</li>
 <li>and have only 1 ongoing project in SKACH</li>
 <li>but there's a lot to do, and we have a lot of ideas for projects, so
@@ -89,9 +104,9 @@ AI in SKACH-related research</li>
 </section>
 </section>
 <section>
-<section id="slide-org2e9d4b6">
+<section id="slide-orgc17e5b1">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h2 id="org2e9d4b6">Goal</h2>
+<h2 id="orgc17e5b1">Goal</h2>
 <ul>
 <li>compress the knowledge from hydrodynamical and mock simulations to  <br> 
 <ul>
@@ -122,9 +137,9 @@ them for scientific (high-precision) data analysis</li>
 </section>
 </section>
 <section>
-<section id="slide-orgfbe33f3">
+<section id="slide-org657ca7b">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h2 id="orgfbe33f3">Hydrodynamical simulations</h2>
+<h2 id="org657ca7b">Hydrodynamical simulations</h2>
 <ul>
 <li>cosmological &amp; astrophysical processes from first principle</li>
 <li>latest simulations reach (almost) petabyte sizes &nbsp; &#x21FE; &nbsp; ideal for deep learning
@@ -151,7 +166,7 @@ understanding about astrophysical and cosmological effects</li>
 </aside>
 
 </section>
-<section id="slide-orgfbe33f3-split">
+<section id="slide-org657ca7b-split">
 <ul style="float: left; padding-left: 100px;">
 <li>dark matter</li>
 <li>gas (HI, HII, H<sub>2</sub>, He, etc.)</li>
@@ -167,7 +182,7 @@ understanding about astrophysical and cosmological effects</li>
 </ul>
 
 
-<div id="orgf68876a" class="figure">
+<div id="org6ce87cf" class="figure">
 <p><img src="./assets/images/illustris/composite_TNG100-1.png" alt="composite_TNG100-1.png" height="1000px" style="float: right; padding-right: 200px;" />
 </p>
 </div>
@@ -198,9 +213,9 @@ lensing galaxy.</li>
 </section>
 </section>
 <section>
-<section id="slide-org8abf5d2">
+<section id="slide-orgf185f71">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h2 id="org8abf5d2">Last time: CycleGAN</h2>
+<h2 id="orgf185f71">Last time: CycleGAN</h2>
 <p>
 <a href="https://arxiv.org/abs/1703.10593">Zhu et al. (2017)</a>
 </p>
@@ -212,7 +227,7 @@ lensing galaxy.</li>
 </ul>
 
 
-<div id="orgfbe784f" class="figure">
+<div id="org343503c" class="figure">
 <p><img src="./assets/images/cycle-gan/doge_starrynight.jpg" alt="doge_starrynight.jpg" height="300px" />
 </p>
 </div>
@@ -237,9 +252,9 @@ exponentially less work done so far&#x2026;</li>
 </section>
 </section>
 <section>
-<section id="slide-org1fb6ef3">
+<section id="slide-org256dfdb">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h2 id="org1fb6ef3">CycleGAN experiments</h2>
+<h2 id="org256dfdb">CycleGAN experiments</h2>
 <ul>
 <li>dataset: roughly 10'000 galaxies from Illustris TNG50-1</li>
 <li>brightness temperature of the gas &nbsp; \(T_b(\mathbf{x}) = 189 h \frac{H_0}{a^2H(a)} \frac{\rho_{\text{HI}}(\mathbf{x})}{\rho_c}\,\text{mK}\)</li>
@@ -247,7 +262,7 @@ exponentially less work done so far&#x2026;</li>
 </ul>
 
 
-<div id="org4ab61d2" class="figure">
+<div id="orgeca5cea" class="figure">
 <p><img src="./assets/images/cycle-gan/cycle-gan_scheme.png" alt="cycle-gan_scheme.png" height="700px" />
 </p>
 </div>
@@ -266,9 +281,9 @@ exponentially less work done so far&#x2026;</li>
 </section>
 </section>
 <section>
-<section id="slide-orgcad2d1d">
+<section id="slide-org5b22985">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h2 id="orgcad2d1d">Problem with training GANs</h2>
+<h2 id="org5b22985">Problem with training GANs</h2>
 <ul>
 <li>GANs: \(\quad \mathbb{E}_{x\sim p_\text{data}}[\log{D_\theta(x)}] + \mathbb{E}_{z\sim q(z)}[1-\log{D_\theta(G_\theta(z))}]\)
 <ul style="font-size: 80%;">
@@ -281,44 +296,65 @@ exponentially less work done so far&#x2026;</li>
 
 </ul>
 
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+
 
 <div class="slide-footer"><div style="height:100px"></div></div>
 </section>
 </section>
 <section>
-<section id="slide-org0cf9805">
+<section id="slide-org780b897">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h3 id="org0cf9805">Failure mode</h3>
+<h3 id="org780b897">Failure mode</h3>
 
-<div id="org2053a74" class="figure">
+<div id="orge6ed772" class="figure">
 <p><img src="./assets/images/skais/wand_Dloss_f97416b9fe57.png" alt="wand_Dloss_f97416b9fe57.png" height="700px" />
 </p>
 <p><span class="figure-number">Figure 1: </span>Example discriminator loss ending in failure mode</p>
 </div>
 
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+
 
 <div class="slide-footer"><div style="height:100px"></div></div>
 </section>
 </section>
 <section>
-<section id="slide-orgde0c675">
+<section id="slide-orgf6490d6">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h2 id="orgde0c675">Pile of data &#x21FE; AI system</h2>
+<h2 id="orgf6490d6">Pile of data &#x21FE; AI system</h2>
 
-<div id="org2be56ba" class="figure">
+<div id="orgc0d2403" class="figure">
 <p><img src="./assets/images/xkcd/xkcd_1838.png" alt="xkcd_1838.png" height="700px" />
 </p>
 <p><span class="figure-number">Figure 2: </span><a href="https://xkcd.com/1838/">https://xkcd.com/1838/</a></p>
 </div>
 
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+
 
 <div class="slide-footer"><div style="height:100px"></div></div>
 </section>
 </section>
 <section>
-<section id="slide-orgcdc07ed">
+<section id="slide-orgc943409">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h2 id="orgcdc07ed">More parameters, better models?</h2>
+<h2 id="orgc943409">More parameters, better models?</h2>
 <ul>
 <li>hype over generative models: GPT-4, Vicuna, Stable Diffusion, etc.
 <ul>
@@ -330,14 +366,21 @@ exponentially less work done so far&#x2026;</li>
 
 </ul>
 
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+
 
 <div class="slide-footer"><div style="height:100px"></div></div>
 </section>
 </section>
 <section>
-<section id="slide-orgc913025">
+<section id="slide-orgac6b3d2">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h2 id="orgc913025">Pix2Pix</h2>
+<h2 id="orgac6b3d2">Pix2Pix</h2>
 <ul>
 <li><a href="https://github.com/phillipi/pix2pix">pix2pix by I. Phillipi</a> (originally in lua torch)</li>
 <li><a href="https://affinelayer.com/pix2pix/">blog post by Ch. Hesse</a> (difference: Pix2Pix &amp; CycleGAN)</li>
@@ -345,20 +388,20 @@ exponentially less work done so far&#x2026;</li>
 </ul>
 
 </section>
-<section id="slide-orgc913025-split">
+<section id="slide-orgac6b3d2-split">
 
 
-<div id="orgc6defbd" class="figure">
+<div id="org6775421" class="figure">
 <p><img src="./assets/images/pix2pix/pix2pix_generator_training.webp" alt="pix2pix_generator_training.webp" height="800px" style="background-color: #888888;" />
 </p>
 <p><span class="figure-number">Figure 3: </span>Credit: Ch. Hesse</p>
 </div>
 
 </section>
-<section id="slide-orgc913025-split">
+<section id="slide-orgac6b3d2-split">
 
 
-<div id="org040ab44" class="figure">
+<div id="org3cb5edf" class="figure">
 <p><img src="./assets/images/pix2pix/pix2pix_discriminator_training.webp" alt="pix2pix_discriminator_training.webp" height="800px" style="background-color: #888888;" />
 </p>
 <p><span class="figure-number">Figure 4: </span>Credit: Ch. Hesse</p>
@@ -369,11 +412,11 @@ exponentially less work done so far&#x2026;</li>
 </section>
 </section>
 <section>
-<section id="slide-org496063c">
+<section id="slide-org4241539">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h2 id="org496063c">Domains</h2>
+<h2 id="org4241539">Domains</h2>
 
-<div id="orga6b1130" class="figure">
+<div id="org013df89" class="figure">
 <p><img src="./assets/images/skais/skais_pix2pix.png" alt="skais_pix2pix.png" height="800px" />
 </p>
 <p><span class="figure-number">Figure 5: </span>current status of our pix2pix network</p>
@@ -384,9 +427,9 @@ exponentially less work done so far&#x2026;</li>
 </section>
 </section>
 <section>
-<section id="slide-org44088ec">
+<section id="slide-org1fbb6bd">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h2 id="org44088ec">Pix2Pix vs. CycleGAN</h2>
+<h2 id="org1fbb6bd">Pix2Pix vs. CycleGAN</h2>
 <ul>
 <li>tested on a set of 500 TNG50-1 galaxies
 <ul>
@@ -462,14 +505,13 @@ exponentially less work done so far&#x2026;</li>
 </section>
 </section>
 <section>
-<section id="slide-org6e055e3">
+<section id="slide-org90e1beb">
 <div class="slide-header"><div style="height:100px"></div></div>
-<h2 id="org6e055e3">Future plans</h2>
+<h2 id="org90e1beb">Future plans</h2>
 <ul>
 <li>better systematics with Karabo</li>
 <li>compare with actual strong gravitational lensing results</li>
 <li>integrate normalizing flow and diffusion networks</li>
-<li>expand from 2D to 3D (point cloud networks)</li>
 
 </ul>
 <div class="slide-footer"><div style="height:100px"></div></div>
