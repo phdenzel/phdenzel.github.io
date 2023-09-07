@@ -1,0 +1,34 @@
+.reveal .slide-background  {
+    width: 100%;
+    background-image:
+        /* linear-gradient(72deg, rgb(228, 7, 105) 0%, rgb(130, 3, 104) 10%, rgb(60, 1, 104) 20%, rgb(18, 0, 104) 30%, rgb(7, 0, 103) 40%, rgb(7, 0, 103) 50%, rgb(7, 0, 103) 60%, rgb(7, 0, 103) 70%, rgb(7, 0, 103) 80%, rgb(7, 0, 103) 90%, rgb(7, 0, 103) 100%), */
+        linear-gradient(72deg, rgb(228, 7, 105) 0%, rgb(130, 3, 104) 10%, rgb(60, 1, 104) 20%, rgb(18, 0, 104) 30%, rgb(7, 0, 103) 40%, rgb(7, 0, 103) 50%, rgb(7, 0, 103) 60%, rgb(7, 0, 103) 70%, rgb(7, 0, 103) 80%, rgb(7, 0, 103) 90%, rgb(7, 0, 103) 100%);
+    
+    background-position: bottom left/* , top left */;
+    background-size: 100% 20px/* , 100% 20px */;
+    background-repeat: no-repeat/* , no-repeat */;
+}
+
+.figure p {
+    font-size: 28px;
+}
+
+.figure-number {
+    display: none;
+}
+
+.header-item {
+    width: 100%;
+    top: 0;
+    font-size: 28px;
+    text-align: center;
+}
+
+.footer-item {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    font-size: 28px;
+    text-align: center;
+    margin: 930px 0 0 0 !important;
+}
