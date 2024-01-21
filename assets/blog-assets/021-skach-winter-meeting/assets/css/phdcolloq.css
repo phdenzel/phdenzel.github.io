@@ -52,6 +52,10 @@ section.has-light-background, section.has-light-background h1, section.has-light
   color: #fff;
 }
 
+.reveal .center .slides {
+    min-height: 80% !important;
+}
+
 .reveal ::selection {
   color: #fff;
   background: #c5d0fb;
@@ -62,6 +66,11 @@ section.has-light-background, section.has-light-background h1, section.has-light
   color: #fff;
   background: #c5d0fb;
   text-shadow: none;
+}
+
+
+.reveal.center, .reveal.center .slides, .reveal.center .slides section {
+    min-height: 60% !important;
 }
 
 .reveal .slides section,
@@ -371,8 +380,8 @@ section.has-light-background, section.has-light-background h1, section.has-light
 }
 
 .reveal section.upperlefth {
-  margin: 0 0 20px 0;
-  top: 0px !important;
+    margin: 0 0 20px 0;
+    top: 0px !important;
 }
 
 .reveal section.upperlefth h2,
@@ -380,5 +389,7 @@ section.has-light-background, section.has-light-background h1, section.has-light
 .reveal section.upperlefth h4,
 .reveal section.upperlefth h5,
 .reveal section.upperlefth h6 {
-  text-align: left;
+    position: fixed;
+    left: 100px;
+    text-align: left;
 }
