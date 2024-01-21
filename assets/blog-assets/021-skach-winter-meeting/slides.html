@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Map-to-map translation  <br>   <h2>of simulated galaxies with conditional GANs</h2></title>
+<meta name="author" content="Philipp Denzel"/>
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./assets/css/reveal.css"/>
+
+<link rel="stylesheet" href="./assets/css/phdcolloq.css" id="theme"/>
+
+<link rel="stylesheet" href="./assets/css/slides.css"/>
+
+<link rel="stylesheet" href="./assets/css/header.css"/>
+
+<link rel="stylesheet" href="./assets/css/footer.css"/>
+<meta name="description" content="">
+<script src="./assets/js/tsparticles.slim.bundle.min.js"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-background="./assets/images/poster_skach_skao.png" data-background-size="contain" data-background-position="block" data-background-opacity="0.6">
+<div id="tsparticles"></div>
+<script>
+tsParticles.load("tsparticles", {particles: {color: {value: "#ffffff"}, move: {enable: true, speed: 0.4, straight: false}, number: {density: {enable: true}, value: 500}, size: {random: true, value: 3}, opacity: {animation: {enable: true}, value: {min: 0.2, max: 1}}}})
+.then(container => {console.log("callback - tsparticles config loaded");})
+.catch(error => {console.error(error);});
+</script>
+<h2>Map-to-map translation  <br>   <h2>of simulated galaxies with conditional GANs</h2><h2>
+<h3><h4>SKA research at <br> Zurich University of Applied Sciences (ZHAW)</h4><h5>Centre for Artificial Intelligence (CAI) <br> Institute for Business Information Technology (IWI)</h5></h3>
+<div style="padding-top: 50px">Neuchâtel, 2024/01/22 Mon</div>
+<h5 style="padding-top: 0px;"> <img src="./assets/images/contact_qr.png" alt="contact_qr.png" height="150px" align="center" style="padding-left: 50px; padding-right: 10px;"> <a href="mailto:phdenzel@gmail.com">Philipp Denzel</a>, <span> Frank-Peter Schilling, Elena Gavagnin </span> </h5>
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+</section>
+
+<section>
+<section id="slide-org9ba8470">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org9ba8470">Slides on my website</h2>
+<p>
+<a href="https://phdenzel.github.io/">https://phdenzel.github.io/</a>
+</p>
+
+
+<div id="org3f091ae" class="figure">
+<p><img src="./assets/images/talk_qr.svg" alt="talk_qr.svg" class="org-svg" height="300px" style="float: center;" />
+</p>
+</div>
+
+<p>
+Link/QR code to the slides for later or to follow along
+</p>
+
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org85ab8e0">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org85ab8e0">Projects at ZHAW</h2>
+<ul style="float: left;">
+<li class="fragment appear"><a href="https://www.zhaw.ch/en/research/research-database/project-detailview/projektid/5744/">SKA project</a>:
+<ul>
+<li>trained (astro)physicists, focused on ML research</li>
+
+</ul></li>
+<li class="fragment appear">our expertise:
+<ul>
+<li><b>deep generative modelling</b> of (sky) simulations</li>
+<li>CV, DL, XAI, MLOps, &#x2026;</li>
+
+</ul></li>
+<li class="fragment appear">recently expanded efforts
+<ul>
+<li>two new projects</li>
+
+</ul></li>
+
+</ul>
+
+<div id="orgad7b772" class="figure">
+<p><img src="./assets/images/zhaw_ska_team.jpeg" alt="zhaw_ska_team.jpeg" height="600px" style="position: absolute; right: 1%; margin: 50px 5px 5px 5px; border-radius: 12px;" />
+</p>
+<p><span class="figure-number">Figure 1: </span>ZHAW's SKACH team at CSCS in Lugano</p>
+</div>
+
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orge4e2ea7">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orge4e2ea7">Outlook</h2>
+<ul>
+<li><a href="#/slide-org6bff040" class="forwardlink">Map-to-map translation of simulations</a></li>
+<li><a href="#/slide-org58bc5cd" class="forwardlink">Point-cloud experiments</a></li>
+<li><a href="#/slide-org7aaff3c" class="forwardlink">Radio source classification</a></li>
+
+</ul>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org6bff040">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org6bff040">The times they are a-changin'</h2>
+<ul>
+<li class="fragment appear">the <i>end of the analytic era</i></li>
+<li class="fragment appear">modern surveys: galaxies are no longer blobs</li>
+<li class="fragment appear">rethink data analyses: analytic &#x27F6; data-driven</li>
+
+</ul>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org6e76f5f">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org6e76f5f">Deep Generative galaxy modelling</h2>
+<ul>
+<li>goal is to learn an <b>implicit</b> distribution \(\mathbb{P}\) from which  <br>  the training set \(X = \{x_0, x_1, \ldots, x_n \}\) is drawn</li>
+
+</ul>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org0e3ddff">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org0e3ddff">Analytic models \(\mathbb{P}_\theta\)</h3>
+
+<div id="org31cd18b" class="figure">
+<p><img src="./assets/images/gl/real_gal-inv.png" alt="real_gal-inv.png" height="830px" style="border-radius: 12px;" />
+</p>
+<p><span class="figure-number">Figure 2: </span>Credit: <a href="https://arxiv.org/abs/1308.4982">Mandelbaum et al. (2014)</a></p>
+</div>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org63b319f">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org63b319f">Simulators \(\mathbb{P}_\theta\)</h3>
+
+<div id="org164325e" class="figure">
+<p><img src="./assets/images/simulations/schaye_flamingo_box.png" alt="schaye_flamingo_box.png" height="830px" style="border-radius: 12px;" />
+</p>
+<p><span class="figure-number">Figure 3: </span>Credit: <a href="https://arxiv.org/abs/2306.04024">Schaye et al. (2023)</a></p>
+</div>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgbbb4f33">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="orgbbb4f33">Implicit distributions</h3>
+<ul>
+<li>in both cases, we cannot
+<ul>
+<li>sample from (the true) \(\mathbb{P}\)</li>
+<li>evaluate the likelihood \(p_\theta(x)\)</li>
+
+</ul></li>
+<li>which means: we cannot generate new <b>plausible</b> galaxies</li>
+<li class="fragment appear">what for?</li>
+
+</ul>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgbfa58c2">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="orgbfa58c2">For instance: strong lensing</h3>
+
+<div id="org6ab4daf" class="figure">
+<p><img src="./assets/images/gl/illustration_quasar_lensing_ska.jpg" alt="illustration_quasar_lensing_ska.jpg" height="830px" style="border-radius: 12px;" />
+</p>
+<p><span class="figure-number">Figure 4: </span>2006, Credit: <a href="https://www.jpl.nasa.gov/news/cosmic-magnifying-glasses-find-dark-matter-in-small-clumps">NASA, ESA, D. Player (STScI)</a></p>
+</div>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd4a13ab">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="orgd4a13ab">Strong lens modelling</h3>
+<div class="gframe_rows">
+<div class="gframe_row_col">
+<div class="gframe_3col">
+<p>
+input data
+</p>
+</div>
+<p>
+&#x27F6;
+</p>
+<div class="gframe_3col">
+<p>
+latent representation
+</p>
+</div>
+<p>
+&#x27F6;
+</p>
+<div class="gframe_3col">
+<p>
+reconstruction
+</p>
+</div>
+</div>
+<div class="gframe_row_col">
+<div class="gframe_3col">
+
+<div id="orgcaf0a50" class="figure">
+<p><img src="./assets/images/gl/my-work_composite_SW05.png" alt="my-work_composite_SW05.png" height="400px" style="border-radius: 12px; margin: 0px 0px 0px 0px; font-size: 26px;" />
+</p>
+</div>
+</div>
+<div class="gframe_3col">
+<p height="400px" style="border-radius: 12px; margin: 0px 70px 0px 70px; font-size: 26px;">
+<img src="./assets/images/gl/my-work_kappa_SW05.png" alt="my-work_kappa_SW05.png" height="400px" style="border-radius: 12px; margin: 0px 70px 0px 70px; font-size: 26px;" />  <br> 
+<a href="https://doi.org/10.48550/arXiv.2104.03324">Denzel et al. (2021)</a>
+</p>
+</div>
+<div class="gframe_3col">
+
+<div id="org1c7a264" class="figure">
+<p><img src="./assets/images/gl/my-work_composite_SW05_synth.png" alt="my-work_composite_SW05_synth.png" height="400px" style="border-radius: 12px; margin: 0px 0px 0px 0px; font-size: 26px;" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd8296c9" class="upperh" data-background-video="./assets/movies/illustris/tng100_sb0_inside_bfield_1080p_compressed.mp4" data-background-video-muted data-background-size="fill" data-background-opacity="0.6">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="orgd8296c9">Dataset: SPH simulations</h3>
+<p class="header-item :style: float:left;">
+B-field (TNG100), Credit: IllustrisTNG
+</p>
+
+<ul style="float: left; padding-top: 50px; padding-left: 200px;">
+<li>projected IllustrisTNG galaxies</li>
+<li>6 domains:
+<ul>
+<li>dark-matter, stars, gas,  <br> HI, temperature, magnetic field</li>
+
+</ul></li>
+<li>&sim; 3000 galaxies</li>
+<li>&sim; 10000 images / domain</li>
+<li>augmented:
+<ul>
+<li>up to 5x randomly rotated</li>
+
+</ul></li>
+<li>scale: 2 dark-matter half-mass radii</li>
+
+</ul>
+
+
+<div id="org911346d" class="figure">
+<p><img src="./assets/images/skais/domains.png" alt="domains.png" height="600px" style="float: right; margin-top: 100px; padding-right: 100px; border-radius: 12px;" />
+</p>
+</div>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section>
+
+<div id="orgf8c5d7a" class="figure">
+<p><img src="./assets/images/skais/domains_directions.png" alt="domains_directions.png" height="830px" style="border-radius: 12px;" />
+</p>
+<p><span class="figure-number">Figure 5: </span>Use image domain translation models: observations (21cm) &#x2194; physical properties</p>
+</div>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org391a732">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org391a732">cGANs: pix2pix schema</h3>
+
+<div id="org5339caf" class="figure">
+<p><img src="./assets/images/pix2pix/pix2pix_schema.png" alt="pix2pix_schema.png" height="830px" />
+</p>
+<p><span class="figure-number">Figure 6: </span>Use pix2pix to generate dark matter maps from mock observations</p>
+</div>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section id="slide-orge44a1a7">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h4 id="orge44a1a7">Sampling from \(\mathbb{P}_\theta\)</h4>
+<p>
+Ground truth  <br> 
+</p>
+<p height="830px" style="border-radius: 12px;">
+<img src="./assets/images/skais/dm_predictions.png" alt="dm_predictions.png" height="830px" style="border-radius: 12px;" />
+ <br>  Predictions from pix2pix (from gas projections)
+</p>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section id="slide-orgf71dfb7">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h4 id="orgf71dfb7">Evaluation</h4>
+
+<div id="orgac1ea93" class="figure">
+<p><img src="./assets/images/skais/skais_mse.png" alt="skais_mse.png" height="800px" style="border-radius: 12px;" />
+</p>
+</div>
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section>
+
+<div id="org12db891" class="figure">
+<p><img src="./assets/images/skais/skais_psnr.png" alt="skais_psnr.png" height="800px" style="border-radius: 12px;" />
+</p>
+</div>
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section>
+
+<div id="orgfebda11" class="figure">
+<p><img src="./assets/images/skais/skais_ssim.png" alt="skais_ssim.png" height="800px" style="border-radius: 12px;" />
+</p>
+</div>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section id="slide-org4f6b822">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h4 id="org4f6b822">Next steps</h4>
+<ul>
+<li>physical metrics: radial/elliptical (NFW) profiles</li>
+<li>substructure just above the resolution limit</li>
+<li>still not able to evaluate \(p_\theta(x)\)</li>
+<li>GANs: average performance expected to be slightly worse compared  <br> to autoregressive and score-based methods</li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org58bc5cd">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org58bc5cd">Point-cloud experiments</h2>
+<ul>
+<li>generative models for full 3D+ simulations</li>
+
+</ul>
+<p>
+ <br> 
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Property</th>
+<th scope="col" class="org-left">SPH data</th>
+<th scope="col" class="org-left">Point clouds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">applications</td>
+<td class="org-left">hydrodynamics</td>
+<td class="org-left">3D scanning, CAD, etc.</td>
+</tr>
+
+<tr>
+<td class="org-left">list of coordinates</td>
+<td class="org-left">&#10003</td>
+<td class="org-left">&#10003</td>
+</tr>
+
+<tr>
+<td class="org-left">unordered</td>
+<td class="org-left">&#10003</td>
+<td class="org-left">&#10003</td>
+</tr>
+
+<tr>
+<td class="org-left">invariance: vector-row perm.</td>
+<td class="org-left">&#10003</td>
+<td class="org-left">&#10003</td>
+</tr>
+
+<tr>
+<td class="org-left">invariance: geometric transf.</td>
+<td class="org-left">&#10003</td>
+<td class="org-left">&#10003</td>
+</tr>
+
+<tr>
+<td class="org-left">discrete</td>
+<td class="org-left">~</td>
+<td class="org-left">&#10003</td>
+</tr>
+
+<tr>
+<td class="org-left">smoothing kernel</td>
+<td class="org-left">&#10003</td>
+<td class="org-left">&#10007</td>
+</tr>
+</tbody>
+</table>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf8c6273">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="orgf8c6273">AdaPoinTr</h3>
+<ul>
+<li>initial tests indicate feasibility</li>
+<li>application: DM-only simulation, generate baryonic particle types (stars, gas, etc.)</li>
+
+</ul>
+<p>
+<a href="https://arxiv.org/abs/2301.04545">Yu et al. (2023)</a>
+</p>
+
+<div id="org079194d" class="figure">
+<p><img src="./assets/images/pc/adapointr_scheme.png" alt="adapointr_scheme.png" height="600px" style="border-radius: 12px;" />
+</p>
+</div>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org7aaff3c">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org7aaff3c">Radio source classification</h2>
+<ul>
+<li>idea developed with Michele Bianco (EPFL)</li>
+<li>student Manuel Weiss: tested SOTA classification &amp; detection architectures
+<ul>
+<li>ResNet, EfficientNet, ViT, etc. / YOLOv8, DINO, etc.</li>
+
+</ul></li>
+<li>goal: testing on the GLEAM survey</li>
+<li>Radio Galaxy Zoo Object Detection Data Set (11’836 labelled images)</li>
+
+</ul>
+
+<div id="org2acdb45" class="figure">
+<p><img src="./assets/images/radio_sources/rgz_classes.png" alt="rgz_classes.png" height="330px" style="border-radius: 12px;" />
+</p>
+</div>
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org5bfbf4c">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org5bfbf4c">Data preprocessing &amp; augmentations</h3>
+<div class="gframe_rows">
+<div class="gframe_row_col">
+<div class="gframe_1col">
+
+<div id="orgc7647d2" class="figure">
+<p><img src="./assets/images/radio_sources/scaling_z_scale_part1.png" alt="scaling_z_scale_part1.png" height="300px" style="border-radius: 12px; margin: 0px 0px 0px 0px; font-size: 26px;" />
+</p>
+</div>
+</div>
+</div>
+<div class="gframe_row_col">
+<div class="gframe_1col">
+
+<div id="org7c730e4" class="figure">
+<p><img src="./assets/images/radio_sources/scaling_z_scale_part2.png" alt="scaling_z_scale_part2.png" height="300px" style="border-radius: 12px; margin: 0px 0px 0px 0px; font-size: 26px;" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org264df23">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org264df23">Difficulties</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Classes</td>
+<td class="org-right">1_ 1</td>
+<td class="org-right">1_ 2</td>
+<td class="org-right">1_ 3</td>
+<td class="org-right">2_ 2</td>
+<td class="org-right">2_ 3</td>
+<td class="org-right">3_ 3</td>
+</tr>
+
+<tr>
+<td class="org-left">Samples</td>
+<td class="org-right">5300</td>
+<td class="org-right">1331</td>
+<td class="org-right">1412</td>
+<td class="org-right">1251</td>
+<td class="org-right">1208</td>
+<td class="org-right">1334</td>
+</tr>
+</tbody>
+</table>
+
+<ul style="float: left; margin-left: 200px;">
+<li>unbalanced dataset</li>
+<li>even humans have difficulties distinguishing
+<ul>
+<li>1_ 2 vs 1_ 3  &#x27F6;  FR1 vs FR2</li>
+<li>mislabelled samples?</li>
+
+</ul></li>
+
+</ul>
+
+<div id="orga9d76e0" class="figure">
+<p><img src="./assets/images/radio_sources/confusion_matrix_best_resnet.png" alt="confusion_matrix_best_resnet.png" height="400px" style="position: absolute; right: 5%; margin: 50px 150px 5px 5px; border-radius: 12px;" />
+</p>
+<p><span class="figure-number">Figure 7: </span>Confusion matrix for the best ResNet model</p>
+</div>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orge764e30">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="orge764e30">Preliminary results</h3>
+<ul>
+<li>probably mislabelled data</li>
+<li>best model: ResNet (small, not pretrained)</li>
+
+</ul>
+<p>
+ <br> 
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Model</td>
+<td class="org-right">Top1 [%]</td>
+<td class="org-right">Top2 [%]</td>
+<td class="org-right">F1 [%]</td>
+<td class="org-right">Precision [%]</td>
+<td class="org-right">Recall [%]</td>
+<td class="org-left">ensemble &sigma;</td>
+</tr>
+
+<tr>
+<td class="org-left">ResNet</td>
+<td class="org-right">89.36</td>
+<td class="org-right">97.57</td>
+<td class="org-right">86.24</td>
+<td class="org-right">87.40</td>
+<td class="org-right">85.44</td>
+<td class="org-left">4.7%</td>
+</tr>
+
+<tr>
+<td class="org-left">ViT</td>
+<td class="org-right">76.60</td>
+<td class="org-right">89.46</td>
+<td class="org-right">69.64</td>
+<td class="org-right">70.10</td>
+<td class="org-right">69.38</td>
+<td class="org-left">-</td>
+</tr>
+</tbody>
+</table>
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgc7bcba2">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orgc7bcba2">Contact</h2>
+<p>
+<a href="https://phdenzel.github.io/">https://phdenzel.github.io/</a>
+</p>
+
+<p>
+<a href="https://phdenzel.github.io/assets/blog-assets/021-skach-winter-meeting/slides.html">
+</p>
+<p height="400px" style="float: left; margin-left: 150px;">
+<img src="./assets/images/talk_qr.svg" alt="talk_qr.svg" class="org-svg" height="400px" style="float: left; margin-left: 150px;" />
+</a>
+</p>
+
+
+<p style="float: right; margin-right: 300px; font-size:32px;">
+ <br>  <br> <a href="mailto:denp@zhaw.ch" style="float: right; margin-right: 300px; font-size:32px;">philipp.denzel@zhaw.ch</a>
+</p>
+<p style="float: right; margin-right: 300px; font-size:32px;">
+<a href="mailto:scik@zhaw.ch" style="float: right; margin-right: 300px; font-size:32px;">frank-peter.schilling@zhaw.ch</a>
+</p>
+<p style="float: right; margin-right: 300px; font-size:32px;">
+<a href="mailto:gava@zhaw.ch" style="float: right; margin-right: 300px; font-size:32px;">elena.gavagnin@zhaw.ch</a>
+</p>
+
+
+<aside class="notes">
+<p>
+
+</p>
+
+</aside>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+</div>
+</div>
+<div> Created by phdenzel. </div>
+<script src="./assets/js/reveal.js"></script>
+<script src="./assets/js/markdown.js"></script>
+<script src="./assets/js/math.js"></script>
+<script src="./assets/js/zoom.js"></script>
+<script src="./assets/js/notes.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+mouseWheel: true,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+width: 1920,
+height: 1080,
+margin: 0.05,
+minScale: 0.20,
+maxScale: 4.50,
+
+transition: 'slide',
+transitionSpeed: 'default',
+showNotes: window.location.search.match( /print-pdf/gi ) ? 'nil' : false,
+controlsLayout: 'bottom-right', controlsBackArrows: 'faded', navigationMode: 'linear', previewLinks: false,
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealMarkdown, RevealMath, RevealZoom, RevealNotes ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+});
+</script>
+</body>
+</html>
