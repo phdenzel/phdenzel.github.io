@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Generative AI for hydrodynamical simulations:</title>
+<meta name="author" content="Philipp Denzel"/>
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./assets/css/reveal.css"/>
+
+<link rel="stylesheet" href="./assets/css/phdcolloq.css" id="theme"/>
+
+<link rel="stylesheet" href="./assets/css/slides.css"/>
+
+<link rel="stylesheet" href="./assets/css/header.css"/>
+
+<link rel="stylesheet" href="./assets/css/footer.css"/>
+<meta name="description" content="">
+<script src="./assets/js/tsparticles.slim.bundle.min.js"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-background="./assets/images/poster_skach_skao.png" data-background-size="contain" data-background-position="block" data-background-opacity="0.6">
+<div id="tsparticles"></div>
+<script>
+tsParticles.load("tsparticles", {particles: {color: {value: "#ffffff"}, move: {enable: true, speed: 0.4, straight: false}, number: {density: {enable: true}, value: 500}, size: {random: true, value: 3}, opacity: {animation: {enable: true}, value: {min: 0.2, max: 1}}}})
+.then(container => {console.log("callback - tsparticles config loaded");})
+.catch(error => {console.error(error);});
+</script>
+<h3>Generative AI for hydrodynamical simulations:<h3>
+<h3>2D, 3D, or 6D galaxy models?<h4>SKA research at <br> Zurich University of Applied Sciences (ZHAW)</h4><h5>Centre for Artificial Intelligence (CAI) <br> Institute for Business Information Technology (IWI)</h5></h3>
+<div style="padding-top: 50px">June 10, 2024</div>
+<h5 style="padding-top: 0px;"> <img src="./assets/images/contact_qr.png" alt="contact_qr.png" height="150px" align="center" style="padding-left: 50px; padding-right: 10px;"> <a href="mailto:phdenzel@gmail.com">Philipp Denzel</a>, <span> Frank-Peter Schilling, Elena Gavagnin </span> </h5>
+</section>
+<section>
+<section id="slide-org2d8adfc">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org2d8adfc">Slides on my website</h2>
+<p>
+<a href="https://phdenzel.github.io/">https://phdenzel.github.io/</a>
+</p>
+
+
+<div id="orgc96db9c" class="figure">
+<p><img src="./assets/images/talk_qr.png" alt="talk_qr.png" height="300px" style="float: center; border-radius: 12px;" />
+</p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org8b46c70">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org8b46c70">Outlook</h2>
+<ul>
+<li><a href="#/slide-org4adc078" class="forwardlink">2D galaxy modelling</a></li>
+<li><a href="#/slide-orgff50e89" class="forwardlink">3D modelling using point clouds</a>
+<ul>
+<li><a href="#/slide-org5897f9f" class="forwardlink">First experiments</a></li>
+
+</ul></li>
+<li><a href="#/slide-org4a8be55" class="forwardlink">6D phase-space modelling?</a></li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orga11981e">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orga11981e">Recap:  <br>  Generative models  <br>  for map-to-map translation</h2>
+<div class="outline-text-2" id="text-orga11981e">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org489086c">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org489086c">Dataset from IllustrisTNG</h3>
+<ul style="float: left; padding-top: 50px; padding-left: 200px;">
+<li>projected IllustrisTNG galaxies</li>
+<li>6 domains:
+<ul>
+<li>dark-matter, stars, gas,  <br> HI, temperature, magnetic field</li>
+
+</ul></li>
+<li>&sim; 2'000 galaxies, (across 6 snapshots)</li>
+<li>&sim; 360'000 images</li>
+<li>each galaxy \(\ge\) 10'000 particles</li>
+<li>augmented: up to 5x randomly rotated</li>
+<li>scale: 2 dark-matter half-mass radii</li>
+
+</ul>
+
+
+<div id="orgcbb1d12" class="figure">
+<p><img src="./assets/images/skais/domains.png" alt="domains.png" height="600px" style="float: right; margin-top: 100px; padding-right: 100px; border-radius: 12px;" />
+</p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org4adc078" data-transition="none">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org4adc078">Dataset from IllustrisTNG</h3>
+<ul style="float: left; padding-top: 50px; padding-left: 200px;">
+<li>projected IllustrisTNG galaxies</li>
+<li>6 domains:
+<ul>
+<li>dark-matter, stars, gas,  <br> HI, temperature, magnetic field</li>
+
+</ul></li>
+<li>&sim; 2'000 galaxies, (across 6 snapshots)</li>
+<li>&sim; 360'000 images</li>
+<li>each galaxy \(\ge\) 10'000 particles</li>
+<li>augmented: up to 5x randomly rotated</li>
+<li>scale: 2 dark-matter half-mass radii</li>
+
+</ul>
+
+
+<div id="orgc57a64c" class="figure">
+<p><img src="./assets/images/skais/domains_directions.png" alt="domains_directions.png" height="600px" style="float: right; margin-top: 100px; padding-right: 100px; border-radius: 12px;" />
+</p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgfdb4784">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="orgfdb4784">Generative model architectures</h3>
+<p>
+ <br> 
+Benchmark of generative models we're investigating and comparing:
+</p>
+<ul>
+<li class="fragment appear"><b><a href="https://arxiv.org/abs/1411.1784">cGANs</a></b>: lackluster results (see <a href="https://phdenzel.github.io/assets/blog-assets/021-skach-winter-meeting/slides.html">previous talk</a>)</li>
+<li class="fragment appear"><b><a href="https://arxiv.org/abs/2011.13456">Score-based diffusion models</a></b>: promising results but really slow</li>
+<li class="fragment appear"><b><a href="https://arxiv.org/abs/2303.11435">InDI</a></b> models: more efficient at inference?</li>
+<li class="fragment appear"><b><a href="https://arxiv.org/abs/2405.14224">Diffusion Mamba</a></b>: the latest and greatest?</li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org0dd3949">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org0dd3949">cGANs</h3>
+
+<div id="org66af2f4" class="figure">
+<p><img src="./assets/images/pix2pix/pix2pix_schema.png" alt="pix2pix_schema.png" height="600px;" />
+</p>
+<p><span class="figure-number">Figure 1: </span>pix2pix scheme</p>
+</div>
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section>
+
+
+<div id="org13d3c33" class="figure">
+<p><img src="./assets/images/skais/skais_gas_dm_data_pred_gt.png" alt="skais_gas_dm_data_pred_gt.png" height="900px;" />
+</p>
+<p><span class="figure-number">Figure 2: </span>cGAN(Gas) &#x2192; DM: data, prediction, and ground truth (from top to bottom)</p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org856fc4f">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org856fc4f">Score-based diffusion (SDM)</h3>
+
+<div id="orgf2c28bf" class="figure">
+<p><img src="./assets/images/diffusion/diffusion.png" alt="diffusion.png" height="500px;" />
+</p>
+<p><span class="figure-number">Figure 3: </span>Score-based diffusion: <a href="https://arxiv.org/abs/2011.13456">Song et al. (2021)</a></p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section id="slide-org32b8fee">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h4 id="org32b8fee">Noise schedule</h4>
+
+<div id="org01dfb41" class="figure">
+<p><img src="./assets/images/indi/skais_indi_rnd_dm_no_formula.png" alt="skais_indi_rnd_dm_no_formula.png" height="500px;" />
+</p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org1ac62d8">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org1ac62d8">Inversion by Direct Iteration (InDI)</h3>
+
+<div id="org1d48b60" class="figure">
+<p><img src="./assets/images/indi/skais_indi_gas_dm.png" alt="skais_indi_gas_dm.png" height="500px;" style="border-radius: 12px;" />
+</p>
+<p><span class="figure-number">Figure 4: </span>InDI's iteration scheme following <a href="https://arxiv.org/abs/2303.11435">Delbracio & Milanfar (2023)</a></p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org20dfb5d">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org20dfb5d">Diffusion Mamba (DiM)</h3>
+
+<div id="orgd1c1123" class="figure">
+<p><img src="./assets/images/mamba/diffusion_mamba.png" alt="diffusion_mamba.png" height="600px;" style="border-radius: 12px;" />
+</p>
+<p><span class="figure-number">Figure 5: </span>DiM architecture <a href="https://arxiv.org/abs/2405.14224">Teng et al. (2024)</a></p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgff50e89">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orgff50e89">From 2D to 3D models</h2>
+<ul>
+<li class="fragment appear">observations inherently have 2D spatial resolution</li>
+<li class="fragment appear">astrophysical structures are inherently 3D</li>
+<li class="fragment appear">modelling difficulties:
+<ul>
+<li>inherent 3D features, different 2D perspectives</li>
+<li>degeneracies</li>
+<li>computational costs, &#x2026;</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org44c9ead">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org44c9ead">Inherent 3D shapes</h3>
+<div class="gframe_rows">
+<div class="gframe_row_col">
+<div class="gframe_2col">
+<p height="800px" style="border-radius: 12px; margin: 0px 0px 0px 0px; font-size: 26px;">
+<img src="./assets/images/apod/M83_ap190629.jpg" alt="M83_ap190629.jpg" height="800px" style="border-radius: 12px; margin: 0px 0px 0px 0px; font-size: 26px;" />  <br> 
+<a href="">APOD 2019 June 29: M83</a>
+</p>
+</div>
+<div class="gframe_2col">
+<p height="800px" style="border-radius: 12px; margin: 0px 70px 0px 70px; font-size: 26px;">
+<img src="./assets/images/apod/NGC4565_ap240606.jpg" alt="NGC4565_ap240606.jpg" height="800px" style="border-radius: 12px; margin: 0px 70px 0px 70px; font-size: 26px;" />  <br> 
+<a href="https://apod.nasa.gov/apod/ap240606.html">APOD 2024 June 6: NGC 4565</a>
+</p>
+</div>
+</div>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org36ba01d">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org36ba01d">Degeneracies</h3>
+<div class="gframe_rows">
+<div class="gframe_row_col">
+<div class="gframe_3col">
+<p>
+ <br> 
+original image
+</p>
+</div>
+<div class="gframe_3col">
+<p height="250px" style="border-radius: 10px; margin: 0px 70px 0px 80px; font-size: 26px;">
+<img src="./assets/images/gl/J0753_kappa.png" alt="J0753_kappa.png" height="250px" style="border-radius: 10px; margin: 0px 70px 0px 80px; font-size: 26px;" />  <br> 
+</p>
+</div>
+<div class="gframe_3col">
+<p>
+ <br> 
+reconstruction
+</p>
+</div>
+</div>
+<div class="gframe_row_col">
+<div class="gframe_3col">
+
+<div id="orge6db309" class="figure">
+<p><img src="./assets/images/gl/SDSSJ0753+3416.png" alt="SDSSJ0753+3416.png" height="250px" style="border-radius: 10px; margin: 0px 0px 0px 0px; font-size: 26px;" />
+</p>
+</div>
+</div>
+<p>
+ <br> 
+&#x27F6;
+</p>
+<div class="gframe_3col">
+
+<div id="orgf258715" class="figure">
+<p><img src="./assets/images/gl/J0956_kappa.png" alt="J0956_kappa.png" height="250px" style="border-radius: 10px; margin: 0px 70px 0px 70px; font-size: 26px;" />
+</p>
+</div>
+</div>
+<p>
+ <br> 
+&#x27F6;
+</p>
+<div class="gframe_3col">
+
+<div id="orgdc4ca39" class="figure">
+<p><img src="./assets/images/gl/SDSSJ0753+3416_recon.png" alt="SDSSJ0753+3416_recon.png" height="250px" style="border-radius: 12px; margin: 0px 0px 0px 0px; font-size: 26px;" />
+</p>
+</div>
+</div>
+</div>
+<div class="gframe_row_col">
+<div class="gframe_3col">
+</div>
+<div class="gframe_3col">
+<p height="250px" style="border-radius: 10px; margin: 0px 70px 0px 80px; font-size: 26px;">
+<img src="./assets/images/gl/J0029_kappa.png" alt="J0029_kappa.png" height="250px" style="border-radius: 10px; margin: 0px 70px 0px 80px; font-size: 26px;" />  <br> 
+All valid model solutions: <a href="https://doi.org/10.1093/mnras/stab1716">Denzel et al. (2021)</a>
+</p>
+</div>
+<div class="gframe_3col">
+</div>
+</div>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd668d94">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="orgd668d94">Point-cloud models for 3D modelling</h3>
+<p>
+ <br> 
+Data type: point cloud
+ <br> 
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">x</th>
+<th scope="col" class="org-right">y</th>
+<th scope="col" class="org-right">z</th>
+<th scope="col" class="org-right">[Mass]</th>
+<th scope="col" class="org-left">[E]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">8</td>
+<td class="org-right">1</td>
+<td class="org-right">-</td>
+<td class="org-left">-</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-right">1</td>
+<td class="org-right">6</td>
+<td class="org-right">-</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+<td class="org-right">2</td>
+<td class="org-left">-</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+<td class="org-right">3</td>
+<td class="org-right">5</td>
+<td class="org-left">-</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-right">9</td>
+<td class="org-right">1</td>
+<td class="org-right">3</td>
+<td class="org-left">-</td>
+</tr>
+
+<tr>
+<td class="org-right">9</td>
+<td class="org-right">6</td>
+<td class="org-right">9</td>
+<td class="org-right">4</td>
+<td class="org-left">-</td>
+</tr>
+
+<tr>
+<td class="org-right">&#x2026;</td>
+<td class="org-right">&#x2026;</td>
+<td class="org-right">&#x2026;</td>
+<td class="org-right">&#x2026;</td>
+<td class="org-left">-</td>
+</tr>
+</tbody>
+</table>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section id="slide-org4add6c2">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h4 id="org4add6c2">For Cosmological Inference</h4>
+
+<div id="org7fa110f" class="figure">
+<p><img src="./assets/images/pc/pointnext.png" alt="pointnext.png" height="650px;" style="border-radius: 12px;" />
+</p>
+<p><span class="figure-number">Figure 6: </span><a href="https://arxiv.org/abs/2211.12346">Anagnostidis et al. (2022)</a></p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section id="slide-org8b91a49">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h4 id="org8b91a49">For Emulation of DM simulations (Quijote)</h4>
+
+<div id="org2af044a" class="figure">
+<p><img src="./assets/images/pc/diffusion_cuesta_lazaro.png" alt="diffusion_cuesta_lazaro.png" height="800px;" style="border-radius: 12px;" />
+</p>
+<p><span class="figure-number">Figure 7: </span><a href="https://arxiv.org/abs/2311.17141">Cuesta-Lazaro & Mishra-Sharma (2023)</a></p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org5897f9f">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org5897f9f">Experiments using transformers</h2>
+<ul>
+<li>AdaPoinTr architecture</li>
+<li>Task: point cloud "completion"</li>
+<li>Limitations:
+<ul>
+<li>input: max. ~10'000 particles</li>
+<li>output: max. ~16'000 particles  <br> 
+&#x27F6; Iterative generation  <br> 
+&#x27F6; subsampling input</li>
+
+</ul></li>
+<li>by Master student: Raphael Emberger</li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orga06f9a0">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="orga06f9a0">The "Good"</h3>
+<div class="gframe_rows">
+<div class="gframe_row_col">
+<div class="gframe_2col">
+
+<div id="org30870f5" class="figure">
+<p><img src="./assets/images/adapointr/adapointr_dm_gas_1.png" alt="adapointr_dm_gas_1.png" height="600px;" style="border-radius: 12px; margin: 0px 70px 0px 80px; font-size: 26px;" />
+</p>
+<p><span class="figure-number">Figure 8: </span>AdaPoinTr (<a href="https://arxiv.org/abs/2301.04545">Yu et al. 2023</a>) on TNG50 galaxies: DM &#x2192; gas</p>
+</div>
+</div>
+<div class="gframe_2col">
+
+<div id="org79995c1" class="figure">
+<p><img src="./assets/images/adapointr/adapointr_dm_gas_hist_1.png" alt="adapointr_dm_gas_hist_1.png" height="600px;" style="border-radius: 12px; margin: 0px 70px 0px 80px; font-size: 26px;" />
+</p>
+<p><span class="figure-number">Figure 9: </span>Radial profiles of particle numbers</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orga7c1278">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="orga7c1278">The "Bad"</h3>
+<div class="gframe_rows">
+<div class="gframe_row_col">
+<div class="gframe_2col">
+
+<div id="org4f87311" class="figure">
+<p><img src="./assets/images/adapointr/adapointr_dm_gas_2.png" alt="adapointr_dm_gas_2.png" height="600px;" style="border-radius: 12px; margin: 0px 70px 0px 80px; font-size: 26px;" />
+</p>
+<p><span class="figure-number">Figure 10: </span>AdaPoinTr (<a href="https://arxiv.org/abs/2301.04545">Yu et al. 2023</a>) on TNG50 galaxies: DM &#x2192; gas</p>
+</div>
+</div>
+<div class="gframe_2col">
+
+<div id="org14fb67a" class="figure">
+<p><img src="./assets/images/adapointr/adapointr_dm_gas_hist_2.png" alt="adapointr_dm_gas_hist_2.png" height="600px;" style="border-radius: 12px; margin: 0px 70px 0px 80px; font-size: 26px;" />
+</p>
+<p><span class="figure-number">Figure 11: </span>Radial profiles of particle numbers</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org0b87389">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org0b87389">The "Ugly"</h3>
+<div class="gframe_rows">
+<div class="gframe_row_col">
+<div class="gframe_2col">
+
+<div id="org44646d9" class="figure">
+<p><img src="./assets/images/adapointr/adapointr_dm_gas_3.png" alt="adapointr_dm_gas_3.png" height="600px;" style="border-radius: 12px; margin: 0px 70px 0px 80px; font-size: 26px;" />
+</p>
+<p><span class="figure-number">Figure 12: </span>AdaPoinTr (<a href="https://arxiv.org/abs/2301.04545">Yu et al. 2023</a>) on TNG50 galaxies: DM &#x2192; gas</p>
+</div>
+</div>
+<div class="gframe_2col">
+
+<div id="orgf89c163" class="figure">
+<p><img src="./assets/images/adapointr/adapointr_dm_gas_hist_3.png" alt="adapointr_dm_gas_hist_3.png" height="600px;" style="border-radius: 12px; margin: 0px 70px 0px 80px; font-size: 26px;" />
+</p>
+<p><span class="figure-number">Figure 13: </span>Radial profiles of particle numbers</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org4a8be55">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org4a8be55">Towards "Phase-space-point" models</h2>
+<ul>
+<li>expand feature vector to: mass, momenta/velocities, potential, &#x2026;</li>
+<li>problems:
+<ul>
+<li>already barely computationally tractable</li>
+<li><p>
+more particles needed for accuracy  <br> 
+</p>
+<p class="fragment (appear)">
+&#x27F6; optimization: quantization, pruning, data parallelism, sharding, &#x2026;  <br> 
+&#x27F6; better subsampling strategies  <br> 
+&#x27F6; self-consistency checks? regularizations?  <br> 
+</p></li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org861a20d">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org861a20d">Contact</h2>
+<p>
+<a href="https://phdenzel.github.io/">https://phdenzel.github.io/</a>
+</p>
+
+<p>
+<a href="https://phdenzel.github.io/assets/blog-assets/022-skach-spring-meeting/slides.html">
+</p>
+<p height="400px" style="float: left; margin-left: 150px;">
+<img src="./assets/images/talk_qr.png" alt="talk_qr.png" height="400px" style="float: left; margin-left: 150px;" />
+</a>
+</p>
+
+
+<p>
+ <br>  <br> 
+Email:  <a href="mailto:denp@zhaw.ch">philipp.denzel@zhaw.ch</a>
+</p>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org87a4723">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org87a4723">References</h2>
+<ul>
+<li>SDM: <a href="https://arxiv.org/abs/2011.13456">Song et al. (2021)</a></li>
+<li>InDI: <a href="https://arxiv.org/abs/2303.11435">Delbracio &amp; Milanfar (2023)</a></li>
+<li>DiM: <a href="https://arxiv.org/abs/2405.14224">Teng et al. (2024)</a></li>
+<li>PointNet for summary statistics: <a href="https://arxiv.org/abs/2211.12346">Anagnostidis et al. (2022)</a></li>
+<li>Point cloud generation for galaxy surveys: <a href="https://arxiv.org/abs/2311.17141">Cuesta-Lazaro &amp; Mishra-Sharma (2023)</a></li>
+<li>AdaPoinTr architecture: <a href="https://arxiv.org/abs/2301.04545">Yu et al. (2023)</a></li>
+<li>Cosmology from point clouds: <a href="https://arxiv.org/abs/2405.13119v1">Chatterjee &amp; Villaescusa-Navarro (2024)</a></li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+</div>
+</div>
+<div> Created by phdenzel. </div>
+<script src="./assets/js/reveal.js"></script>
+<script src="./assets/js/markdown.js"></script>
+<script src="./assets/js/math.js"></script>
+<script src="./assets/js/zoom.js"></script>
+<script src="./assets/js/notes.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+mouseWheel: true,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+width: 1920,
+height: 1080,
+margin: 0.05,
+minScale: 0.20,
+maxScale: 4.50,
+
+transition: 'fade',
+transitionSpeed: 'default',
+controlsLayout: 'bottom-right', controlsBackArrows: 'faded', navigationMode: 'linear', previewLinks: false,
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealMarkdown, RevealMath, RevealZoom, RevealNotes ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+});
+</script>
+</body>
+</html>
