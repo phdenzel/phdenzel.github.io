@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>GenAI overview:</title>
+<meta name="author" content="Philipp Denzel"/>
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./assets/css/reveal.css"/>
+
+<link rel="stylesheet" href="./assets/css/phdcolloq.css" id="theme"/>
+
+<link rel="stylesheet" href="./assets/css/slides.css"/>
+
+<link rel="stylesheet" href="./assets/css/header.css"/>
+
+<link rel="stylesheet" href="./assets/css/footer.css"/>
+<meta name="description" content="">
+<script src="./assets/js/tsparticles.slim.bundle.min.js"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-background="./assets/images/CAI_header.jpg" data-background-size="contain" data-background-position="block" data-background-opacity="0.6">
+<div id="tsparticles"></div>
+<script>
+tsParticles.load("tsparticles", {particles: {color: {value: "#acb7c8"}, links: {distance: 150, enable: true, color: {value: "#acb7c8"}}, move: {enable: true, speed: 0.4, straight: false}, number: {density: {enable: true}, value: 500}, size: {random: true, value: 3}, opacity: {animation: {enable: true}, value: {min: 0.01, max: 1.0}}}})
+.then(container => {console.log("callback - tsparticles config loaded");})
+.catch(error => {console.error(error);});
+</script>
+<h2 style="text-shadow: 6px 6px 10px #000000;">GenAI overview:</h2>
+<h2 style="text-shadow: 6px 6px 10px #000000;">From hands-on GenAI today into a neuro-inspired future</h2>
+<div style="padding-top: 50px; text-shadow: 6px 6px 10px #000000">AI+X summit: GenAI track</div>
+<div style="padding-top: 20px; text-shadow: 6px 6px 10px #000000;">Oct 4, 2024</div>
+<h5 style="padding-top: 0px; text-shadow: 6px 6px 10px #000000;"> <img src="./assets/images/contact_qr.png" alt="contact_qr.png" height="150px" align="center" style="padding-left: 50px; padding-right: 10px;"> <a href="mailto:phdenzel@gmail.com">Philipp Denzel</a>, <span>Benjamin Grewe</span> </h5>
+</section>
+<section>
+<section id="slide-org6c7d5f7">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org6c7d5f7">Slides on my website</h2>
+<p>
+<a href="https://phdenzel.github.io/">https://phdenzel.github.io/</a>
+</p>
+
+<p>
+<a href="https://phdenzel.github.io/assets/blog-assets/024-aix-2024/slides.html">
+</p>
+<p height="400px" style="float: center; border-radius: 12px;">
+<img src="./assets/images/talk_qr.png" alt="talk_qr.png" height="400px" style="float: center; border-radius: 12px;" />
+</a>
+</p>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgc638f95">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orgc638f95">Who Am I? - Philipp Denzel</h2>
+<div style="font-size: 100%;">
+<ul style="float: left; padding-top: 100px; padding-left: 200px;">
+<li class="fragment appear">trained physicist, turned ML researcher</li>
+<li class="fragment appear">research scientist at the <a href="https://www.zhaw.ch/en/engineering/institutes-centres/cai/">Centre of Artificial Intelligence</a> at ZHAW
+<ul>
+<li>generative DL models for radio astronomy (<a href="https://skach.org/">Swiss</a> <a href="https://www.skao.int/en">SKAO</a>)</li>
+<li>technical certification of AI systems (<a href="https://www.zhaw.ch/de/forschung/forschungsdatenbank/projektdetail/projektid/5900/">certAInty</a>)</li>
+
+</ul></li>
+<li class="fragment appear">like to tinker with computers and bleeding-edge technology</li>
+
+</ul>
+</div>
+
+
+<div id="org30f207a" class="figure">
+<p><img src="./assets/images/DENP_4562.jpg" alt="DENP_4562.jpg" height="300px" style="float: right; margin-top: 100px; padding-right: 100px; border-radius: 12px;" class="fragment (appear)" />
+</p>
+</div>
+
+<div id="org18ce2fc" class="figure">
+<p><img src="./assets/images/ska/SKAO-scheme.jpg" alt="SKAO-scheme.jpg" height="300px" style="float: right; padding-right: 100px; border-radius: 12px;" class="fragment (appear)" />
+</p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org1ba5ff3">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org1ba5ff3">Outlook</h2>
+<ol>
+<li><a href="#/slide-orgc92dfa8" class="forwardlink">The Magic of Generative AI (GenAI)</a></li>
+<li><a href="#/slide-orgf3f4dff" class="forwardlink">GenAI Tools</a></li>
+<li><a href="#/slide-org0e4c833" class="forwardlink">Image generation</a></li>
+<li><a href="#/slide-org4afcbee" class="forwardlink">Video generation</a></li>
+<li><a href="#/slide-org494fa62" class="forwardlink">GenAI ?= AGI</a></li>
+
+</ol>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgc92dfa8">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orgc92dfa8">What is Generative AI?</h2>
+<ul>
+<li>Quote Arthur C. Clarke's third adage:</li>
+
+</ul>
+<blockquote>
+<p>
+Any sufficiently advanced technology is indistinguishable from magic.
+</p>
+</blockquote>
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section>
+<h2>What is Generative AI?</h2>
+
+<ul>
+<li>method to (re-)create original content</li>
+<li>an immensely useful tool!</li>
+
+</ul>
+<blockquote>
+<p>
+In fact, this presentation was almost exclusively created with GenAI tools<sup>*</sup>!
+</p>
+</blockquote>
+<div style="font-size: 60%;">
+<p>
+\(*\) through <a href="https://revealjs.com/">reveal.js</a> code generation prompting using
+</p>
+<ul>
+<li>local tools: <a href="https://ollama.com/">ollama</a>/<a href="https://github.com/s-kostyaev/ellama">ellama</a>, <a href="https://aider.chat/">aider-chat</a>,  <a href="https://huggingface.co/black-forest-labs/FLUX.1-schnell">FLUX.1-schnell</a></li>
+<li>external tools: <a href="https://fastflux.ai/">fastflux</a>, <a href="https://elevenlabs.io/app/speech-synthesis/text-to-speech">elevenlabs</a>, <a href="https://app.heygen.com/login">heygen</a></li>
+
+</ul>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf3f4dff">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orgf3f4dff">LLMs at home with Ollama</h2>
+<ul style="float: left; padding-top: 200px; padding-left: 200px;">
+<li><a href="https://ollama.com/">Ollama</a> installs and runs open-source models</li>
+<li>on various hardware with
+<ul>
+<li><a href="https://huggingface.co/blog/merve/quantization">Quantization</a>: lower bit float representation</li>
+<li><a href="https://huggingface.co/docs/peft/main/en/conceptual_guides/lora">LoRA</a>: efficient method to update weights</li>
+
+</ul></li>
+
+</ul>
+
+<p height="800px" style="float: right; margin-top: 0px; padding-right: 80px; border-radius: 12px;">
+<img src="./assets/images/genai/ollama_241002.png" alt="ollama_241002.png" height="800px" style="float: right; margin-top: 0px; padding-right: 80px; border-radius: 12px;" /> <br> 
+<small>Screenshot on 24/10/02</small>
+</p>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orga76f2a2">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="orga76f2a2">Context learning</h3>
+<p height="800px" style="float: right; margin-top: 0px; padding-right: 80px; border-radius: 12px;">
+<img src="./assets/images/genai/RAG_schema.png" alt="RAG_schema.png" height="800px" style="float: right; margin-top: 0px; padding-right: 80px; border-radius: 12px;" /> <br> 
+<small>Credit: <a href="https://www.ml6.eu/blogpost/leveraging-llms-on-your-domain-specific-knowledge-base">ML6</a></small>
+</p>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org002ca1c" data-background-size="90%" class="hidden-title" data-background-image="./assets/images/genai/GenAI_landscape.png">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org002ca1c">GenAI tools</h2>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgbc8c70c" data-background-size="90%" class="hidden-title" data-background-iframe="https://theresanaiforthat.com/" data-preload;>
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orgbc8c70c">There's an AI for that</h2>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org0e4c833">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org0e4c833">Image generation</h2>
+<ul>
+<li><a href="https://huggingface.co/docs/diffusers/main/en/api/pipelines/stable_diffusion/overview">Stable Diffusion</a>
+<ul>
+<li>with <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">AUTOMATIC1111 Web UI</a></li>
+
+</ul></li>
+<li>FLUX.1
+<ul>
+<li>open version available: <a href="https://github.com/black-forest-labs/flux">github.com/black-forest-labs/flux</a></li>
+<li>fast (under 2 seconds)</li>
+<li>efficient and accurate (details like fingers and text)</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgc14d50e">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="orgc14d50e">Stable Diffusion fails at writing and hands</h3>
+
+<div id="org163f713" class="figure">
+<p><img src="./assets/images/genai/sd_fail.png" alt="sd_fail.png" height="600px" style="border-radius: 12px;" />
+</p>
+</div>
+<ul style="font-size: 32px;">
+<li>Prompt: "Futuristic background including an astronaut and planets with "AI+X 2024" on a large banner"</li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org287d963">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org287d963">FAST.1 is faster and more accurate</h3>
+
+<div id="org2d83ab5" class="figure">
+<p><img src="./assets/images/genai/fastflux_demo_ai+x.png" alt="fastflux_demo_ai+x.png" height="600px" style="border-radius: 12px;" />
+</p>
+</div>
+<ul style="font-size: 32px;">
+<li>Prompt: "Futuristic background including an astronaut and planets with "AI+X 2024" on a large banner"</li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org4afcbee">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org4afcbee">Audio generation</h2>
+<ul>
+<li>Music generation: <a href="https://suno.com">Suno</a>, <a href="https://www.udio.com/">Udio</a>, <a href="https://brev.ai/app">brev.ai</a>, &#x2026;
+<ul>
+<li>collapses to stereo-typical genres without detailed prompts</li>
+<li>with lyrics explicit content at times</li>
+<li><p>
+<i>"A background track fitting for a conference on Generative AI"</i>
+</p>
+<audio controls><source src="./assets/audio/genai/brevai_A_background_track_fitting_for_a_conference_on_Generative_AI.mp3" type="audio/mpeg"></audio></li>
+
+</ul></li>
+
+</ul>
+
+<p height="300px" style="float: right; margin-top: -2vv0px; padding-right: 300px; border-radius: 12px;">
+<img src="./assets/images/genai/brevai_A_background_track_fitting_for_a_conference_on_Generative_AI.png" alt="brevai_A_background_track_fitting_for_a_conference_on_Generative_AI.png" height="300px" style="float: right; margin-top: -2vv0px; padding-right: 300px; border-radius: 12px;" /> <br> 
+<small>"Rise of the Machines" by brev.ai</small>
+</p>
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section>
+<h2>Audio generation</h2>
+
+<ul>
+<li><p>
+Sound generation: <a href="https://github.com/facebookresearch/audiocraft">Meta's AudioCraft</a>
+</p>
+<audio controls><source src="./assets/audio/genai/11labs_audience_chatting_before_a_speech_by_a_scientist_until_an_authoritative_person_loudly_yells_silence_in_a_deep_voice.mp3" type="audio/mpeg"></audio>
+<ul>
+<li><i>"Audience chatting before a speech by a scientist <br> until an authoritative person loudly yells "silence" in a deep voice."</i></li>
+
+</ul></li>
+<li><p>
+Speech generation: <a href="https://elevenlabs.io/app/speech-synthesis/text-to-speech">ElevenLabs</a>
+</p>
+<audio controls><source src="./assets/audio/genai/11labs_Denzel_demo.mp3" type="audio/mpeg"></audio>
+<ul>
+<li>Voice created through prompt: <i>"Move Philipp Denzel's register towards a male tenor, and make it slightly more nasal. The voice should speak relatively slowly, and pronounce words well."</i></li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org9a93e7d">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org9a93e7d">Video generation with Sora</h2>
+<video height="830" style="border-radius: 12px;" data-autoplay controls onloadstart="this.playbackRate = 1;">
+<source src="./assets/movies/genai/SORA_aquarium_nyc.mp4" type="video/mp4" />
+</video>
+
+<ul style="font-size: 32px;">
+<li>Prompt: New York City submerged like Atlantis. Fish, whales, sea turtles and sharks swim through the streets of New York.</li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org7794eaa">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org7794eaa">&#x2026; but sometimes has issues with physics</h3>
+<video height="830" style="border-radius: 12px;" data-autoplay controls onloadstart="this.playbackRate = 1;">
+<source src="./assets/movies/genai/SORA_chair_archaeology.mp4" type="video/mp4" />
+</video>
+
+<ul style="font-size: 32px;">
+<li>Prompt: New York City submerged like Atlantis. Fish, whales, sea turtles and sharks swim through the streets of New York.</li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgcdb4eb3">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="orgcdb4eb3">Deep Fakes?</h3>
+<video height="830" style="border-radius: 12px;" data-autoplay controls onloadstart="this.playbackRate = 1;">
+<source src="./assets/movies/genai/Am_I_A_Real_Person.mp4" type="video/mp4" />
+</video>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org494fa62">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org494fa62">GenAI ?= AGI</h2>
+<ul>
+<li>main traits of AGI: reason, knowledge, common sense, plan, efficient learning</li>
+<li>Use <a href="https://academic.oup.com/mind/article/LIX/236/433/986238">Turing test</a>:
+<ul>
+<li>an <i>interrogator</i> (C) and two <i>witnesses</i></li>
+<li>one witness is a <i>machine</i> (A), the other is <i>human</i> (B)</li>
+<li>human witness helps the interrogator</li>
+<li>machine witness tries to confuse the interrogator</li>
+
+</ul></li>
+
+</ul>
+
+
+<p height="300px" style="float: right; margin-top: -100px; padding-right: 80px; border-radius: 12px;">
+<img src="./assets/images/genai/turing_test_diagram.webp" alt="turing_test_diagram.webp" height="300px" style="float: right; margin-top: -100px; padding-right: 80px; border-radius: 12px;" /> <br> 
+<small>Credit: Juan Alberto Sánchez Margallo/Wikimedia Commons</small>
+</p>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org3f836c0">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org3f836c0">Turing test on GPT-4 with children</h3>
+<ul style="float: left; padding-top: 10px; padding-left: 100px;">
+<li>performed early 2024 at University of Zurich</li>
+<li>by colleagues at the Institute for Computational Science (Julian Adamek, Prasenjit Saha)</li>
+<li><i>Moderator</i>
+<ul>
+<li>prompts the LLM instructions in advance</li>
+<li>relais the questions and answers</li>
+<li>rejects questions on recent news</li>
+
+</ul></li>
+<li>two session with multiple rounds
+<ul>
+<li>an adult with limited exposure to LLMs</li>
+<li>a group of school children</li>
+
+</ul></li>
+
+</ul>
+<p height="450px" style="float: right; margin-top: -300px; padding-right: 80px; border-radius: 12px;">
+<img src="./assets/images/genai/turing_test_reimagined.webp" alt="turing_test_reimagined.webp" height="450px" style="float: right; margin-top: -300px; padding-right: 80px; border-radius: 12px;" /> <br> 
+<small>Turing test reimagined (AI-generated with FLUX.1-schnell)</small>
+</p>
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section>
+<h3>Turing test on GPT-4 with children</h3>
+<ul>
+<li>Results:
+<ul>
+<li>children need only a single question to identify the machine</li>
+<li>the adult a bit longer but still has high accuracy</li>
+<li>children say:</li>
+
+</ul></li>
+
+</ul>
+<blockquote>
+<p>
+"ChatGPT doesn't speak like a human, but is still a great tool to do homework&#x2026;"
+</p>
+</blockquote>
+<ul>
+<li>PhD student jokingly concludes:</li>
+
+</ul>
+<blockquote>
+<p>
+"The AI apocalypse is not (yet) imminent then&#x2026;"
+</p>
+</blockquote>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgfeaceb3">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orgfeaceb3">Lessons Learned</h2>
+<ul>
+<li>current state of GenAI components enable many applications</li>
+<li>performance is amazing at times</li>
+<li>but inaccurate and limited in more complex tasks</li>
+<li><i>How can we move forward?</i></li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgdf56314">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orgdf56314">References, Links, and Credits</h2>
+<ul>
+<li>Website slides: <a href="https://phdenzel.github.io/assets/blog-assets/024-aix-2024/slides.html">phdenzel.github.io/assets/blog-assets/024-aix-2024/slides.html</a></li>
+<li>AI icons: taken from <a href="https://theresanaiforthat.com/">TAAFT</a></li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+</div>
+</div>
+<div> Created by phdenzel. </div>
+<script src="./assets/js/reveal.js"></script>
+<script src="./assets/js/markdown.js"></script>
+<script src="./assets/js/math.js"></script>
+<script src="./assets/js/zoom.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+width: 1920,
+height: 1080,
+margin: 0.05,
+minScale: 0.20,
+maxScale: 4.50,
+
+transition: 'fade',
+transitionSpeed: 'default',
+controlsLayout: 'bottom-right', controlsBackArrows: 'faded', navigationMode: 'linear', previewLinks: false,
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealMarkdown, RevealMath, RevealZoom ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+});
+</script>
+</body>
+</html>

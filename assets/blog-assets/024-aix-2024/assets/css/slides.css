@@ -1,0 +1,109 @@
+.reveal .slide-background {
+    width: 100%;
+    background-image:
+        /* linear-gradient(72deg, rgb(228, 7, 105) 0%, rgb(130, 3, 104) 10%, rgb(60, 1, 104) 20%, rgb(18, 0, 104) 30%, rgb(7, 0, 103) 40%, rgb(7, 0, 103) 50%, rgb(7, 0, 103) 60%, rgb(7, 0, 103) 70%, rgb(7, 0, 103) 80%, rgb(7, 0, 103) 90%, rgb(7, 0, 103) 100%), */
+        /* linear-gradient(72deg, rgb(228, 7, 105) 0%, rgb(130, 3, 104) 10%, rgb(60, 1, 104) 20%, rgb(18, 0, 104) 30%, rgb(7, 0, 103) 40%, rgb(7, 0, 103) 50%, rgb(7, 0, 103) 60%, rgb(7, 0, 103) 70%, rgb(7, 0, 103) 80%, rgb(7, 0, 103) 90%, rgb(7, 0, 103) 100%); */
+    
+        /* linear-gradient(90deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%); */
+        /* linear-gradient(90deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%); */
+        linear-gradient(90deg, #651098 0%, #771D8F 20%, #992478 40%, #B71D60 60%, #B61C5F 80%, #D00B50 100%);
+
+    background-position: bottom left/* , top left */;
+    background-size: 100% 20px/* , 100% 20px */;
+    background-repeat: no-repeat/* , no-repeat */;
+}
+
+.figure p {
+    font-size: 28px;
+}
+
+.figure-number {
+    display: none;
+}
+
+.header-item {
+    width: 100%;
+    top: 0;
+    font-size: 28px;
+    text-align: center;
+}
+
+.reveal section.hidden-title {
+    h1, h2, h3, h4 {
+        display: none;
+    };
+    .slide-header {
+        display: none;
+    }
+}
+
+.footer-item {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    font-size: 28px;
+    text-align: center;
+    margin: 930px 0 0 0 !important;
+}
+
+input[type="checkbox"] {
+    width: 30px;
+    height: 30px;
+}
+
+#tsparticles {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.gframe_cols {
+    display: flex;
+    flex-flow: row;
+}
+
+.gframe_rows {
+    display: flex;
+    flex-flow: column;
+}
+
+.gframe_1col {
+    width: 100%;
+}
+
+.gframe_2col {
+    width: 50%;
+}
+
+.gframe_3col {
+    width: 33%;
+}
+
+.gframe_col_row {
+    display: flex;
+    flex-grow: auto;
+    flex-flow: column;
+}
+
+.gframe_row_col {
+    display: flex;
+    flex-flow: row;
+}
+
+.gframe_1row {
+    height: 100%;
+}
+
+.gframe_2row {
+    height: 50%;
+}
+
+table tr td {
+  border-right: 1px solid grey;
+}
+
+//table tr td:last-of-type {
+//  border: none;
+//}
