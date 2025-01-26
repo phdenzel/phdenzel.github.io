@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Lens prior matching with <br> latent diffusion models</title>
+<meta name="author" content="Philipp Denzel"/>
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./assets/css/reveal.css"/>
+
+<link rel="stylesheet" href="./assets/css/phdcolloq.css" id="theme"/>
+
+<link rel="stylesheet" href="./assets/css/slides.css"/>
+
+<link rel="stylesheet" href="./assets/css/header.css"/>
+
+<link rel="stylesheet" href="./assets/css/footer.css"/>
+<meta name="description" content="">
+<script src="./assets/js/tsparticles.slim.bundle.min.js"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-background="./assets/images/poster_skach_skao.png" data-background-size="contain" data-background-position="block" data-background-opacity="0.4">
+<div id="tsparticles"></div>
+<script>
+tsParticles.load("tsparticles", {particles: {color: {value: "#ffffff"}, links: {distance: 150, enable: false}, move: {enable: true, speed: 0.4, straight: false}, number: {density: {enable: true}, value: 500}, size: {random: true, value: 3}, opacity: {animation: {enable: true}, value: {min: 0.01, max: 1.0}}}})
+.then(container => {console.log("callback - tsparticles config loaded");})
+.catch(error => {console.error(error);});
+</script>
+<div style="padding-top: 200px"></div>
+<h1 style="text-shadow: 6px 6px 10px #000000;">Lens prior matching with <br> latent diffusion models<h1>
+<h2 style="text-shadow: 6px 6px 10px #000000;">SKACH winter meeting 2025</h2>
+<div style="padding-top: 50px; text-shadow: 6px 6px 10px #000000;">2024/27/01, ISSI Bern </br> </div>
+<h5 style="padding-top: 20px; text-shadow: 6px 6px 10px #000000;"> <img src="./assets/images/contact_qr.png" alt="contact_qr.png" height="150px" align="left" style="float:left; padding-left: 200px; margin-right: 0px; padding-right: 0px;"> <a href="mailto:phdenzel@gmail.com">Philipp Denzel</a>, <span> Y. Billeter, F.-P. Schilling, E. Gavagnin @ ZHAW</span> </h5>
+<h5 style="padding-top: 0px; text-shadow: 6px 6px 10px #000000;"> L. Stanic, G. Piccoli, T. Doucot, M. Bussmann, P. Saha  @ UZH </h5>
+</section>
+<section>
+<section id="slide-org7987e44" data-background-transition="nil">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org7987e44">Strong gravitational lens prior</h2>
+<p height="450px" style="float:right; padding-right:50px; margin-top:10px; border-radius:12px;">
+<img src="./assets/images/gl/illustration_quasar_lensing_ska.jpg" alt="illustration_quasar_lensing_ska.jpg" height="450px" style="float:right; padding-right:50px; margin-top:10px; border-radius:12px;" /> <br> <span style="font-size:16px;">Credits: NASA/ESA</span>
+</p>
+<form><ul style="float: left; padding-left: 100px; margin-top: 10px;">
+<li>Let \(D\) be a lens observation</li>
+<li class="fragment appear">We want to model the lensing galaxy \(\Gamma_i\)</li>
+<li class="fragment appear">In Bayesian terms: \(\ p(\Gamma | D) \propto p(D | \Gamma)\  p(\Gamma) \)
+<form><ul>
+<li>data likelihood \(p(D|\Gamma)\) contains the physics <br> \(p(\Gamma)\) is our <b>prior</b> knowledge about galaxies</li>
+
+</ul></form></li>
+<li class="fragment appear">This means finding a galaxy s.t. <br> \(\quad\quad \Gamma_i = \arg\max\limits_\Gamma\ \ p(D|\Gamma) + p(\Gamma) \)</li>
+
+</ul></form>
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section data-background-transition="nil">
+<h2>Strong gravitational lens prior</h2>
+
+
+<div id="org86d79e4" class="figure">
+<p><img src="./assets/images/gl/real_gal-inv.png" alt="real_gal-inv.png" height="700px" style="border-radius: 12px;" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Mandelbaum et al. (2014)</p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org4cb9ffb" data-background-transition="nil">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org4cb9ffb">Map-to-map translation</h3>
+
+<div id="org531a730" class="figure">
+<p><img src="./assets/images/skais/domains_directions.png" alt="domains_directions.png" height="800px" style="border-radius: 12px;" />
+</p>
+<p><span class="figure-number">Figure 2: </span>Denzel et al. (2025, in prep.)</p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org6c47eb3" data-background-transition="nil">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org6c47eb3">Generative deep learning for galaxies</h2>
+<form><ul>
+<li>Recent work:
+<form><ul>
+<li>map-to-map translation of simulated galaxies</li>
+
+</ul></form></li>
+
+<li>Roadmap to a physical &amp; plausible lens models:
+<form><ul>
+<li class="on"><input type='checkbox' checked='checked' /> Physical model: map-to-map translation models</li>
+<li class="off"><input type='checkbox' /> Sampling halos: (random/guided) generation</li>
+<li class="off"><input type='checkbox' /> Applications to observations</li>
+
+</ul></form></li>
+
+</ul></form>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orga254f3b" data-background-transition="nil">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orga254f3b">Deep generative models</h2>
+<form><ul>
+<li>match some data distribution \(p(x)\) with a neural network \(p_\theta(x)\)</li>
+<li>our models are trained on simulated galaxy samples \(\Gamma_{i}\)
+<form><ul>
+<li>caveat: each simulation implements a specific feedback model \(\phi\)</li>
+
+</ul></form></li>
+<li>unconditional generation of galaxies \(g\): <br> 
+\( g \sim p_\theta(\Gamma | z; \phi)  \quad \text{where}\quad z\sim\mathcal{N}(0,1) \)</li>
+<li>conditional generation of galaxies \(g\) including some information \(c\): <br> 
+\( g \sim p_\theta(\Gamma | z, c; \phi) \)</li>
+
+</ul></form>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf63b6c7" data-background-transition="nil">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orgf63b6c7">Which generative model?</h2>
+<form><ul>
+<li>depends on use case&#x2026; for strong gravitational lensing we need:
+<form><ul>
+<li>efficient, fast, good distribution coverage</li>
+<li>optionally choose Einstein radius</li>
+
+</ul></form></li>
+
+</ul></form>
+<form><ul>
+<li class="fragment appear"><a href="https://arxiv.org/abs/2006.11239">DDPMs</a>: ideal, but too slow</li>
+<li class="fragment appear"><a href="https://arxiv.org/abs/1611.07004">GANs</a>: difficult to train</li>
+<li class="fragment appear"><a href="https://arxiv.org/abs/1312.6114">VAEs</a>: in latent space, but poor quality</li>
+<li class="fragment appear">Compromise: all of them</li>
+
+</ul></form>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orge152de4" data-background-transition="nil">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orge152de4">Latent diffusion</h2>
+
+<div id="org30ff4e0" class="figure">
+<p><img src="./assets/images/diffusion/latent_diffusion.png" alt="latent_diffusion.png" height="750px" style="margin-top: 100px; border-radius: 12px;" />
+</p>
+<p><span class="figure-number">Figure 3: </span>Latent diffusion by  <a href="https://arxiv.org/pdf/2112.10752">Rombach et al. (2022)</a></p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org6cb5db2" data-background-transition="nil">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org6cb5db2">Key ingredient</h2>
+<video height="900" style="border-radius: 12px;" data-autoplay onloadstart="this.playbackRate = 2.0;">
+<source src="./assets/movies/vae/vae_intro_1.mp4" type="video/mp4" />
+</video>
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section data-background-transition="nil">
+<h2>Key ingredient</h2>
+
+<video height="900" style="border-radius: 12px;" data-autoplay onloadstart="this.playbackRate = 2.0;">
+<source src="./assets/movies/vae/vae_intro_2.mp4" type="video/mp4" />
+</video>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org28d06cc" data-background-transition="nil">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org28d06cc">Regularization of the latent space</h2>
+<video height="900" style="border-radius: 12px;" data-autoplay onloadstart="this.playbackRate = 2.0;">
+<source src="./assets/movies/vae/vae_latent_1.1.mp4" type="video/mp4" />
+</video>
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section data-background-transition="nil">
+<h2>Regularization of the latent space</h2>
+
+<video height="900" style="border-radius: 12px;" data-autoplay onloadstart="this.playbackRate = 2.0;">
+<source src="./assets/movies/vae/vae_latent_2.mp4" type="video/mp4" />
+</video>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org469850b" data-background-transition="nil">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org469850b">Diffusion</h2>
+<video height="900" style="border-radius: 12px;" data-autoplay onloadstart="this.playbackRate = 3;">
+<source src="./assets/movies/diffusion/diffusion_scheme_1.mp4" type="video/mp4" />
+</video>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd46284e" data-background-transition="nil">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orgd46284e">Current status</h2>
+<form><ul>
+<li>basic VAE version is trained
+<form><ul>
+<li>regularization of latent space is difficult&#x2026;</li>
+
+</ul></form></li>
+<li>results need fine-tuning, more elaborate objective <br> 
+\(\mathcal{L}_\text{VQGAN} = \mathcal{L}_\text{L2} + \mathcal{L}_\text{KL/VQ} + \mathcal{L}_\text{PatchGAN} + \mathcal{L}_\text{LPIPS}\)</li>
+<li>some samples from recent VAE trial runs:</li>
+
+</ul></form>
+
+<div class="gframe_row_col">
+<div class="gframe_4col">
+
+<div id="org5900395" class="figure">
+<p><img src="./assets/images/ldm_lens_prior/ldm_vae_2412_1.png" alt="ldm_vae_2412_1.png" height="300px" style="padding-right:20px; margin-left:250px; margin-top:10px; border-radius:12px; background-color: #999999;" />
+</p>
+</div>
+</div>
+<div class="gframe_4col">
+
+<div id="orgfddc23e" class="figure">
+<p><img src="./assets/images/ldm_lens_prior/ldm_vae_2412_2.png" alt="ldm_vae_2412_2.png" height="300px" style="padding-right:20px; margin-top:10px; border-radius:12px; background-color: #999999;" />
+</p>
+</div>
+</div>
+<div class="gframe_4col">
+
+<div id="orge4d4fc3" class="figure">
+<p><img src="./assets/images/ldm_lens_prior/ldm_vae_2412_3.png" alt="ldm_vae_2412_3.png" height="300px" style="padding-right:20px; margin-top:10px; border-radius:12px; background-color: #999999;" />
+</p>
+</div>
+</div>
+<div class="gframe_4col">
+
+<div id="org4fd0191" class="figure">
+<p><img src="./assets/images/ldm_lens_prior/ldm_vae_2412_4.png" alt="ldm_vae_2412_4.png" height="300px" style="padding-right:20px; margin-top:10px; border-radius:12px; background-color: #999999;" />
+</p>
+</div>
+</div>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orged9fda1" data-background-transition="nil">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orged9fda1">Application: Strong gravitational lensing</h2>
+
+<div id="org4496a67" class="figure">
+<p><img src="./assets/images/gl/zigzag_screenshot.png" alt="zigzag_screenshot.png" height="750px" style="margin-top: 10px; border-radius: 12px;" />
+</p>
+<p><span class="figure-number">Figure 4: </span><a href="https://arxiv.org/abs/2411.04177">J1721+8842: The first Einstein zig-zag lens</a></p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgd2c81e2" data-background-transition="nil">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="orgd2c81e2">A lens with an interesting history</h3>
+<div class="gframe_row_col">
+<div class="gframe_2col">
+<form><ul style="float:left; margin-top:10px; border-radius:12px;">
+<li>The "polar" quad (time delays without seasonal gaps)</li>
+<li>First discovered in Gaia D2: <a href="https://academic.oup.com/mnras/article/479/4/5060/4970775">Lemon et al. (2018)</a>
+<form><ul>
+<li>as a quadruply imaged quasar</li>
+
+</ul></form></li>
+<li>Confirmed PDLA by <a href="https://doi.org/10.1051/0004-6361/202142138">Lemon et al. (2022)</a>
+<form><ul>
+<li>Proximate Damped Lyman-\(\alpha\) Absorber quasar</li>
+
+</ul></form></li>
+
+</ul></form>
+</div>
+<div class="gframe_2col">
+<p height="250px" style="float:right; padding-right:50px; margin-top:10px; border-radius:12px;">
+<img src="./assets/images/gl/zig_zag_gaia.png" alt="zig_zag_gaia.png" height="250px" style="float:right; padding-right:50px; margin-top:10px; border-radius:12px;" /> <br> <span style="font-size:16px;">Lemon+ (2018)</span>
+<br> 
+</p>
+<p height="350px" style="float:right; padding-right:50px; margin-top:10px; border-radius:12px;">
+<img src="./assets/images/gl/zig_zag_pdla.png" alt="zig_zag_pdla.png" height="350px" style="float:right; padding-right:50px; margin-top:10px; border-radius:12px;" /> <br> <span style="font-size:16px;">Lemon+ (2022)</span>
+</p>
+</div>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgea1e6fb" data-background-transition="nil">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="orgea1e6fb">Zig-zag lens</h3>
+
+<div id="org4804068" class="figure">
+<p><img src="./assets/images/gl/zigzag_lens.png" alt="zigzag_lens.png" height="750px" style="margin-top: 10px; border-radius: 12px;" />
+</p>
+<p><span class="figure-number">Figure 5: </span><a href="https://arxiv.org/abs/2411.04177">Dux et al. (2024)</a></p>
+</div>
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section data-background-transition="nil">
+<h3>Zig-zag lens</h3>
+
+
+<div id="org6c76a88" class="figure">
+<p><img src="./assets/images/gl/zigzag_trace.png" alt="zigzag_trace.png" height="750px" style="margin-top: 10px; border-radius: 12px;" />
+</p>
+<p><span class="figure-number">Figure 6: </span><a href="https://arxiv.org/abs/2411.04177">Dux et al. (2024)</a></p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf1a1d2d" data-background-transition="nil">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="orgf1a1d2d">Zig-zag lens model</h3>
+<div class="gframe_row_col">
+<div class="gframe_2col">
+<form><ul>
+<li>Brute-force trial matching
+<form><ul>
+<li>feasible due to lensing degeneracies</li>
+<li>as demonstrated by <a href="https://arxiv.org/abs/1901.01359">Morningstar et al. (2019)</a></li>
+
+</ul></form></li>
+<li>Raytracing and lens matching by UZH group</li>
+
+</ul></form>
+<div>
+\begin{equation}
+\begin{aligned}
+  x_1 &= D_{01} \, \theta \\
+  x_2 &= D_{02} \, \theta - D_{12} \, \hat\alpha(x_1) \\
+  x_3 &= D_{03} \, \theta - D_{13} \, \hat\alpha(x_1)
+                          - D_{23} \, \hat\alpha(x_2)
+\end{aligned}
+\end{equation}
+
+</div>
+</div>
+<div class="gframe_2col">
+
+<div id="org0e1dc26" class="figure">
+<p><img src="./assets/images/ldm_lens_prior/ezigzag_first_plane.png" alt="ezigzag_first_plane.png" height="750px" style="margin-top: 10px; border-radius: 12px;" />
+</p>
+</div>
+</div>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org487536b" data-background-transition="nil">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org487536b">Summary: Importance for SKA?</h2>
+<div class="gframe_row_col">
+<div class="gframe_2col">
+<form><ul style="float:left; margin-top:10px; border-radius:12px;">
+<li>Good preparation for what's to come&#x2026;</li>
+<li>VLBI &amp; SKA-MID: Band 2/5/6
+<form><ul>
+<li>extended AGN jets on sub-parsec scales</li>
+<li>CO (1–0) maps (Band 6 ~ ALMA scales)</li>
+<li>sub mJy/beam arcs (\(\approx\) 5 mas) → nature of dark matter</li>
+
+</ul></form></li>
+
+</ul></form>
+<p height="250px" style="float:left; padding-left:100px; margin-top:30px; border-radius:12px;">
+<img src="./assets/images/gl/dm_models_mckean15.png" alt="dm_models_mckean15.png" height="250px" style="float:left; padding-left:100px; margin-top:30px; border-radius:12px;" />
+<span style="font-size:20px;"><a href="https://arxiv.org/abs/1502.03362">McKean et al. (2015)</a></span>
+</p>
+</div>
+<div class="gframe_2col">
+<p height="600px" style="float:right; padding-right:0px; margin-top:10px; border-radius:12px;">
+<img src="./assets/images/gl/radio_gl_hartley19.png" alt="radio_gl_hartley19.png" height="600px" style="float:right; padding-right:0px; margin-top:10px; border-radius:12px;" /><br> 
+<span style="font-size:20px;"><a href="https://arxiv.org/abs/1901.05791">Hartley et al. (2019)</a></span>
+</p>
+</div>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+</div>
+</div>
+<div> Created by phdenzel. </div>
+<script src="./assets/js/reveal.js"></script>
+<script src="./assets/js/markdown.js"></script>
+<script src="./assets/js/math.js"></script>
+<script src="./assets/js/notes.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+width: 1920,
+height: 1080,
+margin: 0.05,
+minScale: 0.20,
+maxScale: 4.50,
+
+transition: 'nil',
+transitionSpeed: 'default',
+controlsLayout: 'bottom-right', controlsBackArrows: 'faded', navigationMode: 'linear', previewLinks: false,
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealMarkdown, RevealMath, RevealNotes ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+});
+</script>
+</body>
+</html>
