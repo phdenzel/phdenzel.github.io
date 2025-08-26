@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Connecting galaxy theory and observables using generative deep learning</title>
+<meta name="author" content="Philipp Denzel"/>
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<style type="text/css">
+ .underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./assets/css/reveal.css"/>
+
+<link rel="stylesheet" href="./assets/css/phdcolloq.css" id="theme"/>
+
+<link rel="stylesheet" href="./assets/css/slides.css"/>
+
+<link rel="stylesheet" href="./assets/css/header.css"/>
+
+<link rel="stylesheet" href="./assets/css/footer.css"/>
+<meta name="description" content="">
+<script src="./assets/js/tsparticles.slim.bundle.min.js"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-background="./assets/images/poster_skach_skao.png" data-background-size="contain" data-background-position="block" data-background-opacity="0.6">
+<div id="tsparticles"></div>
+<script>
+tsParticles.load("tsparticles", {particles: {color: {value: "#ffffff"}, move: {enable: true, speed: 0.4, straight: false}, number: {density: {enable: true}, value: 500}, size: {random: true, value: 3}, opacity: {animation: {enable: true}, value: {min: 0.2, max: 1}}}})
+.then(container => {console.log("callback - tsparticles config loaded");})
+.catch(error => {console.error(error);});
+</script>
+<h3>Connecting galaxy theory and observables using generative deep learning<h3>
+<h3><h4>SKA research at <br> Zurich University of Applied Sciences (ZHAW)</h4><h5>Centre for Artificial Intelligence (CAI) <br> Institute for Business Information Technology (IWI)</h5></h3>
+<div style="padding-top: 50px">Aug 27, 2025</div>
+<h5 style="padding-top: 0px;"> <img src="./assets/images/contact_qr.png" alt="contact_qr.png" height="150px" align="center" style="padding-left: 50px; padding-right: 10px;"> <a href="mailto:phdenzel@gmail.com">Philipp Denzel</a>, <span>Yann Billeter, Frank-Peter Schilling, Elena Gavagnin </span> </h5>
+</section>
+<section>
+<section id="slide-orga31417a">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orga31417a">Generative AI "shortcomings"</h2>
+<iframe width="1080" height="800" src="https://www.youtube.com/embed/3JheBy9gvEg?si=05aO6q0Syds1xaBm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<p>
+<a href="https://openai.com/index/sora/">Sora</a> demo <a href="https://vimeo.com/913353540/a396c2810c">video</a>
+</p>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org3ec7d25">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org3ec7d25">Central Question</h2>
+<ul>
+<li>How do we measure physical plausibility?</li>
+<li>What are plausible galaxies?</li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org025e5d6">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org025e5d6">Generative AI for galaxy (component) emulation</h3>
+
+<div id="org989a325" class="figure">
+<p><img src="./assets/images/skais/domain_translation_scheme.png" alt="domain_translation_scheme.png" height="830px" style="border-radius: 12px;" />
+</p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org4f52f42">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org4f52f42">Outlook</h2>
+<ul>
+<li><a href="#/slide-org0db7df1" class="forwardlink">Galaxies 101</a></li>
+<li><a href="#/slide-org16272a7" class="forwardlink">Generative Deep Learning Models</a></li>
+<li><a href="#/slide-org11dcc5e" class="forwardlink">Measuring plausibility?</a></li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org0db7df1">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org0db7df1">How to build galaxies</h2>
+<p>
+You start with 1% of this:
+</p>
+
+<iframe width="1080" height="800" width src="https://www.youtube.com/embed/PH54cp2ggFk?si=gxMCa_tvghLvd8Vu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; autoplay; modestbranding; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<p>
+see <a href="http://www.astro.yale.edu/vdbosch/cmb_Osher.pdf">lecture</a> by Van den Bosch
+</p>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org77db3d7">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org77db3d7">The Cosmic Microwave Background</h3>
+
+<div id="org6abead4" class="figure">
+<p><img src="./assets/images/cosmo/cmb2D_1e0.png" alt="cmb2D_1e0.png" height="830px" style="border-radius: 12px;" /> 
+</p>
+<p><span class="figure-number">Figure 1: </span>2006, Credit: <a href="https://irsa.ipac.caltech.edu/data/Planck/release_3/all-sky-maps/">ESA/Planck</a></p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org6925712">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org6925712">CMB anisotropies</h3>
+
+<div id="org028e390" class="figure">
+<p><img src="./assets/images/cosmo/cmb2D_5e-4.png" alt="cmb2D_5e-4.png" height="830px" style="border-radius: 12px;" />
+</p>
+<p><span class="figure-number">Figure 2: </span>2006, Credit: <a href="https://irsa.ipac.caltech.edu/data/Planck/release_3/all-sky-maps/">ESA/Planck</a></p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org7f43e9c">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org7f43e9c">Dark matter takes over</h3>
+
+<div id="org9d72be2" class="figure">
+<p><img src="./assets/images/simulations/dark_web.png" alt="dark_web.png" height="830px" style="border-radius: 12px;" />
+</p>
+<p><span class="figure-number">Figure 3: </span>KIPAC/Stanford; Credit: O. Hahn and T. Abel (2016)</p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org8165baa">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org8165baa">Ingredients for galaxies</h3>
+
+<div id="org3fb54b2" class="figure">
+<p><img src="./assets/images/genai/recipe_galaxy.jpg" alt="recipe_galaxy.jpg" height="830px" style="border-radius: 12px;" />
+</p>
+<p><span class="figure-number">Figure 4: </span>recipe for galaxies as imagined by GPT5</p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org171e9c9">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org171e9c9">Simulations as an expression of theory</h3>
+<ul height="800px" style="float: left; margin-top: 200px; margin-left: 200px; border-radius: 12px;">
+<li>complex, realistic models</li>
+<li>self-consistent dynamics</li>
+<li>physics: on a wide range of scales</li>
+<li>implicit models:
+<ul>
+<li>what if we want to sample more <br> of those galaxy models?</li>
+
+</ul></li>
+
+</ul>
+
+
+<div id="orgaa090e0" class="figure">
+<p><img src="./assets/images/illustris/TNG300_compilation_with_radio_halos_2k.png" alt="TNG300_compilation_with_radio_halos_2k.png" height="700px" style="float: right; margin-top: 100px; margin-right: 100px; border-radius: 12px;" />
+</p>
+<p><span class="figure-number">Figure 5: </span>IllustrisTNG simulations</p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org56f00b8">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org56f00b8">The cost of IllustrisTNG</h3>
+<p>
+Stated usage from <a href="https://arxiv.org/abs/1707.03395">Nelson et al (2017)</a>:
+</p>
+<ul>
+<li>CPU core time: 55 Mh</li>
+<li>on Hazel Hen (Cray XC40: typically 0.5kW per 24 core node)</li>
+
+</ul>
+
+<p>
+So, approx. 2.29M node hours @ 0.5kW \(\rightarrow\) <b>1+ GWh</b> (570'000 kg CO<sub>2</sub>e)
+</p>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org38a6fc1">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org38a6fc1">(A)I can do better</h3>
+<p>
+Our model suite run on a mix of Nvidia V100/A100/H100/H200 GPUs
+</p>
+
+<ul>
+<li>GAN-based models required <b>140.25 kWh</b> for training (70 kg CO<sub>2</sub>e)
+<ul>
+<li>inference: ~1 kWh for inference</li>
+
+</ul></li>
+<li>diffusion-based models required <b>520.25 kWh</b> for training (260 kg CO<sub>2</sub>e)
+<ul>
+<li>inference: double the amount</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org01ead9c">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org01ead9c">Multi-domain galaxy image dataset</h2>
+<ul style="float: left; padding-top: 50px; padding-left: 200px;">
+<li>projected Illustris TNG50-1 galaxies</li>
+<li>7 domains: dark-matter, stars, gas, <br> HI, temperature, magnetic field, 21cm
+<ul>
+<li>21cm mocks following <br> <a href="https://arxiv.org/abs/1804.09180">Villaescusa-Navarro et al. (2018)</a></li>
+<li>Karabo mock upgrade in progress</li>
+
+</ul></li>
+<li>&sim; 2'000+ galaxies, 6 snapshots, <br> 5 rotations in 3D, &sim; 504'000 images</li>
+<li>each galaxy \(\ge\) 10'000 particles</li>
+<li>scale: 2 baryonic half-mass radii</li>
+
+</ul>
+
+
+<div id="orgeb46e16" class="figure">
+<p><img src="./assets/images/skais/domains_directions.png" alt="domains_directions.png" height="600px" style="float: right; margin-top: 100px; padding-right: 100px; border-radius: 12px;" />
+</p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org16272a7">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org16272a7">Generative Deep Learning Models</h2>
+<ul>
+<li>conditional GANs (generative adversarial networks)</li>
+<li>diffusion-based models</li>
+<li>combination of both</li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orga81e262">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="orga81e262">conditional GANs</h3>
+
+<div id="org7a55dc8" class="figure">
+<p><img src="./assets/images/pix2pix/pix2pix_schema.png" alt="pix2pix_schema.png" height="600px;" />
+</p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org52b5226">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org52b5226">DDPM</h3>
+
+<div id="org3986a62" class="figure">
+<p><img src="./assets/images/diffusion/skais_diffusion_schema.png" alt="skais_diffusion_schema.png" height="600px;" />
+</p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org7f8a38f">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org7f8a38f">Sampling from the models</h3>
+<p>
+(input, simulation, AI generated)
+</p>
+
+<div id="org895989f" class="figure">
+<p><img src="./assets/images/skais/panels/GasDM.inference_batch.0027.png" alt="GasDM.inference_batch.0027.png" />
+</p>
+<p><span class="figure-number">Figure 6: </span>Gas &xrarr; DM</p>
+</div>
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section>
+
+<p>
+(input, simulation, AI generated)
+</p>
+
+<div id="org68aa7ce" class="figure">
+<p><img src="./assets/images/skais/panels/GasStar.inference_batch.0023.png" alt="GasStar.inference_batch.0023.png" />
+</p>
+<p><span class="figure-number">Figure 7: </span>Gas &xrarr; Stars</p>
+</div>
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section>
+
+<p>
+(input, simulation, AI generated)
+</p>
+
+<div id="org3485d29" class="figure">
+<p><img src="./assets/images/skais/panels/GasHI.inference_batch.0023.png" alt="GasHI.inference_batch.0023.png" />
+</p>
+<p><span class="figure-number">Figure 8: </span>Gas &xrarr; HI</p>
+</div>
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section>
+
+<p>
+(input, simulation, AI generated)
+</p>
+
+<div id="org65d6fb4" class="figure">
+<p><img src="./assets/images/skais/panels/Gas21cm.inference_batch.0023.png" alt="Gas21cm.inference_batch.0023.png" />
+</p>
+<p><span class="figure-number">Figure 9: </span>Gas &xrarr; mock 21cm brightness temperature</p>
+</div>
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section>
+
+<p>
+(input, simulation, AI generated)
+</p>
+
+<div id="org08ce67b" class="figure">
+<p><img src="./assets/images/skais/panels/GasTemp.inference_batch.0027.png" alt="GasTemp.inference_batch.0027.png" />
+</p>
+<p><span class="figure-number">Figure 10: </span>Gas &xrarr; temperature</p>
+</div>
+
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section>
+
+<p>
+(input, simulation, AI generated)
+</p>
+
+<div id="orgfc4dd93" class="figure">
+<p><img src="./assets/images/skais/panels/GasBF.inference_batch.0029.png" alt="GasBF.inference_batch.0029.png" />
+</p>
+<p><span class="figure-number">Figure 11: </span>Gas &xrarr; magnetic field strength</p>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org11dcc5e">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org11dcc5e">Measuring plausibility?</h2>
+<ul>
+<li>Pixel-level CV metrics do not work well for this:
+<ul>
+<li>MSE (mean squared error): \[ \text{MSE}\left(x, \hat{x}\right) = \frac{1}{N} \sum_{i=1}^{N} \left(x_i - \hat{x}_i\right)^2 \]</li>
+<li>PSNR (peak signal noise ratio): \[ \text{PSNR}\left(x, \hat{x}\right) = 10 \cdot \log_{10} \left( \frac{\text{c}^2}{\text{MSE}\left(x, \hat{x}\right)} \right) \]</li>
+<li>SSIM (structural similarity index measure): \[ \text{SSIM}\left(x, \hat{x}\right) = \frac{\left(2\mu_x\mu_{\hat{x}} + k_1\right)\left(2\sigma_{x\hat{x}} + k_2\right)}{\left(\mu_x^2 + \mu_{\hat{x}}^2 + k_1\right)\left(\sigma_x^2 + \sigma_{\hat{x}}^2 + k_2\right)} \]</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org46226dc">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org46226dc">Perceptual metrics</h3>
+<ul>
+<li>Fréchet Inception Distance: \[ \|\mu_r - \mu_g\|^2 + \text{Tr}\left(\Sigma_r + \Sigma_g - 2(\Sigma_r \Sigma_g)^{1/2}\right) \]
+<ul>
+<li>where \(\mu\) and \(\Sigma\) are mean and standard deviation of neural-network extracted features (InceptionV3)</li>
+
+</ul></li>
+<li>or LPIPS (Learned Perceptual Image Patch Similarity)</li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org679b3b8">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h3 id="org679b3b8">Astronomical/astrophysical metrics</h3>
+<ul>
+<li>structural astronomical CAS parameters by <a href="https://arxiv.org/abs/astro-ph/0303065">Conselice (2003)</a>
+<ul>
+<li>Concentration: Means of spatial distributions within fixed radii</li>
+<li>Asymmetry: compare original and 180-degree-rotated image</li>
+<li>Smoothness/Clumpiness: compare original and Gaussian-blurred image</li>
+
+</ul></li>
+<li>Centre of mass drift</li>
+<li>Radially averaged profiles</li>
+<li>Integrated quantities</li>
+<li>Power spectra</li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section id="slide-orgb9520a9">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h4 id="orgb9520a9">Asymmetry deviation (simulations vs AI-generated)</h4>
+<div class="gframe_row_col">
+<div class="gframe_2col">
+
+<div id="orgf018b25" class="figure">
+<p><img src="./assets/images/skais/astrometrics/Gas21cm_asymmetry.png" alt="Gas21cm_asymmetry.png" height="770px" style="border-radius: 10px; margin: 0px 70px 0px 70px; padding: 20px; font-size: 26px; background-color: #DDDDDD;" />
+</p>
+<p><span class="figure-number">Figure 12: </span>Mean asymmetry deviation of the evaluation set (mock 21cm brightness temperature)</p>
+</div>
+</div>
+<div class="gframe_2col">
+
+<div id="orge38b3a4" class="figure">
+<p><img src="./assets/images/skais/astrometrics/GasStar_asymmetry.png" alt="GasStar_asymmetry.png" height="770px" style="border-radius: 10px; margin: 0px 70px 0px 70px; padding: 20px; font-size: 26px; background-color: #DDDDDD;" />
+</p>
+<p><span class="figure-number">Figure 13: </span>Mean asymmetry deviation of the evaluation set (stellar mass)</p>
+</div>
+</div>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section id="slide-org5de856f">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h4 id="org5de856f">Clumpiness deviation (simulations vs AI-generated)</h4>
+<div class="gframe_row_col">
+<div class="gframe_2col">
+
+<div id="orgb4bb346" class="figure">
+<p><img src="./assets/images/skais/astrometrics/GasDM_40_clumpiness.png" alt="GasDM_40_clumpiness.png" height="770px" style="border-radius: 10px; margin: 0px 70px 0px 70px; padding: 20px; font-size: 26px; background-color: #DDDDDD;" />
+</p>
+<p><span class="figure-number">Figure 14: </span>Mean clumpiness deviation of the evaluation set (Gas &xrarr; DM)</p>
+</div>
+</div>
+<div class="gframe_2col">
+
+<div id="orgfe160a3" class="figure">
+<p><img src="./assets/images/skais/astrometrics/DMGas_30_clumpiness.png" alt="DMGas_30_clumpiness.png" height="770px" style="border-radius: 10px; margin: 0px 70px 0px 70px; padding: 20px; font-size: 26px; background-color: #DDDDDD;" />
+</p>
+<p><span class="figure-number">Figure 15: </span>Mean clumpiness deviation of the evaluation set (DM &xrarr; Gas)</p>
+</div>
+</div>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+<section id="slide-orga711909">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h4 id="orga711909">Statistics of integrated quantities</h4>
+<div class="gframe_rows" style="background-color: #DDDDDD; color: #222222; border-radius: 20px;">
+<div class="gframe_row_col">
+<div class="gframe_3col">
+<p>
+HI <br> 
+</p>
+
+<div id="org8ee3dba" class="figure">
+<p><img src="./assets/images/skais/astrometrics/GasHI_map_total.png" alt="GasHI_map_total.png" height="400px" style="border-radius: 10px; margin: 0px 0px 0px 0px; font-size: 26px;" />
+</p>
+</div>
+</div>
+<div class="gframe_3col">
+<p>
+DM <br> 
+</p>
+
+<div id="org769cc1b" class="figure">
+<p><img src="./assets/images/skais/astrometrics/GasDM_map_total.png" alt="GasDM_map_total.png" height="400px" style="border-radius: 10px; margin: 0px 70px 0px 80px; font-size: 26px;" />
+</p>
+</div>
+</div>
+<div class="gframe_3col">
+<p>
+Star <br> 
+</p>
+
+<div id="orgb86e83d" class="figure">
+<p><img src="./assets/images/skais/astrometrics/GasStar_map_total.png" alt="GasStar_map_total.png" height="400px" style="border-radius: 12px; margin: 0px 0px 0px 0px; font-size: 26px;" />
+</p>
+</div>
+</div>
+</div>
+<div class="gframe_row_col">
+<div class="gframe_3col">
+<p>
+21cm <br> 
+</p>
+
+<div id="org792e39d" class="figure">
+<p><img src="./assets/images/skais/astrometrics/Gas21cm_map_total.png" alt="Gas21cm_map_total.png" height="400px" style="border-radius: 10px; margin: 0px 0px 0px 0px; font-size: 26px;" />
+</p>
+</div>
+</div>
+<div class="gframe_3col">
+<p>
+Temperature <br> 
+</p>
+
+<div id="orgd23521f" class="figure">
+<p><img src="./assets/images/skais/astrometrics/GasTemp_map_total.png" alt="GasTemp_map_total.png" height="400px" style="border-radius: 10px; margin: 0px 70px 0px 70px; font-size: 26px;" />
+</p>
+</div>
+</div>
+<div class="gframe_3col">
+<p>
+B-Field <br> 
+</p>
+
+<div id="org4c056a7" class="figure">
+<p><img src="./assets/images/skais/astrometrics/GasBF_map_total.png" alt="GasBF_map_total.png" height="400px" style="border-radius: 12px; margin: 0px 0px 0px 0px; font-size: 26px;" />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orgdb9821a">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orgdb9821a">Conclusion &amp; Findings</h2>
+<ul>
+<li>Pixel-based metrics work to a degree</li>
+<li>Perceptual metrics (such as FID) correlate much more with astrophysics</li>
+<li>Updated and tuned GAN architecture matches performance of diffusion models</li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-org5effdcf">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="org5effdcf">Contact</h2>
+<p>
+<a href="https://phdenzel.github.io/">https://phdenzel.github.io/</a>
+</p>
+
+<p>
+<a href="https://phdenzel.github.io/assets/blog-assets/026-swiss-ska-days-2025/slides.html">
+</p>
+<p height="400px" style="float: left; margin-left: 150px;">
+<img src="./assets/images/talk_qr.png" alt="talk_qr.png" height="400px" style="float: left; margin-left: 150px;" />
+</a>
+</p>
+
+
+<p>
+<br> <br> 
+Email:  <a href="mailto:denp@zhaw.ch">philipp.denzel@zhaw.ch</a>
+</p>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+<section>
+<section id="slide-orge0ac9c0">
+<div class="slide-header"><div style="height:100px"></div></div>
+<h2 id="orge0ac9c0">References</h2>
+<ul>
+<li>simulations: <a href="https://www.tng-project.org/">IllustrisTNG project</a></li>
+<li>21cm mocks: <a href="https://arxiv.org/abs/1804.09180">Villaescusa-Navarro et al. (2018)</a></li>
+<li>GitHub repository: <a href="https://github.com/CAIIVS/chuchichaestli">https://github.com/CAIIVS/chuchichaestli</a></li>
+<li>PyTorch astronomy metrics: <a href="https://github.com/phdenzel/skais-mapper">https://github.com/phdenzel/skais-mapper</a></li>
+<li>cGAN: <a href="https://arxiv.org/abs/1611.07004">Isola et al. (2016)</a></li>
+<li>DDPM: <a href="https://arxiv.org/abs/2006.11239">Ho et al. (2020)</a></li>
+
+</ul>
+<div class="slide-footer"><div style="height:100px"></div></div>
+</section>
+</section>
+</div>
+</div>
+<div> Created by phdenzel. </div>
+<script src="./assets/js/reveal.js"></script>
+<script src="./assets/js/markdown.js"></script>
+<script src="./assets/js/math.js"></script>
+<script src="./assets/js/zoom.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+mouseWheel: true,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+width: 1920,
+height: 1080,
+margin: 0.05,
+minScale: 0.20,
+maxScale: 4.50,
+
+transition: 'fade',
+transitionSpeed: 'default',
+controlsLayout: 'bottom-right', controlsBackArrows: 'faded', navigationMode: 'linear', previewLinks: false,
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealMarkdown, RevealMath, RevealZoom ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+});
+</script>
+</body>
+</html>
